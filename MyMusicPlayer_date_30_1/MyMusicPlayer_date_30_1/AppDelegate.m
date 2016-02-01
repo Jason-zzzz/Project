@@ -19,11 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
     ViewController *viewController = [[ViewController alloc] init];
     viewController.view.backgroundColor = [UIColor whiteColor];
     
+    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = viewController;
+    self.window.rootViewController = homeNavController;
     [self.window makeKeyAndVisible];
     
     return YES;

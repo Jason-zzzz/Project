@@ -8,10 +8,24 @@
 
 #import "ViewController.h"
 #import "DataModel.h"
-#import "SecondViewController.h"
+#import "MusicStatusView.h"
 
-@interface ViewController (){
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define STATUSVIEW_HEIGHT 45
+#define NAV_HEIGHT 64
+
+
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>{
     UIButton *button_;
+    
+    // 背景图片,取用本地图片
+    UIImageView *backgroundImageView_;
+    
+    UITableView *homeTableView_;
+    
+    // 歌曲播放状态
+    MusicStatusView *musicStatusView_;
 }
 
 @property (nonatomic, strong) DataModel *dataModel;
@@ -25,35 +39,65 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    dataModel_ = [[DataModel allocWithZone:NULL] init];
-    DataModel *dataModel2 = [[DataModel allocWithZone:NULL] init];
-    dataModel2.ID = 2;
-    dataModel_.ID = 3;
-    
-    NSLog(@"dataModel.ID = %ld,dataModel2.ID = %ld",dataModel_.ID,dataModel_.ID);
-    
-    [self.view addSubview:self.button];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    [self.view addSubview:self.homeTableView];
+    [self.view addSubview:self.musicStatusView];
 }
 
-- (UIButton *)button{
-    if (!button_) {
-        button_ = [UIButton buttonWithType:UIButtonTypeSystem];
-        button_.frame = CGRectMake(200, 200, 50, 30);
-        [button_ setTitle:@"点我" forState:UIControlStateNormal];
-        [button_ addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+#pragma mark Views
+
+- (UIImageView *)backgroundImageView{
+    if (!backgroundImageView_) {
+        backgroundImageView_ = [[UIImageView alloc] init];
+        backgroundImageView_.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        backgroundImageView_.image = [UIImage imageNamed:@"backgroundImage/woman.jpg"];
     }
-    return button_;
+    return backgroundImageView_;
 }
 
-- (IBAction)buttonAction:(id)sender{
-    SecondViewController *secondViewController = [[SecondViewController alloc] init];
-    [self presentViewController:secondViewController animated:YES completion:nil];
+- (UITableView *)homeTableView{
+    if (!homeTableView_) {
+        homeTableView_ = [[UITableView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT) style:UITableViewStyleGrouped];
+        homeTableView_.backgroundColor = [UIColor clearColor];
+        homeTableView_.backgroundView = self.backgroundImageView;
+        homeTableView_.delegate = self;
+        homeTableView_.dataSource = self;
+    }
+    return homeTableView_;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UIView *)musicStatusView{
+    if (!musicStatusView_) {
+        musicStatusView_ = [[MusicStatusView alloc] init];
+        musicStatusView_.frame = CGRectMake(0, SCREEN_HEIGHT - STATUSVIEW_HEIGHT, SCREEN_WIDTH, STATUSVIEW_HEIGHT);
+//        musicStatusView_.backgroundColor = [UIColor whiteColor];
+        musicStatusView_.backgroundColor = [UIColor colorWithRed:0.5 green:0.8 blue:1 alpha:0.85];
+    }
+    return musicStatusView_;
+}
+
+#pragma mark TableViewDatasource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.text = @"浮于表面的文字";
+    
+    return cell;
 }
 
 @end
+

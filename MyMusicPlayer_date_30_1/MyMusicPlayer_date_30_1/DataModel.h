@@ -16,10 +16,10 @@
 // 声明一个遵循DataModelDelegate协议的实例属性
 @property (nonatomic, strong) id <DataModelDelegate> modelDelegate;
 
-// 声明一个外部可访问的ID属性
+// 声明一个外部可访问的ID属性供测试使用
 @property (nonatomic, assign) NSInteger ID;
 
-// 单例类自动创建的类方法
+// 单例类创建的类方法
 + (DataModel *)defaultObject;
 
 // 获取数据

@@ -26,12 +26,14 @@
     return dataModelInstance;
 }
 
+// 重写方法在初始化时调用创建方法
 + (id)allocWithZone:(struct _NSZone *)zone{
     return [self defaultObject];
 }
 
 // 获取数据
 - (void)getImage{
+    
     NSURL *url = [NSURL URLWithString:@"https://www.baidu.com/img/bd_logo1.png"];
     NSData *data = [NSData dataWithContentsOfURL:url];
 //    UIImage *image = [UIImage imageWithData:data];
