@@ -105,7 +105,7 @@
         CGRect frame = CGRectMake(0, 0, 20, 20);
         remaindImageView_ = [[UIImageView alloc] initWithFrame:frame];
         remaindImageView_.center = CGPointMake(screenWidth - 85.5 , remaindText_.center.y);
-        remaindImageView_.image = [UIImage imageNamed:@"remaindTime"];
+        remaindImageView_.image = [UIImage imageNamed:@"remaindTime.jpeg"];
     }
     return remaindImageView_;
 }
@@ -173,7 +173,7 @@
         shopButton_.frame = frame;
 //        shopButton_.backgroundColor = [UIColor redColor];
         
-        UIImage *image = [UIImage imageNamed:@"shopCar"];
+        UIImage *image = [UIImage imageNamed:@"shopCar.jpeg"];
         [shopButton_ setBackgroundImage:image forState:UIControlStateNormal];
         [shopButton_ addTarget:self action:@selector(shopButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }

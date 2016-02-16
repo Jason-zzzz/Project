@@ -37,7 +37,6 @@
     HomeTableViewSecondCell *homeTableViewSecondCell_;
     HomeTableViewCell *firstCell_;
     HomeTableViewThirdCell *thirdCell_;
-    TableViewGoodCell *goodCell_;
     
     // 数据模型与数据获取
     DataModel *dataModel_;
@@ -209,6 +208,9 @@
 
 // 声明剩余时间
 static NSInteger restTime = 0;
+// 声明一个图片数组
+static NSMutableArray *imageArr = nil;
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
@@ -224,11 +226,39 @@ static NSInteger restTime = 0;
             thirdCell_ = [tableView dequeueReusableCellWithIdentifier:@"thirdCell" forIndexPath:indexPath];
             return thirdCell_;
     }else if(indexPath.section == 3){
-        goodCell_ = [tableView dequeueReusableCellWithIdentifier:@"goodCell" forIndexPath:indexPath];
+        TableViewGoodCell *goodCell = [tableView dequeueReusableCellWithIdentifier:@"goodCell" forIndexPath:indexPath];
+        
+        
         NSDictionary *dic = dataModel_.secondGetData[indexPath.row];
-        goodCell_.goodImageView.image = nil;
-        goodCell_.urlString = [dic objectForKey:@"imageUrl"];
-        goodCell_.goodIntroduce.text = [dic objectForKey:@"productName"];
+        goodCell.goodImageView.image = nil;
+//        goodCell.urlString = [dic objectForKey:@"imageUrl"];
+        goodCell.goodIntroduce.text = [dic objectForKey:@"productName"];
+        
+        if (!imageArr) {
+            imageArr = [NSMutableArray array];
+            NSLog(@"%@=============",imageArr);
+            for (int i = 0; i < dataModel_.secondGetData.count; i++) {
+                [imageArr addObject:@"1"];
+            }
+        }
+        if ([imageArr[indexPath.row] isKindOfClass:[UIImage class]]){
+            goodCell.goodImageView.image = imageArr[indexPath.row];
+        }else{
+            // 异步下载
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                // 1.下载globle
+                NSURL *url = [NSURL URLWithString:[dic objectForKey:@"imageUrl"]];
+                NSData *data = [NSData dataWithContentsOfURL:url];
+                UIImage *image = [UIImage imageWithData:data];
+                
+                imageArr[indexPath.row] = image;
+                // 2.回到主线程显示图片
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    goodCell.goodImageView.image =  imageArr[indexPath.row];
+                });
+            });
+        }
         
         // 创建一个NSTimer记录剩余时间
         if (!timer_) {
@@ -236,9 +266,9 @@ static NSInteger restTime = 0;
             timer_ = [[NSTimer alloc] initWithFireDate:[NSDate distantPast] interval:1.0 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
             [[NSRunLoop mainRunLoop] addTimer:timer_ forMode:NSRunLoopCommonModes];
         }
-        goodCell_.remianTimeNumber = restTime;
-        goodCell_.goodNowPrice.text = [NSString stringWithFormat:@"¥%ld.00",[[dic objectForKey:@"payPrice"] integerValue] / 100];
-//        goodCell_.goodAbondonPrice.text = [NSString stringWithFormat:@"¥%ld.00",[[dic objectForKey:@"mkPrice"] integerValue] / 100];
+        goodCell.remianTimeNumber = restTime;
+        goodCell.goodNowPrice.text = [NSString stringWithFormat:@"¥%ld.00",[[dic objectForKey:@"payPrice"] integerValue] / 100];
+//        goodCell.goodAbondonPrice.text = [NSString stringWithFormat:@"¥%ld.00",[[dic objectForKey:@"mkPrice"] integerValue] / 100];
         
         // 画删除线
         NSString *goodAbondonPrice = [NSString stringWithFormat:@"¥%ld.00",[[dic objectForKey:@"mkPrice"] integerValue] / 100];
@@ -247,8 +277,8 @@ static NSInteger restTime = 0;
         [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
         [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0, length)];
         
-        [goodCell_.goodAbondonPrice setAttributedText:attri];
-        return goodCell_;
+        [goodCell.goodAbondonPrice setAttributedText:attri];
+        return goodCell;
     }{
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         if (!cell) {

@@ -37,14 +37,14 @@
                     <exclude reference="I77-vR-HUk"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="ETG-a5-bbo"/>
-                    <exclude reference="HPi-gU-yxy"/>
-                    <exclude reference="aPs-my-ZW0"/>
-                    <exclude reference="h6w-LH-STk"/>
                     <exclude reference="ARg-8c-H56"/>
                     <exclude reference="N58-Gn-QwT"/>
                     <exclude reference="SLp-7j-MOW"/>
                     <exclude reference="oKe-mF-rcp"/>
+                    <exclude reference="ETG-a5-bbo"/>
+                    <exclude reference="HPi-gU-yxy"/>
+                    <exclude reference="aPs-my-ZW0"/>
+                    <exclude reference="h6w-LH-STk"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -52,14 +52,14 @@
                     <include reference="I77-vR-HUk"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="ETG-a5-bbo"/>
-                    <include reference="HPi-gU-yxy"/>
-                    <include reference="aPs-my-ZW0"/>
-                    <include reference="h6w-LH-STk"/>
                     <include reference="ARg-8c-H56"/>
                     <include reference="N58-Gn-QwT"/>
                     <include reference="SLp-7j-MOW"/>
                     <include reference="oKe-mF-rcp"/>
+                    <include reference="ETG-a5-bbo"/>
+                    <include reference="HPi-gU-yxy"/>
+                    <include reference="aPs-my-ZW0"/>
+                    <include reference="h6w-LH-STk"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="742" y="219"/>

@@ -31,7 +31,7 @@
     if (!imageView_) {
         CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40);
         imageView_ = [[UIImageView alloc] initWithFrame:frame];
-        UIImage *image = [UIImage imageNamed:@"secondGet"];
+        UIImage *image = [UIImage imageNamed:@"secondGet.jpeg"];
         imageView_.image = image;
         imageView_.contentMode = UIViewContentModeScaleToFill;
     }

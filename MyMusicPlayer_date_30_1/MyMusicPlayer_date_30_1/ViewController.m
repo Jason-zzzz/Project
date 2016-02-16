@@ -22,6 +22,7 @@
     
 //    UITableView *homeTableView_;
     
+    __weak IBOutlet UIView *userMenu_;
 
     __weak IBOutlet UITableView *homeTableView_;
     
@@ -100,6 +101,10 @@
 }
 
 #pragma mark Actions
+
+- (IBAction)leftBarButton:(id)sender {
+    userMenu_.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
 
 #pragma mark TableViewDatasource
 
