@@ -31,6 +31,7 @@
 		1CFDDA231C5CEB14004CA701 /* MyMusicPlayer_date_30_1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFDDA221C5CEB14004CA701 /* MyMusicPlayer_date_30_1UITests.m */; };
 		1CFDFCAA1C5E515B001AF92E /* backgroundImage in Resources */ = {isa = PBXBuildFile; fileRef = 1CFDFCA91C5E515B001AF92E /* backgroundImage */; };
 		1CFDFCB21C5E5B06001AF92E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFDFCB11C5E5B06001AF92E /* LaunchScreen.xib */; };
+		846340FD1C72AE950040C9D5 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846340FC1C72AE950040C9D5 /* SetViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		1CFDDA241C5CEB14004CA701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CFDFCA91C5E515B001AF92E /* backgroundImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = backgroundImage; sourceTree = "<group>"; };
 		1CFDFCB11C5E5B06001AF92E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		846340FB1C72AE950040C9D5 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		846340FC1C72AE950040C9D5 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +215,8 @@
 				1CFDDA061C5CEB14004CA701 /* Main.storyboard */,
 				1C00BED81C60D94D007D401E /* MenuViewController.h */,
 				1C00BED91C60D94D007D401E /* MenuViewController.m */,
+				846340FB1C72AE950040C9D5 /* SetViewController.h */,
+				846340FC1C72AE950040C9D5 /* SetViewController.m */,
 				1C00BEDB1C60F4DE007D401E /* FirstCell.h */,
 				1C00BEDC1C60F4DE007D401E /* FirstCell.m */,
 				1C00BEDE1C60F950007D401E /* SecondCell.h */,
@@ -363,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CFDDA051C5CEB14004CA701 /* ViewController.m in Sources */,
+				846340FD1C72AE950040C9D5 /* SetViewController.m in Sources */,
 				1CF56DD61C5CFA5900FAE39E /* DataModel.m in Sources */,
 				1C00BEE01C60F950007D401E /* SecondCell.m in Sources */,
 				1C00BEDD1C60F4DE007D401E /* FirstCell.m in Sources */,
@@ -451,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -489,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -502,6 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zjs.MyMusicPlayer-date-30-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zjs.MyMusicPlayer-date-30-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -524,6 +532,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zjs.MyMusicPlayer-date-30-1Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,6 +545,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zjs.MyMusicPlayer-date-30-1Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -547,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zjs.MyMusicPlayer-date-30-1UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -559,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zjs.MyMusicPlayer-date-30-1UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
