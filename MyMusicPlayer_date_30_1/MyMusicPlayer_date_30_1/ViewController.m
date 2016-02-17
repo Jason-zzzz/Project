@@ -42,7 +42,7 @@
     // 播放器及相应数据
     AVAudioPlayer *audioPlayer_;
     NSMutableArray  *musicArray_;
-    NSInteger musicArrayNumber_;
+    NSInteger currentMusicArrayNumber_;
     Music *currentMusic_;
     BOOL isPlay_;
 }
@@ -64,10 +64,17 @@
     
     // 初始化歌曲数据
     [self initMusicData];
-    musicArrayNumber_ = 0;
-    NSLog(@"%@----%ld",[musicArray_[musicArrayNumber_] musicName],musicArray_.count);
-    audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[musicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
-    currentMusic_ = musicArray_[musicArrayNumber_];
+    currentMusicArrayNumber_ = 0;
+    NSLog(@"%@----%ld",[musicArray_[currentMusicArrayNumber_] musicName],musicArray_.count);
+    audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
+    //后台播放音频设置
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setActive:YES error:nil];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    //让app支持接受远程控制事件
+//    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    currentMusic_ = musicArray_[currentMusicArrayNumber_];
     
     [self setText];
 }
@@ -161,6 +168,7 @@
 
 // 开始播放
 - (IBAction)playButtonAction:(id)sender {
+    
     if (!isPlay_) {
         [audioPlayer_ play];
         [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
@@ -170,26 +178,43 @@
         [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         isPlay_ = NO;
     }
+}
 
+// 上一首
+- (IBAction)backButtonAction:(id)sender {
+    
+    if (currentMusicArrayNumber_ > 0) {
+        currentMusicArrayNumber_--;
+    }else{
+        currentMusicArrayNumber_ = musicArray_.count - 1;
+    }
+    [self refreshPlayerStatus];
 }
 
 // 下一首
 - (IBAction)nextButtonAction:(id)sender {
-    if (musicArrayNumber_ < musicArray_.count - 1) {
-        musicArrayNumber_++;
+    
+    if (currentMusicArrayNumber_ < musicArray_.count - 1) {
+        currentMusicArrayNumber_++;
     }else{
-        musicArrayNumber_ = 0;
+        currentMusicArrayNumber_ = 0;
     }
-    audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[musicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
-    currentMusic_ = musicArray_[musicArrayNumber_];
+    [self refreshPlayerStatus];
+}
+
+#pragma mark Methods
+
+// 更新播放器状态
+- (void)refreshPlayerStatus{
+    
+    // 对于audioPlayer，只能用重新初始化的方法来播放下一首歌曲
+    audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
+    currentMusic_ = musicArray_[currentMusicArrayNumber_];
     [self setText];
     if (isPlay_) {
         [audioPlayer_ play];
     }
-    
 }
-
-#pragma mark Methods
 
 // 显示歌名及歌词信息
 - (void)setText{
