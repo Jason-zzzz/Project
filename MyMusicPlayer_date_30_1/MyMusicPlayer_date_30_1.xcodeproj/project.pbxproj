@@ -31,7 +31,16 @@
 		1CFDDA231C5CEB14004CA701 /* MyMusicPlayer_date_30_1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFDDA221C5CEB14004CA701 /* MyMusicPlayer_date_30_1UITests.m */; };
 		1CFDFCAA1C5E515B001AF92E /* backgroundImage in Resources */ = {isa = PBXBuildFile; fileRef = 1CFDFCA91C5E515B001AF92E /* backgroundImage */; };
 		1CFDFCB21C5E5B06001AF92E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFDFCB11C5E5B06001AF92E /* LaunchScreen.xib */; };
+		842717AF1C74502B00F9300D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 842717AE1C74502B00F9300D /* Podfile */; };
+		842717B21C7458A500F9300D /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 842717B11C7458A500F9300D /* Music.m */; };
+		843D830E1C73F99E00621632 /* 情非得已.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 843D83081C73F99E00621632 /* 情非得已.lrc */; };
+		843D830F1C73F99E00621632 /* 情非得已.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D83091C73F99E00621632 /* 情非得已.mp3 */; };
+		843D83101C73F99E00621632 /* 林俊杰-背对背拥抱.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 843D830A1C73F99E00621632 /* 林俊杰-背对背拥抱.lrc */; };
+		843D83111C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D830B1C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 */; };
+		843D83121C73F99E00621632 /* 梁静茹-偶阵雨.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 843D830C1C73F99E00621632 /* 梁静茹-偶阵雨.lrc */; };
+		843D83131C73F99E00621632 /* 梁静茹-偶阵雨.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D830D1C73F99E00621632 /* 梁静茹-偶阵雨.mp3 */; };
 		846340FD1C72AE950040C9D5 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846340FC1C72AE950040C9D5 /* SetViewController.m */; };
+		B107243CEB3F5652FBDE6512 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 419C9C59E82007CD7A9A364B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +97,20 @@
 		1CFDDA241C5CEB14004CA701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CFDFCA91C5E515B001AF92E /* backgroundImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = backgroundImage; sourceTree = "<group>"; };
 		1CFDFCB11C5E5B06001AF92E /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		419C9C59E82007CD7A9A364B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		842717AE1C74502B00F9300D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		842717B01C7458A500F9300D /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		842717B11C7458A500F9300D /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		843D83081C73F99E00621632 /* 情非得已.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "情非得已.lrc"; sourceTree = "<group>"; };
+		843D83091C73F99E00621632 /* 情非得已.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "情非得已.mp3"; sourceTree = "<group>"; };
+		843D830A1C73F99E00621632 /* 林俊杰-背对背拥抱.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "林俊杰-背对背拥抱.lrc"; sourceTree = "<group>"; };
+		843D830B1C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "林俊杰-背对背拥抱.mp3"; sourceTree = "<group>"; };
+		843D830C1C73F99E00621632 /* 梁静茹-偶阵雨.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "梁静茹-偶阵雨.lrc"; sourceTree = "<group>"; };
+		843D830D1C73F99E00621632 /* 梁静茹-偶阵雨.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "梁静茹-偶阵雨.mp3"; sourceTree = "<group>"; };
 		846340FB1C72AE950040C9D5 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
 		846340FC1C72AE950040C9D5 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		AFE294330851CB994C4976C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C847F319C0EAB4109F0A2B2E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B107243CEB3F5652FBDE6512 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,10 +160,13 @@
 		1CFDD9F11C5CEB14004CA701 = {
 			isa = PBXGroup;
 			children = (
+				842717AE1C74502B00F9300D /* Podfile */,
 				1CFDD9FC1C5CEB14004CA701 /* MyMusicPlayer_date_30_1 */,
 				1CFDDA161C5CEB14004CA701 /* MyMusicPlayer_date_30_1Tests */,
 				1CFDDA211C5CEB14004CA701 /* MyMusicPlayer_date_30_1UITests */,
 				1CFDD9FB1C5CEB14004CA701 /* Products */,
+				D6BCA148667AF06481E03886 /* Pods */,
+				9A039AA89E529B7208CC6886 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +185,8 @@
 			children = (
 				1CFDFCA91C5E515B001AF92E /* backgroundImage */,
 				1CFDFC9F1C5E4EA2001AF92E /* DataModel */,
+				843D83071C73F99E00621632 /* Songs */,
+				1C00BEB61C60915E007D401E /* image */,
 				1CFDDA001C5CEB14004CA701 /* AppDelegate.h */,
 				1CFDDA011C5CEB14004CA701 /* AppDelegate.m */,
 				1CFDFCA01C5E4EB7001AF92E /* HomeView */,
@@ -202,6 +229,8 @@
 			children = (
 				1CF56DD41C5CFA5900FAE39E /* DataModel.h */,
 				1CF56DD51C5CFA5900FAE39E /* DataModel.m */,
+				842717B01C7458A500F9300D /* Music.h */,
+				842717B11C7458A500F9300D /* Music.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -209,7 +238,6 @@
 		1CFDFCA01C5E4EB7001AF92E /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				1C00BEB61C60915E007D401E /* image */,
 				1CFDDA031C5CEB14004CA701 /* ViewController.h */,
 				1CFDDA041C5CEB14004CA701 /* ViewController.m */,
 				1CFDDA061C5CEB14004CA701 /* Main.storyboard */,
@@ -225,6 +253,37 @@
 			name = HomeView;
 			sourceTree = "<group>";
 		};
+		843D83071C73F99E00621632 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				843D83081C73F99E00621632 /* 情非得已.lrc */,
+				843D83091C73F99E00621632 /* 情非得已.mp3 */,
+				843D830A1C73F99E00621632 /* 林俊杰-背对背拥抱.lrc */,
+				843D830B1C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 */,
+				843D830C1C73F99E00621632 /* 梁静茹-偶阵雨.lrc */,
+				843D830D1C73F99E00621632 /* 梁静茹-偶阵雨.mp3 */,
+			);
+			name = Songs;
+			path = ../Songs;
+			sourceTree = "<group>";
+		};
+		9A039AA89E529B7208CC6886 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				419C9C59E82007CD7A9A364B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6BCA148667AF06481E03886 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFE294330851CB994C4976C2 /* Pods.debug.xcconfig */,
+				C847F319C0EAB4109F0A2B2E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,9 +291,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CFDDA271C5CEB14004CA701 /* Build configuration list for PBXNativeTarget "MyMusicPlayer_date_30_1" */;
 			buildPhases = (
+				255B6617D8A17EB35C28D1E1 /* Check Pods Manifest.lock */,
 				1CFDD9F61C5CEB14004CA701 /* Sources */,
 				1CFDD9F71C5CEB14004CA701 /* Frameworks */,
 				1CFDD9F81C5CEB14004CA701 /* Resources */,
+				EE1DBD9FBF7437898FBF25CC /* Embed Pods Frameworks */,
+				39E8CA6C03A83E5382ED9A9A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,14 +391,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C00BEC31C60915E007D401E /* aboveMusic.png in Resources */,
+				843D83111C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 in Resources */,
+				843D83131C73F99E00621632 /* 梁静茹-偶阵雨.mp3 in Resources */,
 				1C00BECD1C60915E007D401E /* sliderThumb_small.png in Resources */,
 				1C00BEC51C60915E007D401E /* circleClose.png in Resources */,
+				843D83101C73F99E00621632 /* 林俊杰-背对背拥抱.lrc in Resources */,
+				843D830E1C73F99E00621632 /* 情非得已.lrc in Resources */,
 				1C00BEC81C60915E007D401E /* nextMusic.png in Resources */,
 				1C00BEC71C60915E007D401E /* menu.png in Resources */,
 				1C00BECC1C60915E007D401E /* randomOpen.png in Resources */,
+				842717AF1C74502B00F9300D /* Podfile in Resources */,
 				1C00BEC91C60915E007D401E /* pause.png in Resources */,
+				843D830F1C73F99E00621632 /* 情非得已.mp3 in Resources */,
 				1C00BECA1C60915E007D401E /* play.png in Resources */,
 				1CFDFCB21C5E5B06001AF92E /* LaunchScreen.xib in Resources */,
+				843D83121C73F99E00621632 /* 梁静茹-偶阵雨.lrc in Resources */,
 				1CFDDA0A1C5CEB14004CA701 /* Assets.xcassets in Resources */,
 				1C00BEC61C60915E007D401E /* circleOpen.png in Resources */,
 				1C00BECB1C60915E007D401E /* randomClose.png in Resources */,
@@ -362,11 +431,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		255B6617D8A17EB35C28D1E1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		39E8CA6C03A83E5382ED9A9A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE1DBD9FBF7437898FBF25CC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1CFDD9F61C5CEB14004CA701 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842717B21C7458A500F9300D /* Music.m in Sources */,
 				1CFDDA051C5CEB14004CA701 /* ViewController.m in Sources */,
 				846340FD1C72AE950040C9D5 /* SetViewController.m in Sources */,
 				1CF56DD61C5CFA5900FAE39E /* DataModel.m in Sources */,
@@ -505,6 +623,7 @@
 		};
 		1CFDDA281C5CEB14004CA701 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFE294330851CB994C4976C2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1/Info.plist;
@@ -517,6 +636,7 @@
 		};
 		1CFDDA291C5CEB14004CA701 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C847F319C0EAB4109F0A2B2E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyMusicPlayer_date_30_1/Info.plist;

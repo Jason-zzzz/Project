@@ -115,21 +115,27 @@
                                 </variation>
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lj-xo-7rN">
-                                <rect key="frame" x="0.0" y="544" width="600" height="56"/>
+                                <rect key="frame" x="0.0" y="544" width="600" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y5-jd-xM0">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y5-jd-xM0">
                                         <rect key="frame" x="268" y="0.0" width="78" height="60"/>
-                                        <state key="normal" image="play.png"/>
+                                        <state key="normal" backgroundImage="play.png"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="235" y="6" width="48" height="33"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="playButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3EU-Fw-rdF"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cia-hI-Kru">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cia-hI-Kru">
                                         <rect key="frame" x="342" y="15" width="46" height="30"/>
                                         <state key="normal" backgroundImage="nextMusic.png"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="283" y="11" width="33" height="24"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="nextButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XqQ-bd-iYv"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="龙卷风" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXP-zV-7z4">
                                         <rect key="frame" x="70" y="8" width="148" height="24"/>
@@ -158,7 +164,7 @@
                                             <rect key="frame" x="8" y="4" width="37" height="37"/>
                                         </variation>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXa-aV-YvJ">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXa-aV-YvJ">
                                         <rect key="frame" x="396" y="0.0" width="78" height="60"/>
                                         <state key="normal" image="menu.png"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -168,12 +174,15 @@
                                             <segue destination="5lG-4e-mvQ" kind="presentation" id="v5z-cu-PmO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-yz-wtn">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-yz-wtn">
                                         <rect key="frame" x="226" y="15" width="46" height="30"/>
                                         <state key="normal" backgroundImage="aboveMusic.png"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="201" y="11" width="34" height="24"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDO-rP-7aR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

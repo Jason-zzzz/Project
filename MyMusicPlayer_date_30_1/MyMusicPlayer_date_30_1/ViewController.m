@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "DataModel.h"
 #import "FirstCell.h"
+#import "Music.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -36,6 +38,13 @@
     __weak IBOutlet UIButton *statusNext_;
     __weak IBOutlet UIButton *statusMenu_;
     __weak IBOutlet UIImageView *backgroundImageView_;
+    
+    // 播放器及相应数据
+    AVAudioPlayer *audioPlayer_;
+    NSMutableArray  *musicArray_;
+    NSInteger currentMusicArrayNumber_;
+    Music *currentMusic_;
+    BOOL isPlay_;
 }
 
 @property (nonatomic, strong) DataModel *dataModel;
@@ -52,11 +61,28 @@
     [self initView];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage/woman.jpg"]];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    // 初始化歌曲数据
+    [self initMusicData];
+    currentMusicArrayNumber_ = 0;
+    NSLog(@"%@----%ld",[musicArray_[currentMusicArrayNumber_] musicName],musicArray_.count);
+    audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
+    //后台播放音频设置
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setActive:YES error:nil];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    //让app支持接受远程控制事件
+//    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    currentMusic_ = musicArray_[currentMusicArrayNumber_];
+    
+    [self setText];
 }
 
 #pragma mark Views
 
 - (void)initView{
+    
     // 设置背景图片
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage/woman.jpg"]]];
     
@@ -71,6 +97,8 @@
     homeTableView_.dataSource = self;
     
     [self setStatusMusicImage];
+    
+    isPlay_ = NO;
 }
 
 - (void)setStatusMusicImage{
@@ -100,11 +128,6 @@
 //    [statusMusicImage_ addGestureRecognizer:portraitTap];
 }
 
-#pragma mark Actions
-
-- (IBAction)leftBarButton:(id)sender {
-    userMenu_.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-}
 
 #pragma mark TableViewDatasource
 
@@ -137,7 +160,81 @@
 
 #pragma mark TableViewDelegate
 
+#pragma mark Actions
 
+- (IBAction)leftBarButton:(id)sender {
+    userMenu_.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
+// 开始播放
+- (IBAction)playButtonAction:(id)sender {
+    
+    if (!isPlay_) {
+        [audioPlayer_ play];
+        [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        isPlay_ = YES;
+    }else{
+        [audioPlayer_ pause];
+        [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        isPlay_ = NO;
+    }
+}
+
+// 上一首
+- (IBAction)backButtonAction:(id)sender {
+    
+    if (currentMusicArrayNumber_ > 0) {
+        currentMusicArrayNumber_--;
+    }else{
+        currentMusicArrayNumber_ = musicArray_.count - 1;
+    }
+    [self refreshPlayerStatus];
+}
+
+// 下一首
+- (IBAction)nextButtonAction:(id)sender {
+    
+    if (currentMusicArrayNumber_ < musicArray_.count - 1) {
+        currentMusicArrayNumber_++;
+    }else{
+        currentMusicArrayNumber_ = 0;
+    }
+    [self refreshPlayerStatus];
+}
+
+#pragma mark Methods
+
+// 更新播放器状态
+- (void)refreshPlayerStatus{
+    
+    // 对于audioPlayer，只能用重新初始化的方法来播放下一首歌曲
+    audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
+    currentMusic_ = musicArray_[currentMusicArrayNumber_];
+    [self setText];
+    if (isPlay_) {
+        [audioPlayer_ play];
+    }
+}
+
+// 显示歌名及歌词信息
+- (void)setText{
+    
+    statusMusicName_.text = currentMusic_.musicName;
+    statusMusicText_.text = currentMusic_.singerName;
+}
+
+- (void)initMusicData{
+    
+    musicArray_ = [NSMutableArray array];
+    
+    Music *music1 = [[Music alloc] initWithSingerName:@"林俊杰" musicName:@"林俊杰-背对背拥抱"];
+    Music *music2 = [[Music alloc] initWithSingerName:@"梁静茹" musicName:@"梁静茹-偶阵雨"];
+    Music *music3 = [[Music alloc] initWithSingerName:@"无" musicName:@"情非得已"];
+    
+    [musicArray_ addObject:music1];
+    [musicArray_ addObject:music2];
+    [musicArray_ addObject:music3];
+}
 
 @end
 

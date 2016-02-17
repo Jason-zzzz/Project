@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A26F80ECF2357117D35CE567E70C5C5 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
+		0F50C7F26D894EB84FCE7DB57C05FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
+		26514A62E155A6289635CA610E116252 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
+		37F3B27A953511FD5E03B5572D46DA9F /* HTHorizontalSelectionList.m in Sources */ = {isa = PBXBuildFile; fileRef = CF401311267609B0D30163779EE99795 /* HTHorizontalSelectionList.m */; };
+		3EC5B8EDCD56C29D2DF7201CC4B9F298 /* HTHorizontalSelectionListCustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDA5AF43BD395C31E67E409C6579AF9 /* HTHorizontalSelectionListCustomViewCell.m */; };
+		424B972B572552BA7EE03CAD8E2C64F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE615671731BF3AEFB3CB1F984FA8F /* UIKit.framework */; };
+		5257AD8B81BF21709236152212B5B630 /* M13BadgeView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2F32A2997E0BC43300F75D81CA438 /* M13BadgeView-dummy.m */; };
+		629486CA09A28C503F662A5E124331BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E642B1A057ADA2ABEF90BE2417F349C1 /* QuartzCore.framework */; };
+		74C732B5AC154D6CA8F6E2B4D9DA5DE2 /* HTHorizontalSelectionList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4647290F0BB527420A2D2DB9AF44F /* HTHorizontalSelectionList-dummy.m */; };
+		74D4D55F612D28B6F8D44C8F0005D918 /* M13BadgeView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3D4B62A75A0200B6B3EE24F0ECFE03 /* M13BadgeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78F3AA2157B66692BC08638FA01D4B4B /* HTHorizontalSelectionListLabelCell.h in Headers */ = {isa = PBXBuildFile; fileRef = EEBE4EB6A54D55C6A2006A06E2FF1364 /* HTHorizontalSelectionListLabelCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C58C115CA437795562D84145C01F7DD /* HTHorizontalSelectionListLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 724290E9ABC978C471513AD1BFFF5383 /* HTHorizontalSelectionListLabelCell.m */; };
+		7F6425CB899526156AD69A2C759353F2 /* HTHorizontalSelectionListCustomViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 639470575B82C6013F1079FD8F1CDE97 /* HTHorizontalSelectionListCustomViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8167F4F45C870033C668A89B64710F00 /* HTHorizontalSelectionListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB8B071CFAB579F2EE0377171565811 /* HTHorizontalSelectionListCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A226B99DF63D40C9595042F296785BE3 /* HTHorizontalSelectionList.h in Headers */ = {isa = PBXBuildFile; fileRef = 56B4619EA98F05539B643DF08D4F7F48 /* HTHorizontalSelectionList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF20895FE410803BF1D74B89F333DE9E /* M13BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0BF63D2EC3ADCE73EAC7366F44971A /* M13BadgeView.m */; };
+		BD4D6D727EE1C76D088363E5E9D2D5F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FCC7C25130B56FC05E49908E0DB9C53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29B86DC20390F07D8D6D65FCE57AFCDE;
+			remoteInfo = M13BadgeView;
+		};
+		C229E52B8AC7100E67AD4A69BDC259A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29B86DC20390F07D8D6D65FCE57AFCDE;
+			remoteInfo = M13BadgeView;
+		};
+		FF775E026A724C19A761B1B11925778D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DCF5E260B53BEE76BB19402DE10ADE5;
+			remoteInfo = HTHorizontalSelectionList;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09C0B631F3F7C133C7A96D89C4FE53C8 /* M13BadgeView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "M13BadgeView-prefix.pch"; sourceTree = "<group>"; };
+		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3BE0CC16B95A01152F4D5734E3D70E20 /* HTHorizontalSelectionList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTHorizontalSelectionList-prefix.pch"; sourceTree = "<group>"; };
+		4341E40FC6791CEC9E4BEE9560E766FD /* libHTHorizontalSelectionList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHTHorizontalSelectionList.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		56B4619EA98F05539B643DF08D4F7F48 /* HTHorizontalSelectionList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTHorizontalSelectionList.h; path = HTHorizontalSelectionList/Source/HTHorizontalSelectionList.h; sourceTree = "<group>"; };
+		639470575B82C6013F1079FD8F1CDE97 /* HTHorizontalSelectionListCustomViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTHorizontalSelectionListCustomViewCell.h; path = HTHorizontalSelectionList/Source/Cells/HTHorizontalSelectionListCustomViewCell.h; sourceTree = "<group>"; };
+		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		6CC2F32A2997E0BC43300F75D81CA438 /* M13BadgeView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "M13BadgeView-dummy.m"; sourceTree = "<group>"; };
+		6DA4647290F0BB527420A2D2DB9AF44F /* HTHorizontalSelectionList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HTHorizontalSelectionList-dummy.m"; sourceTree = "<group>"; };
+		724290E9ABC978C471513AD1BFFF5383 /* HTHorizontalSelectionListLabelCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTHorizontalSelectionListLabelCell.m; path = HTHorizontalSelectionList/Source/Cells/HTHorizontalSelectionListLabelCell.m; sourceTree = "<group>"; };
+		7F3D4B62A75A0200B6B3EE24F0ECFE03 /* M13BadgeView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = M13BadgeView.h; path = Classes/M13BadgeView.h; sourceTree = "<group>"; };
+		91413329813FA6FE5A78842159E69621 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		A63B92B334A3474C286E64959BEE61D1 /* libM13BadgeView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libM13BadgeView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BDDA5AF43BD395C31E67E409C6579AF9 /* HTHorizontalSelectionListCustomViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTHorizontalSelectionListCustomViewCell.m; path = HTHorizontalSelectionList/Source/Cells/HTHorizontalSelectionListCustomViewCell.m; sourceTree = "<group>"; };
+		CF0BF63D2EC3ADCE73EAC7366F44971A /* M13BadgeView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = M13BadgeView.m; path = Classes/M13BadgeView.m; sourceTree = "<group>"; };
+		CF401311267609B0D30163779EE99795 /* HTHorizontalSelectionList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTHorizontalSelectionList.m; path = HTHorizontalSelectionList/Source/HTHorizontalSelectionList.m; sourceTree = "<group>"; };
+		D9DE615671731BF3AEFB3CB1F984FA8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E642B1A057ADA2ABEF90BE2417F349C1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		E6BA7211B4A27B92D98860D60A07E6A2 /* M13BadgeView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = M13BadgeView.xcconfig; sourceTree = "<group>"; };
+		EEBE4EB6A54D55C6A2006A06E2FF1364 /* HTHorizontalSelectionListLabelCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTHorizontalSelectionListLabelCell.h; path = HTHorizontalSelectionList/Source/Cells/HTHorizontalSelectionListLabelCell.h; sourceTree = "<group>"; };
+		F0F36686735FEAD9CE64115A79128B34 /* HTHorizontalSelectionList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTHorizontalSelectionList.xcconfig; sourceTree = "<group>"; };
+		F8F2AA23EE9E494CEC333457DAFB018F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFB8B071CFAB579F2EE0377171565811 /* HTHorizontalSelectionListCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTHorizontalSelectionListCell.h; path = HTHorizontalSelectionList/Source/Cells/HTHorizontalSelectionListCell.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44B5D99894A8F383175F51B36416901E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26514A62E155A6289635CA610E116252 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68FF1B3565CFCC34651D8E6A54FE271E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD4D6D727EE1C76D088363E5E9D2D5F5 /* Foundation.framework in Frameworks */,
+				424B972B572552BA7EE03CAD8E2C64F2 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E413CD1BD5391200A3DF13AC3F09216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F50C7F26D894EB84FCE7DB57C05FCCE /* Foundation.framework in Frameworks */,
+				629486CA09A28C503F662A5E124331BD /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1D13E0C6553800746CB8FD61CF946 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA23025FEDA7F7FE2AACB2532BD80D14 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31054F658879B5A9E97932A1CEC264A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8972A4955999BCE806263681F2DFD268 /* HTHorizontalSelectionList */,
+				4AF71B15206282314A20B25FA4A14FF8 /* M13BadgeView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4AF71B15206282314A20B25FA4A14FF8 /* M13BadgeView */ = {
+			isa = PBXGroup;
+			children = (
+				7F3D4B62A75A0200B6B3EE24F0ECFE03 /* M13BadgeView.h */,
+				CF0BF63D2EC3ADCE73EAC7366F44971A /* M13BadgeView.m */,
+				6F561AD530C82585AC64FE619A8288DA /* Support Files */,
+			);
+			path = M13BadgeView;
+			sourceTree = "<group>";
+		};
+		6F561AD530C82585AC64FE619A8288DA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6BA7211B4A27B92D98860D60A07E6A2 /* M13BadgeView.xcconfig */,
+				6CC2F32A2997E0BC43300F75D81CA438 /* M13BadgeView-dummy.m */,
+				09C0B631F3F7C133C7A96D89C4FE53C8 /* M13BadgeView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/M13BadgeView";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				31054F658879B5A9E97932A1CEC264A2 /* Pods */,
+				B126265E96A7349BC7451741896EC4C4 /* Products */,
+				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8972A4955999BCE806263681F2DFD268 /* HTHorizontalSelectionList */ = {
+			isa = PBXGroup;
+			children = (
+				56B4619EA98F05539B643DF08D4F7F48 /* HTHorizontalSelectionList.h */,
+				CF401311267609B0D30163779EE99795 /* HTHorizontalSelectionList.m */,
+				FFB8B071CFAB579F2EE0377171565811 /* HTHorizontalSelectionListCell.h */,
+				639470575B82C6013F1079FD8F1CDE97 /* HTHorizontalSelectionListCustomViewCell.h */,
+				BDDA5AF43BD395C31E67E409C6579AF9 /* HTHorizontalSelectionListCustomViewCell.m */,
+				EEBE4EB6A54D55C6A2006A06E2FF1364 /* HTHorizontalSelectionListLabelCell.h */,
+				724290E9ABC978C471513AD1BFFF5383 /* HTHorizontalSelectionListLabelCell.m */,
+				B785AC72228EE63BDB5A851706976E08 /* Support Files */,
+			);
+			path = HTHorizontalSelectionList;
+			sourceTree = "<group>";
+		};
+		B126265E96A7349BC7451741896EC4C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4341E40FC6791CEC9E4BEE9560E766FD /* libHTHorizontalSelectionList.a */,
+				A63B92B334A3474C286E64959BEE61D1 /* libM13BadgeView.a */,
+				F8F2AA23EE9E494CEC333457DAFB018F /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */,
+				10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */,
+				272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */,
+				6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */,
+				A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */,
+				4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */,
+				98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		B785AC72228EE63BDB5A851706976E08 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0F36686735FEAD9CE64115A79128B34 /* HTHorizontalSelectionList.xcconfig */,
+				6DA4647290F0BB527420A2D2DB9AF44F /* HTHorizontalSelectionList-dummy.m */,
+				3BE0CC16B95A01152F4D5734E3D70E20 /* HTHorizontalSelectionList-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HTHorizontalSelectionList";
+			sourceTree = "<group>";
+		};
+		DA23025FEDA7F7FE2AACB2532BD80D14 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				91413329813FA6FE5A78842159E69621 /* Foundation.framework */,
+				E642B1A057ADA2ABEF90BE2417F349C1 /* QuartzCore.framework */,
+				D9DE615671731BF3AEFB3CB1F984FA8F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		238461F50976B0512F3A63C22667306E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A226B99DF63D40C9595042F296785BE3 /* HTHorizontalSelectionList.h in Headers */,
+				8167F4F45C870033C668A89B64710F00 /* HTHorizontalSelectionListCell.h in Headers */,
+				7F6425CB899526156AD69A2C759353F2 /* HTHorizontalSelectionListCustomViewCell.h in Headers */,
+				78F3AA2157B66692BC08638FA01D4B4B /* HTHorizontalSelectionListLabelCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5589539A132973A9DDEC5FF795A90505 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D4D55F612D28B6F8D44C8F0005D918 /* M13BadgeView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0DCF5E260B53BEE76BB19402DE10ADE5 /* HTHorizontalSelectionList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38F5134DAA8FFB9DFA12AAF62C5B42BE /* Build configuration list for PBXNativeTarget "HTHorizontalSelectionList" */;
+			buildPhases = (
+				D3BF1FA3BA418C6E08CA07744DB9350D /* Sources */,
+				68FF1B3565CFCC34651D8E6A54FE271E /* Frameworks */,
+				238461F50976B0512F3A63C22667306E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E07B28C6C973A8043203C03AC9BC7AD8 /* PBXTargetDependency */,
+			);
+			name = HTHorizontalSelectionList;
+			productName = HTHorizontalSelectionList;
+			productReference = 4341E40FC6791CEC9E4BEE9560E766FD /* libHTHorizontalSelectionList.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		29B86DC20390F07D8D6D65FCE57AFCDE /* M13BadgeView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B7DD1FA8E99E5843B53502C0CEEB9E0 /* Build configuration list for PBXNativeTarget "M13BadgeView" */;
+			buildPhases = (
+				C03CFC8BB9399D646B901FCD6A3270E1 /* Sources */,
+				7E413CD1BD5391200A3DF13AC3F09216 /* Frameworks */,
+				5589539A132973A9DDEC5FF795A90505 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = M13BadgeView;
+			productName = M13BadgeView;
+			productReference = A63B92B334A3474C286E64959BEE61D1 /* libM13BadgeView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C0A093AC2C0831803A3649C35AA31F8E /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18FB6C74A220A86581ED4BE9AB45F1C3 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				CDA04C42AFE047AB33502DEA394F66AB /* Sources */,
+				44B5D99894A8F383175F51B36416901E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80D60E60492A777F91F4B5A47EE29700 /* PBXTargetDependency */,
+				00BC92780D9A25098A0393E472879BE9 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = F8F2AA23EE9E494CEC333457DAFB018F /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = B126265E96A7349BC7451741896EC4C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0DCF5E260B53BEE76BB19402DE10ADE5 /* HTHorizontalSelectionList */,
+				29B86DC20390F07D8D6D65FCE57AFCDE /* M13BadgeView */,
+				C0A093AC2C0831803A3649C35AA31F8E /* Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C03CFC8BB9399D646B901FCD6A3270E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5257AD8B81BF21709236152212B5B630 /* M13BadgeView-dummy.m in Sources */,
+				AF20895FE410803BF1D74B89F333DE9E /* M13BadgeView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDA04C42AFE047AB33502DEA394F66AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A26F80ECF2357117D35CE567E70C5C5 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3BF1FA3BA418C6E08CA07744DB9350D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74C732B5AC154D6CA8F6E2B4D9DA5DE2 /* HTHorizontalSelectionList-dummy.m in Sources */,
+				37F3B27A953511FD5E03B5572D46DA9F /* HTHorizontalSelectionList.m in Sources */,
+				3EC5B8EDCD56C29D2DF7201CC4B9F298 /* HTHorizontalSelectionListCustomViewCell.m in Sources */,
+				7C58C115CA437795562D84145C01F7DD /* HTHorizontalSelectionListLabelCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00BC92780D9A25098A0393E472879BE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = M13BadgeView;
+			target = 29B86DC20390F07D8D6D65FCE57AFCDE /* M13BadgeView */;
+			targetProxy = 7FCC7C25130B56FC05E49908E0DB9C53 /* PBXContainerItemProxy */;
+		};
+		80D60E60492A777F91F4B5A47EE29700 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HTHorizontalSelectionList;
+			target = 0DCF5E260B53BEE76BB19402DE10ADE5 /* HTHorizontalSelectionList */;
+			targetProxy = FF775E026A724C19A761B1B11925778D /* PBXContainerItemProxy */;
+		};
+		E07B28C6C973A8043203C03AC9BC7AD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = M13BadgeView;
+			target = 29B86DC20390F07D8D6D65FCE57AFCDE /* M13BadgeView */;
+			targetProxy = C229E52B8AC7100E67AD4A69BDC259A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03C0B5CEB65DC797FF1A02B0DB2D809C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6BA7211B4A27B92D98860D60A07E6A2 /* M13BadgeView.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/M13BadgeView/M13BadgeView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2380F3D2429969A78D306FC1E4021BAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		386C31161F510A222839E66A59665371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		48A9B765562549E6ACEA054173D60620 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0F36686735FEAD9CE64115A79128B34 /* HTHorizontalSelectionList.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HTHorizontalSelectionList/HTHorizontalSelectionList-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7CD0E1A00FE35C7EE37D68DB0784ADF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0F36686735FEAD9CE64115A79128B34 /* HTHorizontalSelectionList.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HTHorizontalSelectionList/HTHorizontalSelectionList-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BAFC13CA15934B189959DB1081C0586E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6BA7211B4A27B92D98860D60A07E6A2 /* M13BadgeView.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/M13BadgeView/M13BadgeView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C074F63C9EE7CB4D8C618390A32CEC35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E43846B588E1892F3093F3B7082B6DFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18FB6C74A220A86581ED4BE9AB45F1C3 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				386C31161F510A222839E66A59665371 /* Debug */,
+				2380F3D2429969A78D306FC1E4021BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C074F63C9EE7CB4D8C618390A32CEC35 /* Debug */,
+				E43846B588E1892F3093F3B7082B6DFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38F5134DAA8FFB9DFA12AAF62C5B42BE /* Build configuration list for PBXNativeTarget "HTHorizontalSelectionList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48A9B765562549E6ACEA054173D60620 /* Debug */,
+				7CD0E1A00FE35C7EE37D68DB0784ADF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B7DD1FA8E99E5843B53502C0CEEB9E0 /* Build configuration list for PBXNativeTarget "M13BadgeView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAFC13CA15934B189959DB1081C0586E /* Debug */,
+				03C0B5CEB65DC797FF1A02B0DB2D809C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

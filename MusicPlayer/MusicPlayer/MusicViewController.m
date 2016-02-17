@@ -1,4 +1,4 @@
-//
+ //
 //  MusicViewController.m
 //  MusicPlayer
 //
@@ -122,14 +122,16 @@
 - (void)initLRC {
     NSString *LRCPath = [[NSBundle mainBundle] pathForResource:[musicArray[musicArrayNumber] name] ofType:@"lrc"];
     NSString *contentStr = [NSString stringWithContentsOfFile:LRCPath encoding:NSUTF8StringEncoding error:nil];
-//    NSLog(@"contentStr = %@",contentStr);
+    NSLog(@"contentStr = %@",contentStr);
     NSArray *array = [contentStr componentsSeparatedByString:@"\n"];
     for (int i = 0; i < [array count]; i++) {
         NSString *linStr = [array objectAtIndex:i];
         NSArray *lineArray = [linStr componentsSeparatedByString:@"]"];
         if ([lineArray[0] length] > 8) {
             NSString *str1 = [linStr substringWithRange:NSMakeRange(3, 1)];
+                    NSLog(@"%@",str1);
             NSString *str2 = [linStr substringWithRange:NSMakeRange(6, 1)];
+                    NSLog(@"%@",str2);
             if ([str1 isEqualToString:@":"] && [str2 isEqualToString:@"."]) {
                 NSString *lrcStr = [lineArray objectAtIndex:1];
                 NSString *timeStr = [[lineArray objectAtIndex:0] substringWithRange:NSMakeRange(1, 5)];//分割区间求歌词时间
