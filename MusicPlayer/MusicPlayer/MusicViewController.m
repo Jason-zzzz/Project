@@ -9,7 +9,9 @@
 #import "MusicViewController.h"
 
 
-@interface MusicViewController ()
+@interface MusicViewController (){
+    NSTimer *timer_;
+}
 
 @end
 //用静态全局变量来保存这个单例
@@ -68,11 +70,14 @@
     
     [self initLRC];
     //设置监控 每秒刷新一次时间
-    [NSTimer scheduledTimerWithTimeInterval:0.1f
-                                     target:self
-                                   selector:@selector(showTime)
-                                   userInfo:nil
-                                    repeats:YES];
+    if (!timer_) {
+        timer_ = [NSTimer scheduledTimerWithTimeInterval:0.1f
+                                                  target:self
+                                                selector:@selector(showTime)
+                                                userInfo:nil
+                                                 repeats:YES];
+    }
+    
 }
 
 #pragma mark 载入歌曲数组
@@ -94,6 +99,7 @@
 }
 #pragma mark 0.1秒一次更新 播放时间 播放进度条 歌词 歌曲 自动播放下一首
 - (void)showTime {
+    NSLog(@"%f",audioPlayer.currentTime);
     //动态更新进度条时间
     if ((int)audioPlayer.currentTime % 60 < 10) {
         currentTimeLabel.text = [NSString stringWithFormat:@"%d:0%d",(int)audioPlayer.currentTime / 60, (int)audioPlayer.currentTime % 60];
@@ -115,6 +121,7 @@
             [self autoPlay];
     }
 
+//    NSLog(@"%@------%@",timeArray,LRCDictionary);
     //    NSLog(@"%f",audioPlayer.volume);
 }
 
@@ -122,16 +129,16 @@
 - (void)initLRC {
     NSString *LRCPath = [[NSBundle mainBundle] pathForResource:[musicArray[musicArrayNumber] name] ofType:@"lrc"];
     NSString *contentStr = [NSString stringWithContentsOfFile:LRCPath encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"contentStr = %@",contentStr);
+//    NSLog(@"contentStr = %@",contentStr);
     NSArray *array = [contentStr componentsSeparatedByString:@"\n"];
     for (int i = 0; i < [array count]; i++) {
         NSString *linStr = [array objectAtIndex:i];
         NSArray *lineArray = [linStr componentsSeparatedByString:@"]"];
         if ([lineArray[0] length] > 8) {
             NSString *str1 = [linStr substringWithRange:NSMakeRange(3, 1)];
-                    NSLog(@"%@",str1);
+//                    NSLog(@"%@",str1);
             NSString *str2 = [linStr substringWithRange:NSMakeRange(6, 1)];
-                    NSLog(@"%@",str2);
+//                    NSLog(@"%@",str2);
             if ([str1 isEqualToString:@":"] && [str2 isEqualToString:@"."]) {
                 NSString *lrcStr = [lineArray objectAtIndex:1];
                 NSString *timeStr = [[lineArray objectAtIndex:0] substringWithRange:NSMakeRange(1, 5)];//分割区间求歌词时间
@@ -195,10 +202,21 @@
 - (IBAction)play:(id)sender {
     if (isPlay) {
         [audioPlayer play];
+        if (!timer_) {
+            timer_ = [NSTimer scheduledTimerWithTimeInterval:0.1f
+                                                      target:self
+                                                    selector:@selector(showTime)
+                                                    userInfo:nil
+                                                     repeats:YES];
+        }
         [playBtn setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
         isPlay = NO;
     } else {
         [audioPlayer pause];
+        if (timer_) {
+            [timer_ invalidate];
+            timer_ = nil;
+        }
         [playBtn setBackgroundImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
         isPlay = YES;
     }

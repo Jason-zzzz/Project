@@ -46,6 +46,9 @@
 		3FAF78C018127DEE0032C7CA /* randomOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAF78BC18127DEE0032C7CA /* randomOpen.png */; };
 		3FAF78D418129E690032C7CA /* backgroundImage5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FAF78CD18129E690032C7CA /* backgroundImage5.jpg */; };
 		3FAF78D81812A93B0032C7CA /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FAF78D71812A93B0032C7CA /* menu.png */; };
+		84018F611C755EBF00CC2E1F /* NSArray Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 84018F601C755EBF00CC2E1F /* NSArray Chinese.m */; };
+		84018F641C755ECB00CC2E1F /* NSSet Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 84018F631C755ECB00CC2E1F /* NSSet Chinese.m */; };
+		84018F671C755ED600CC2E1F /* NSDictionary Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 84018F661C755ED600CC2E1F /* NSDictionary Chinese.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +111,12 @@
 		3FAF78BC18127DEE0032C7CA /* randomOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = randomOpen.png; sourceTree = "<group>"; };
 		3FAF78CD18129E690032C7CA /* backgroundImage5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundImage5.jpg; sourceTree = "<group>"; };
 		3FAF78D71812A93B0032C7CA /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		84018F5F1C755EB500CC2E1F /* NSArray Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray Chinese.h"; sourceTree = "<group>"; };
+		84018F601C755EBF00CC2E1F /* NSArray Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray Chinese.m"; sourceTree = "<group>"; };
+		84018F621C755EC500CC2E1F /* NSSet Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet Chinese.h"; sourceTree = "<group>"; };
+		84018F631C755ECB00CC2E1F /* NSSet Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet Chinese.m"; sourceTree = "<group>"; };
+		84018F651C755ED000CC2E1F /* NSDictionary Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary Chinese.h"; sourceTree = "<group>"; };
+		84018F661C755ED600CC2E1F /* NSDictionary Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary Chinese.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +147,12 @@
 		3F9D2A971814019400C200FF /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				84018F5F1C755EB500CC2E1F /* NSArray Chinese.h */,
+				84018F601C755EBF00CC2E1F /* NSArray Chinese.m */,
+				84018F621C755EC500CC2E1F /* NSSet Chinese.h */,
+				84018F631C755ECB00CC2E1F /* NSSet Chinese.m */,
+				84018F651C755ED000CC2E1F /* NSDictionary Chinese.h */,
+				84018F661C755ED600CC2E1F /* NSDictionary Chinese.m */,
 				3F9D2A981814019400C200FF /* DXSemiTableViewController.h */,
 				3F9D2A991814019400C200FF /* DXSemiTableViewController.m */,
 				3F9D2A9A1814019400C200FF /* DXSemiViewController.h */,
@@ -379,6 +394,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84018F641C755ECB00CC2E1F /* NSSet Chinese.m in Sources */,
+				84018F671C755ED600CC2E1F /* NSDictionary Chinese.m in Sources */,
 				3FAF786C181228E20032C7CA /* MusicViewController.m in Sources */,
 				3FAF7866181228E20032C7CA /* MusicAppDelegate.m in Sources */,
 				3FAF7862181228E20032C7CA /* main.m in Sources */,
@@ -386,6 +403,7 @@
 				3F9D2A9F1814019400C200FF /* DXSemiViewController.m in Sources */,
 				3F9D2AA41814033900C200FF /* RightViewController.m in Sources */,
 				3F9D2AA01814019400C200FF /* DXSemiViewControllerCategory.m in Sources */,
+				84018F611C755EBF00CC2E1F /* NSArray Chinese.m in Sources */,
 				3FAF788C181229440032C7CA /* Music.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
