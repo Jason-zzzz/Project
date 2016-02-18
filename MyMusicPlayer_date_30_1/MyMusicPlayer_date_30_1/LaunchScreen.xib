@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="backgroundImage/sean.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ih2-6l-BI4">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="backgroundImage/cloud.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ih2-6l-BI4">
                     <rect key="frame" x="158" y="242" width="240" height="128"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I77-vR-HUk">
@@ -66,6 +66,6 @@
         </view>
     </objects>
     <resources>
-        <image name="backgroundImage/sean.jpg" width="16" height="16"/>
+        <image name="backgroundImage/cloud.jpg" width="16" height="16"/>
     </resources>
 </document>

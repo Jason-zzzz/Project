@@ -162,8 +162,6 @@
 			children = (
 				842717AE1C74502B00F9300D /* Podfile */,
 				1CFDD9FC1C5CEB14004CA701 /* MyMusicPlayer_date_30_1 */,
-				1CFDFC9F1C5E4EA2001AF92E /* DataModel */,
-				843D83071C73F99E00621632 /* Songs */,
 				1CFDDA161C5CEB14004CA701 /* MyMusicPlayer_date_30_1Tests */,
 				1CFDDA211C5CEB14004CA701 /* MyMusicPlayer_date_30_1UITests */,
 				1CFDD9FB1C5CEB14004CA701 /* Products */,
@@ -186,6 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				1CFDFCA91C5E515B001AF92E /* backgroundImage */,
+				1CFDFC9F1C5E4EA2001AF92E /* DataModel */,
+				843D83071C73F99E00621632 /* Songs */,
+				1C00BEB61C60915E007D401E /* image */,
 				1CFDDA001C5CEB14004CA701 /* AppDelegate.h */,
 				1CFDDA011C5CEB14004CA701 /* AppDelegate.m */,
 				1CFDFCA01C5E4EB7001AF92E /* HomeView */,
@@ -232,13 +233,11 @@
 				842717B11C7458A500F9300D /* Music.m */,
 			);
 			name = DataModel;
-			path = MyMusicPlayer_date_30_1;
 			sourceTree = "<group>";
 		};
 		1CFDFCA01C5E4EB7001AF92E /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				1C00BEB61C60915E007D401E /* image */,
 				1CFDDA031C5CEB14004CA701 /* ViewController.h */,
 				1CFDDA041C5CEB14004CA701 /* ViewController.m */,
 				1CFDDA061C5CEB14004CA701 /* Main.storyboard */,
@@ -264,7 +263,8 @@
 				843D830C1C73F99E00621632 /* 梁静茹-偶阵雨.lrc */,
 				843D830D1C73F99E00621632 /* 梁静茹-偶阵雨.mp3 */,
 			);
-			path = Songs;
+			name = Songs;
+			path = ../Songs;
 			sourceTree = "<group>";
 		};
 		9A039AA89E529B7208CC6886 /* Frameworks */ = {
