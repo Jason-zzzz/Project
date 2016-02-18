@@ -22,10 +22,10 @@
     UIButton *button_;
     
     
-//    UITableView *homeTableView_;
+    //    UITableView *homeTableView_;
     
     __weak IBOutlet UIView *userMenu_;
-
+    
     __weak IBOutlet UITableView *homeTableView_;
     
     // 歌曲播放状态
@@ -83,11 +83,24 @@
 - (IBAction)playButtonAction:(id)sender {
     
     if (!isPlay_) {
+        
+        if (!timer_) {
+            // datasourece创建cell时既初始化了cell的text
+            timer_ = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+        }
+        // 将timer启动时间设为无限过去
+        [timer_ setFireDate:[NSDate distantPast]];
+        
         [audioPlayer_ play];
         [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         isPlay_ = YES;
     }else{
         [audioPlayer_ pause];
+        // 彻底停止并销毁timer
+//        [timer_ invalidate];
+//        timer_ = nil;
+        // 将timer启动时间设为无限未来
+        [timer_ setFireDate:[NSDate distantFuture]];
         [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         isPlay_ = NO;
     }
@@ -116,7 +129,7 @@
 }
 
 - (void)timerAction{
-//    NSLog(@"12");
+        NSLog(@"12");
     [self displaySondWord:audioPlayer_.currentTime];
 }
 
@@ -181,7 +194,7 @@
     [self initMusicData];
     
     currentMusicArrayNumber_ = 0;
-    NSLog(@"%@----%ld",[musicArray_[currentMusicArrayNumber_] musicName],musicArray_.count);
+//    NSLog(@"%@----%ld",[musicArray_[currentMusicArrayNumber_] musicName],musicArray_.count);
     audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
     
     // 初始化歌词，时间.initWithCapacity并不影响实际使用的大小，只是给一个相近的初值会提高程序的效率
@@ -196,15 +209,11 @@
     //让app支持接受远程控制事件
     //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
-    if (!timer_) {
-        timer_ = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-    }
-    
     currentMusic_ = musicArray_[currentMusicArrayNumber_];
     [self setText];
     
-    NSLog(@"4++++++++++++++++++++++++%f",audioPlayer_.duration);
-//    [self displaySondWord:audioPlayer_.currentTime];
+//    NSLog(@"4++++++++++++++++++++++++%f",audioPlayer_.duration);
+    //    [self displaySondWord:audioPlayer_.currentTime];
     
     isPlay_ = NO;
 }
@@ -215,12 +224,20 @@
     //重新载入歌词词典  清空数据,或者重新初始化这两个变量分配大致空间，防止浪费
     [timeArray_ removeAllObjects];
     [LRCDictionary_ removeAllObjects];
-//    timeArray_ = [[NSMutableArray alloc] initWithCapacity:10];
-//    LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
+    //    timeArray_ = [[NSMutableArray alloc] initWithCapacity:10];
+    //    LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
     // 重载歌词
     [self initLRC];
     // 重载歌词单
     [LRCTableView_ reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        //    NSLog(@"%@,%ld",indexPath,lineNumber);
+        [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    });
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+//    [LRCTableView_  selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
     
     // 对于audioPlayer，只能用重新初始化的方法来播放下一首歌曲
     audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
@@ -274,7 +291,7 @@
                 [self refreshLrcTableView:i];
                 break;
             }
-        } else {
+        }else{
             //求出第一句的时间点，在第一句显示前的时间内一直加载第一句
             NSArray *array2 = [timeArray_[0] componentsSeparatedByString:@":"];
             NSUInteger currentTime2 = [array2[0] intValue] * 60 + [array2[1] intValue];
@@ -292,7 +309,7 @@
             }
             
         }
-        statusMusicText_.text = [LRCDictionary_ objectForKey:timeArray_[i + 1]];
+
     }
 }
 
@@ -300,12 +317,17 @@
 - (void)refreshLrcTableView:(NSUInteger)lineNumber {
     //    NSLog(@"lrc = %@", [LRCDictionary objectForKey:[timeArray objectAtIndex:lineNumber]]);
     //重新载入 歌词列表lrcTabView
-    LRCLineNumber_ = lineNumber;
-    [LRCTableView_ reloadData];
-    //使被选中的行移到中间
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
-//    NSLog(@"%@,%ld",indexPath,lineNumber);
-    [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    if (LRCLineNumber_ != lineNumber) {
+        statusMusicText_.text = [LRCDictionary_ objectForKey:timeArray_[lineNumber]];
+        NSLog(@"%@",statusMusicText_.text);
+        LRCLineNumber_ = lineNumber;
+        [LRCTableView_ reloadData];
+        //使被选中的行移到中间
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
+        //    NSLog(@"%@,%ld",indexPath,lineNumber);
+        [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        
+    }
     //    NSLog(@"%i",lineNumber);
 }
 
@@ -329,13 +351,13 @@
     [musicArray_ addObject:music2];
     [musicArray_ addObject:music3];
     
-//    NSString *path = [NSString stringWithString:[NSBundle mainBundle]];
+    //    NSString *path = [NSString stringWithString:[NSBundle mainBundle]];
 }
 
 #pragma mark TableViewDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    NSLog(@"%ld",timeArray_.count);
+    //    NSLog(@"%ld",timeArray_.count);
     if (tableView == homeTableView_) {
         return 5;
     }else if(tableView == LRCTableView_){
@@ -370,7 +392,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //    cell.textLabel.text = @"浮于表面的文字";
         return cell;
-
+        
     }else if(tableView == LRCTableView_){
         
         static NSString *cellIdentifier = @"LRCCell";
@@ -387,7 +409,8 @@
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
         //        [cell.contentView addSubview:lable];//往列表视图里加 label视图，然后自行布局
-        if (indexPath.row == timeArray_.count - 1){
+        if (indexPath.row == timeArray_.count){
+            cell.textLabel.text = nil;
             return cell;
         }else{
             if (indexPath.row == LRCLineNumber_) {
