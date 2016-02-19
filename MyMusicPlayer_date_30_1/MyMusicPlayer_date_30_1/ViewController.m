@@ -27,8 +27,9 @@
     __weak IBOutlet UIView *userMenu_;
     
     __weak IBOutlet UITableView *homeTableView_;
+    __weak IBOutlet UIImageView *backgroundImageView_;
     
-    // 歌曲播放状态
+    // 歌曲播放状态视图
     __weak IBOutlet UIView *statusView_;
     __weak IBOutlet UIButton *statusMusicImage_;
     __weak IBOutlet UILabel *statusMusicName_;
@@ -37,10 +38,13 @@
     __weak IBOutlet UIButton *statusPlay_;
     __weak IBOutlet UIButton *statusNext_;
     __weak IBOutlet UIButton *statusMenu_;
-    __weak IBOutlet UIImageView *backgroundImageView_;
     __weak IBOutlet UITableView *LRCTableView_;
     __weak IBOutlet UISlider *playSlider_;
     __weak IBOutlet UILabel *currentTimeLabel_;
+    
+    // 歌曲列表
+    __weak IBOutlet UIView *musicList_;
+    BOOL isMoving;
     
     // 播放器及相应数据
     AVAudioPlayer *audioPlayer_;
@@ -52,6 +56,10 @@
     NSMutableArray *timeArray_;
     NSTimer *timer_;
     NSInteger LRCLineNumber_;
+    
+    // 毛玻璃
+    UIVisualEffectView * effectView_;
+    UIVisualEffectView *musicListEffeView_;
 }
 
 @property (nonatomic, strong) DataModel *dataModel;
@@ -94,6 +102,7 @@
         [audioPlayer_ play];
         [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         isPlay_ = YES;
+        statusMusicText_.text = @"正在播放";
     }else{
         [audioPlayer_ pause];
         // 彻底停止并销毁timer
@@ -103,6 +112,7 @@
         [timer_ setFireDate:[NSDate distantFuture]];
         [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         isPlay_ = NO;
+        statusMusicText_.text = @"暂停播放";
     }
 }
 
@@ -128,9 +138,76 @@
     [self refreshPlayerStatus];
 }
 
-- (void)timerAction{
-        NSLog(@"12");
+- (IBAction)playSliderAction:(id)sender {
+    audioPlayer_.currentTime = playSlider_.value * audioPlayer_.duration;
     [self displaySondWord:audioPlayer_.currentTime];
+    // 不知道什么原因除了软件初始运行，点过暂停之后进度条拉满currentTime却是0，所以添加以下判断
+    if (audioPlayer_.currentTime == audioPlayer_.duration || (audioPlayer_.currentTime == 0 && playSlider_.value * audioPlayer_.duration > 0)) {
+        [self nextButtonAction:statusMusicText_];
+    }
+}
+
+- (void)timerAction{
+    
+    // 进度条更新
+    for (int i = 0; i < 100; i++) {
+        playSlider_.value += 0.001 / audioPlayer_.duration;
+    }
+    
+    [self displaySondWord:audioPlayer_.currentTime];
+    // 由于硬件原因不能精确比较时间判断歌曲播放进度，所以结束时提前1毫秒.
+    if ((int)(audioPlayer_.currentTime * 10) == (int)(audioPlayer_.duration * 10 - 1)){
+//                                [playSlider_ resignFirstResponder];
+//                                playSlider_.enabled = NO;
+        [self nextButtonAction:statusNext_];
+
+        [self displaySondWord:0.0f];
+        playSlider_.value = 0;
+        [self setText];
+    }
+}
+
+// 弹出歌曲列表
+static NSInteger playSliderCenterY = 0;
+- (IBAction)statusMenu:(id)sender {
+    isMoving = YES;
+    //添加动画 [UIView animateWithDuration:2 animations:^] 其中2为总共移动2秒，animation激活
+    [UIView animateWithDuration:0.4 animations:^{
+        //UIViewAnimationCurveEaseInOut  设置动画移动模式的属性
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        statusView_.center = CGPointMake(statusView_.center.x , SCREEN_HEIGHT + statusView_.bounds.size.height / 2 + currentTimeLabel_.bounds.size.height);
+        playSliderCenterY = SCREEN_HEIGHT - playSlider_.center.y;
+        playSlider_.center = CGPointMake(playSlider_.center.x, SCREEN_HEIGHT + playSliderCenterY);
+        effectView_.center = CGPointMake(effectView_.center.x, SCREEN_HEIGHT + effectView_.bounds.size.height / 2);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.4 animations:^{
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            musicList_.center = CGPointMake(musicList_.center.x, SCREEN_HEIGHT / 4 * 3);
+            musicListEffeView_.center = CGPointMake(musicListEffeView_.center.x, SCREEN_HEIGHT / 4 * 3);
+        } completion:^(BOOL finished) {
+            isMoving = NO;
+        }];
+    }];
+}
+
+// 收回歌曲列表
+- (IBAction)closeMusicList:(id)sender {
+    isMoving = YES;
+    [UIView animateWithDuration:0.4 animations:^{
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        musicList_.center = CGPointMake(musicList_.center.x, SCREEN_HEIGHT / 4 * 5);
+        musicListEffeView_.center = CGPointMake(musicListEffeView_.center.x, SCREEN_HEIGHT / 4 * 5);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.4 animations:^{
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            statusView_.center = CGPointMake(statusView_.center.x , SCREEN_HEIGHT - statusView_.bounds.size.height / 2);
+            playSlider_.center = CGPointMake(playSlider_.center.x, SCREEN_HEIGHT - playSliderCenterY);
+            effectView_.center = CGPointMake(effectView_.center.x, SCREEN_HEIGHT - effectView_.bounds.size.height / 2);
+        } completion:^(BOOL finished) {
+            isMoving = NO;
+        }];
+    }];
+   
 }
 
 #pragma mark Methods
@@ -145,10 +222,16 @@
     
     // 毛玻璃效果
     UIBlurEffect * blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView * effe = [[UIVisualEffectView alloc]initWithEffect:blur];
-    effe.frame = CGRectMake(0, SCREEN_HEIGHT - STATUSVIEW_HEIGHT, SCREEN_WIDTH, STATUSVIEW_HEIGHT);
-    [self.view addSubview:effe];
+    effectView_ = [[UIVisualEffectView alloc]initWithEffect:blur];
+    effectView_.frame = CGRectMake(0, SCREEN_HEIGHT - STATUSVIEW_HEIGHT, SCREEN_WIDTH, STATUSVIEW_HEIGHT);
+    musicListEffeView_ = [[UIVisualEffectView alloc]initWithEffect:blur];
+    musicListEffeView_.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, musicList_.bounds.size.height);
+    isMoving = NO;
+    [self.view addSubview:effectView_];
+    [self.view addSubview:musicListEffeView_];
+    [self.view addSubview:musicList_];
     [self.view addSubview:statusView_];
+    
     
     // 初始化播放进度条
     [playSlider_ setThumbImage:[UIImage imageNamed:@"sliderThumb_small.png"] forState:UIControlStateNormal];
@@ -166,54 +249,55 @@
     [statusMusicImage_.layer setCornerRadius:(statusMusicImage_.frame.size.height / 2)];
     // 是否限制边界，既画圆角
     [statusMusicImage_ setClipsToBounds:YES];
-    //    [statusMusicImage_.layer setMasksToBounds:YES];// 同上
     
-    //    [statusMusicImage_ setContentMode:UIViewContentModeScaleAspectFill];
-    
-    // 阴影，产生立体效果
-    //    statusMusicImage_.layer.shadowColor = [UIColor blackColor].CGColor;
-    //    statusMusicImage_.layer.shadowOffset = CGSizeMake(4, 4);
-    //    statusMusicImage_.layer.shadowOpacity = 0.5;
-    
-    // 边界
-    //    statusMusicImage_.layer.borderColor = [[UIColor grayColor] CGColor];
-    //    statusMusicImage_.layer.borderWidth = 0.5f;
-    //    statusMusicImage_.userInteractionEnabled = YES;
-    
-    //是否响应手势
-    //    statusMusicImage_.layer.shadowRadius = 2.0;
-    // 手势
-    //    UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectMusicImage)];
-    //    [statusMusicImage_ addGestureRecognizer:portraitTap];
+//        [statusMusicImage_.layer setMasksToBounds:YES];// 同上
+//    
+//        [statusMusicImage_ setContentMode:UIViewContentModeScaleAspectFill];
+//    
+//     阴影，产生立体效果
+//        statusMusicImage_.layer.shadowColor = [UIColor blackColor].CGColor;
+//        statusMusicImage_.layer.shadowOffset = CGSizeMake(4, 4);
+//        statusMusicImage_.layer.shadowOpacity = 0.5;
+//    
+//     边界
+//        statusMusicImage_.layer.borderColor = [[UIColor grayColor] CGColor];
+//        statusMusicImage_.layer.borderWidth = 0.5f;
+//        statusMusicImage_.userInteractionEnabled = YES;
+//    
+//    是否响应手势
+//        statusMusicImage_.layer.shadowRadius = 2.0;
+//     手势
+//        UITapGestureRecognizer *portraitTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectMusicImage)];
+//        [statusMusicImage_ addGestureRecognizer:portraitTap];
 }
 
 // 初始化播放器状态
 - (void)initPlayerStatus{
     
-    // 添加歌曲项目数据
+//     添加歌曲项目数据
     [self initMusicData];
     
     currentMusicArrayNumber_ = 0;
 //    NSLog(@"%@----%ld",[musicArray_[currentMusicArrayNumber_] musicName],musicArray_.count);
     audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
     
-    // 初始化歌词，时间.initWithCapacity并不影响实际使用的大小，只是给一个相近的初值会提高程序的效率
+//     初始化歌词，时间.initWithCapacity并不影响实际使用的大小，只是给一个相近的初值会提高程序的效率
     timeArray_ = [[NSMutableArray alloc] initWithCapacity:10];
     LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
     [self initLRC];
     
-    //后台播放音频设置
+//    后台播放音频设置
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:YES error:nil];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
-    //让app支持接受远程控制事件
-    //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+//    让app支持接受远程控制事件
+//        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     currentMusic_ = musicArray_[currentMusicArrayNumber_];
     [self setText];
     
 //    NSLog(@"4++++++++++++++++++++++++%f",audioPlayer_.duration);
-    //    [self displaySondWord:audioPlayer_.currentTime];
+//        [self displaySondWord:audioPlayer_.currentTime];
     
     isPlay_ = NO;
 }
@@ -221,21 +305,27 @@
 // 更新播放器状态
 - (void)refreshPlayerStatus{
     
-    //重新载入歌词词典  清空数据,或者重新初始化这两个变量分配大致空间，防止浪费
+//     设置slider的初始值
+    playSlider_.value = 0;
+    
+    // 重新载入歌词词典  清空数据,或者重新初始化这两个变量分配大致空间，防止浪费
     [timeArray_ removeAllObjects];
     [LRCDictionary_ removeAllObjects];
-    //    timeArray_ = [[NSMutableArray alloc] initWithCapacity:10];
-    //    LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
+//        timeArray_ = [[NSMutableArray alloc] initWithCapacity:10];
+//        LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
     // 重载歌词
     [self initLRC];
-    // 重载歌词单
+    // 重载歌词页
     [LRCTableView_ reloadData];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        //    NSLog(@"%@,%ld",indexPath,lineNumber);
-        [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-    });
+    [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    
+    // 暂停时切换歌曲从头显示（有问题）
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//        //    NSLog(@"%@,%ld",indexPath,lineNumber);
+//        [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+//    });
 //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
 //    [LRCTableView_  selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
     
@@ -244,6 +334,7 @@
     currentMusic_ = musicArray_[currentMusicArrayNumber_];
     [self setText];
     if (isPlay_) {
+        statusMusicText_.text = @"正在播放";
         [audioPlayer_ play];
     }
     
@@ -261,13 +352,13 @@
         NSArray *lineArray = [linStr componentsSeparatedByString:@"]"];
         if ([lineArray[0] length] > 8) {
             NSString *str1 = [linStr substringWithRange:NSMakeRange(3, 1)];
-            //                                NSLog(@"%@",str1);
+//                                            NSLog(@"%@",str1);
             NSString *str2 = [linStr substringWithRange:NSMakeRange(6, 1)];
-            //                                NSLog(@"%@",str2);
+//                                            NSLog(@"%@",str2);
             if ([str1 isEqualToString:@":"] && [str2 isEqualToString:@"."]) {
                 NSString *lrcStr = [lineArray objectAtIndex:1];
                 NSString *timeStr = [[lineArray objectAtIndex:0] substringWithRange:NSMakeRange(1, 5)];//分割区间求歌词时间
-                //把时间 和 歌词 加入词典
+                // 把时间和歌词加入词典
                 [LRCDictionary_ setObject:lrcStr forKey:timeStr];
                 [timeArray_ addObject:timeStr];//timeArray的count就是行数
             }
@@ -278,13 +369,13 @@
 
 // 动态显示歌词
 - (void)displaySondWord:(NSUInteger)time {
-    //    NSLog(@"time = %u",time);
+//        NSLog(@"time = %u",time);
     for (int i = 0; i < [timeArray_ count]; i++) {
         
-        NSArray *array = [timeArray_[i] componentsSeparatedByString:@":"];//把时间转换成秒
+        NSArray *array = [timeArray_[i] componentsSeparatedByString:@":"];// 把时间转换成秒
         NSUInteger currentTime = [array[0] intValue] * 60 + [array[1] intValue];
         if (i == [timeArray_ count]-1) {
-            //求最后一句歌词的时间点
+            // 求最后一句歌词的时间点
             NSArray *array1 = [timeArray_[timeArray_.count-1] componentsSeparatedByString:@":"];
             NSUInteger currentTime1 = [array1[0] intValue] * 60 + [array1[1] intValue];
             if (time > currentTime1) {
@@ -292,15 +383,15 @@
                 break;
             }
         }else{
-            //求出第一句的时间点，在第一句显示前的时间内一直加载第一句
+            // 求出第一句的时间点，在第一句显示前的时间内一直加载第一句
             NSArray *array2 = [timeArray_[0] componentsSeparatedByString:@":"];
             NSUInteger currentTime2 = [array2[0] intValue] * 60 + [array2[1] intValue];
             if (time < currentTime2) {
                 [self refreshLrcTableView:0];
-                //                NSLog(@"马上到第一句");
+//                                NSLog(@"马上到第一句");
                 break;
             }
-            //求出下一步的歌词时间点，然后计算区间
+            // 求出下一步的歌词时间点，然后计算区间
             NSArray *array3 = [timeArray_[i+1] componentsSeparatedByString:@":"];
             NSUInteger currentTime3 = [array3[0] intValue] * 60 + [array3[1] intValue];
             if (time >= currentTime && time <= currentTime3) {
@@ -315,20 +406,19 @@
 
 // 更新歌词表
 - (void)refreshLrcTableView:(NSUInteger)lineNumber {
-    //    NSLog(@"lrc = %@", [LRCDictionary objectForKey:[timeArray objectAtIndex:lineNumber]]);
-    //重新载入 歌词列表lrcTabView
+//        NSLog(@"lrc = %@", [LRCDictionary objectForKey:[timeArray objectAtIndex:lineNumber]]);
+    
+    // 重新载入歌词列表lrcTabView
     if (LRCLineNumber_ != lineNumber) {
-        statusMusicText_.text = [LRCDictionary_ objectForKey:timeArray_[lineNumber]];
-        NSLog(@"%@",statusMusicText_.text);
         LRCLineNumber_ = lineNumber;
         [LRCTableView_ reloadData];
-        //使被选中的行移到中间
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
-        //    NSLog(@"%@,%ld",indexPath,lineNumber);
-        [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
         
+        // 使被选中的行移到中间
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
+//            NSLog(@"%@,%ld",indexPath,lineNumber);
+        [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
-    //    NSLog(@"%i",lineNumber);
+//        NSLog(@"%i",lineNumber);
 }
 
 // 显示歌名及歌词信息
@@ -351,13 +441,13 @@
     [musicArray_ addObject:music2];
     [musicArray_ addObject:music3];
     
-    //    NSString *path = [NSString stringWithString:[NSBundle mainBundle]];
+//        NSString *path = [NSString stringWithString:[NSBundle mainBundle]];
 }
 
 #pragma mark TableViewDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //    NSLog(@"%ld",timeArray_.count);
+//        NSLog(@"%ld",timeArray_.count);
     if (tableView == homeTableView_) {
         return 5;
     }else if(tableView == LRCTableView_){
@@ -384,13 +474,13 @@
         }else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"secondCell" forIndexPath:indexPath];
         }
-        //    if (!cell) {
-        //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        //    }
-        //
+//            if (!cell) {
+//                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//            }
+//        
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        //    cell.textLabel.text = @"浮于表面的文字";
+//            cell.textLabel.text = @"浮于表面的文字";
         return cell;
         
     }else if(tableView == LRCTableView_){
@@ -400,15 +490,15 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;//该表格选中后没有颜色
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;// 该表格选中后没有颜色
         cell.backgroundColor = [UIColor clearColor];
         
         cell.textLabel.backgroundColor = [UIColor clearColor];
-        //        cell.textLabel.textColor = [UIColor blackColor];
+//                cell.textLabel.textColor = [UIColor blackColor];
         
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
-        //        [cell.contentView addSubview:lable];//往列表视图里加 label视图，然后自行布局
+//                [cell.contentView addSubview:lable];// 往列表视图里加label视图，然后自行布局
         if (indexPath.row == timeArray_.count){
             cell.textLabel.text = nil;
             return cell;
@@ -416,11 +506,11 @@
             if (indexPath.row == LRCLineNumber_) {
                 cell.textLabel.text = LRCDictionary_[timeArray_[indexPath.row]];
                 cell.textLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.85];
-                cell.textLabel.font = [UIFont systemFontOfSize:20];
+                cell.textLabel.font = [UIFont systemFontOfSize:19];
             } else {
                 cell.textLabel.text = LRCDictionary_[timeArray_[indexPath.row]];
                 cell.textLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-                cell.textLabel.font = [UIFont systemFontOfSize:17];
+                cell.textLabel.font = [UIFont systemFontOfSize:16];
             }
             return cell;
         }
