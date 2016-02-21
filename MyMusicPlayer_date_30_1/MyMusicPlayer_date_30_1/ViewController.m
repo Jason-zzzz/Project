@@ -11,6 +11,8 @@
 #import "FirstCell.h"
 #import "Music.h"
 #import <AVFoundation/AVFoundation.h>
+#import <CoreText/CoreText.h>
+#import "GlobalFont.h"
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -41,6 +43,7 @@
     __weak IBOutlet UITableView *LRCTableView_;
     __weak IBOutlet UISlider *playSlider_;
     __weak IBOutlet UILabel *currentTimeLabel_;
+    __weak IBOutlet UITableView *MusicList_;
     
     // 歌曲列表
     __weak IBOutlet UIView *musicList_;
@@ -52,6 +55,7 @@
     NSInteger currentMusicArrayNumber_;
     Music *currentMusic_;
     BOOL isPlay_;
+    BOOL isPlayButton_;
     NSMutableDictionary *LRCDictionary_;
     NSMutableArray *timeArray_;
     NSTimer *timer_;
@@ -74,11 +78,13 @@
     [super viewDidLoad];
     
     // 初始化界面
+    // datasourece创建cell时既初始化了cell的text
     [self initView];
     
     // 初始化播放器状态
     [self initPlayerStatus];
 }
+
 
 
 #pragma mark Actions
@@ -90,29 +96,21 @@
 // 开始播放
 - (IBAction)playButtonAction:(id)sender {
     
-    if (!isPlay_) {
-        
-        if (!timer_) {
-            // datasourece创建cell时既初始化了cell的text
+    isPlayButton_ = YES;
+    
+    if (!timer_) {
+        dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_sync(globalQueue, ^{
             timer_ = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-        }
-        // 将timer启动时间设为无限过去
-        [timer_ setFireDate:[NSDate distantPast]];
-        
-        [audioPlayer_ play];
-        [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        });
+    }
+    
+    if (!isPlay_) {
         isPlay_ = YES;
-        statusMusicText_.text = @"正在播放";
+        [self refreshPlayerStatus];
     }else{
-        [audioPlayer_ pause];
-        // 彻底停止并销毁timer
-//        [timer_ invalidate];
-//        timer_ = nil;
-        // 将timer启动时间设为无限未来
-        [timer_ setFireDate:[NSDate distantFuture]];
-        [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         isPlay_ = NO;
-        statusMusicText_.text = @"暂停播放";
+        [self refreshPlayerStatus];
     }
 }
 
@@ -138,21 +136,30 @@
     [self refreshPlayerStatus];
 }
 
+// Slider值改变时调用
 - (IBAction)playSliderAction:(id)sender {
-    audioPlayer_.currentTime = playSlider_.value * audioPlayer_.duration;
+    audioPlayer_.currentTime = (int)playSlider_.value;
     [self displaySondWord:audioPlayer_.currentTime];
-    // 不知道什么原因除了软件初始运行，点过暂停之后进度条拉满currentTime却是0，所以添加以下判断
-    if (audioPlayer_.currentTime == audioPlayer_.duration || (audioPlayer_.currentTime == 0 && playSlider_.value * audioPlayer_.duration > 0)) {
-        [self nextButtonAction:statusMusicText_];
-    }
+    [self setCurrentTimeLabel];
 }
 
+// 拖动到下一首
+- (void)dragToNext{
+    if (playSlider_.value != 0 && playSlider_.value == (int)audioPlayer_.duration) {
+        [self nextButtonAction:statusNext_];
+    }
+    NSLog(@"playSlider.value--%f",playSlider_.value);
+}
+
+static NSInteger timersTime = 0;
 - (void)timerAction{
     
-    // 进度条更新
-    for (int i = 0; i < 100; i++) {
-        playSlider_.value += 0.001 / audioPlayer_.duration;
+    // 进度条更新值
+    timersTime++;
+    if (timersTime % 10 == 0){
+        playSlider_.value++;
     }
+    [self setCurrentTimeLabel];
     
     [self displaySondWord:audioPlayer_.currentTime];
     // 由于硬件原因不能精确比较时间判断歌曲播放进度，所以结束时提前1毫秒.
@@ -167,10 +174,12 @@
     }
 }
 
+
 // 弹出歌曲列表
 static NSInteger playSliderCenterY = 0;
 - (IBAction)statusMenu:(id)sender {
     isMoving = YES;
+    [timer_ setFireDate:[NSDate distantFuture]];
     //添加动画 [UIView animateWithDuration:2 animations:^] 其中2为总共移动2秒，animation激活
     [UIView animateWithDuration:0.4 animations:^{
         //UIViewAnimationCurveEaseInOut  设置动画移动模式的属性
@@ -186,6 +195,7 @@ static NSInteger playSliderCenterY = 0;
             musicListEffeView_.center = CGPointMake(musicListEffeView_.center.x, SCREEN_HEIGHT / 4 * 3);
         } completion:^(BOOL finished) {
             isMoving = NO;
+            [timer_ setFireDate:[NSDate distantPast]];
         }];
     }];
 }
@@ -217,6 +227,10 @@ static NSInteger playSliderCenterY = 0;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage/womanTitle.jpg"]];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+//    /Users/jason_zzzz/Desktop/资源/字体/方正兰亭纤黑_GBK.TTF
+    // 添加字体
+//    [self customFontArrayWithPath:@"/Users/jason_zzzz/Desktop/资源/字体/方正兰亭纤黑_GBK.TTF" size:12];
+    
     // 设置背景图片
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage/woman.jpg"]]];
     
@@ -236,6 +250,8 @@ static NSInteger playSliderCenterY = 0;
     // 初始化播放进度条
     [playSlider_ setThumbImage:[UIImage imageNamed:@"sliderThumb_small.png"] forState:UIControlStateNormal];
     [playSlider_ setThumbImage:[UIImage imageNamed:@"sliderThumb_small.png"] forState:UIControlStateHighlighted];
+    [playSlider_ addTarget:self action:@selector(dragToNext) forControlEvents:UIControlEventTouchUpInside];
+    [playSlider_ addTarget:self action:@selector(dragToNext) forControlEvents:UIControlEventTouchUpOutside];
     
     currentTimeLabel_.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.7];
     
@@ -286,6 +302,9 @@ static NSInteger playSliderCenterY = 0;
     LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
     [self initLRC];
     
+    // 初始化slider
+    playSlider_.maximumValue = (int)audioPlayer_.duration;
+    
 //    后台播放音频设置
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:YES error:nil];
@@ -300,52 +319,71 @@ static NSInteger playSliderCenterY = 0;
 //        [self displaySondWord:audioPlayer_.currentTime];
     
     isPlay_ = NO;
+    isPlayButton_ = NO;
 }
 
 // 更新播放器状态
 - (void)refreshPlayerStatus{
     
-//     设置slider的初始值
-    playSlider_.value = 0;
-    
-    // 重新载入歌词词典  清空数据,或者重新初始化这两个变量分配大致空间，防止浪费
-    [timeArray_ removeAllObjects];
-    [LRCDictionary_ removeAllObjects];
-//        timeArray_ = [[NSMutableArray alloc] initWithCapacity:10];
-//        LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
-    // 重载歌词
-    [self initLRC];
-    // 重载歌词页
-    [LRCTableView_ reloadData];
-    [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-    
-    // 暂停时切换歌曲从头显示（有问题）
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//        //    NSLog(@"%@,%ld",indexPath,lineNumber);
-//        [LRCTableView_ selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-//    });
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-//    [LRCTableView_  selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-    
-    // 对于audioPlayer，只能用重新初始化的方法来播放下一首歌曲
-    audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
-    currentMusic_ = musicArray_[currentMusicArrayNumber_];
-    [self setText];
-    if (isPlay_) {
-        statusMusicText_.text = @"正在播放";
-        [audioPlayer_ play];
+    if (isPlayButton_) {
+        isPlayButton_ = NO;
+        if (isPlay_) {
+            // 将timer启动时间设为无限过去
+                    [timer_ setFireDate:[NSDate distantPast]];
+            
+                    [audioPlayer_ play];
+                    [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+                    statusMusicText_.text = @"正在播放";
+        }else{
+                    [audioPlayer_ pause];
+                    // 彻底停止并销毁timer
+//                    [timer_ invalidate];
+            ////        timer_ = nil;
+                    // 将timer启动时间设为无限未来
+                    [timer_ setFireDate:[NSDate distantFuture]];
+                    [statusPlay_ setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+                    statusMusicText_.text = @"暂停播放";
+        }
+    }else{
+        
+        // 重新载入歌词词典  清空数据,或者重新初始化这两个变量分配大致空间，防止浪费
+        [timeArray_ removeAllObjects];
+        [LRCDictionary_ removeAllObjects];
+        //        timeArray_ = [[NSMutableArray alloc] initWithCapacity:10];
+        //        LRCDictionary_ = [[NSMutableDictionary alloc] initWithCapacity:10];
+        // 重载歌词
+        [self initLRC];
+        // 重载歌词页
+        [LRCTableView_ reloadData];
+        [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+        [self refreshLrcTableView:0];
+        
+        // 对于audioPlayer，只能用重新初始化的方法来播放下一首歌曲
+        audioPlayer_ = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"mp3"]] error:nil];
+        currentMusic_ = musicArray_[currentMusicArrayNumber_];
+        
+        //     设置slider的初始值
+        playSlider_.value = 0;
+        playSlider_.maximumValue = (int)audioPlayer_.duration;
+        
+        [self setText];
+        [self setCurrentTimeLabel];
+        if (isPlay_) {
+            statusMusicText_.text = @"正在播放";
+            [audioPlayer_ play];
+        }else{
+            //TODO
+        }
     }
     
-    NSLog(@"%f",audioPlayer_.duration);
+    NSLog(@"duration:%f",audioPlayer_.duration);
 }
 
 // 得到歌词数据
 - (void)initLRC {
     NSString *LRCPath = [[NSBundle mainBundle] pathForResource:[musicArray_[currentMusicArrayNumber_] musicName] ofType:@"lrc"];
     NSString *contentStr = [NSString stringWithContentsOfFile:LRCPath encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"contentStr = %@",contentStr);
+//    NSLog(@"contentStr = %@",contentStr);
     NSArray *array = [contentStr componentsSeparatedByString:@"\n"];
     for (int i = 0; i < [array count]; i++) {
         NSString *linStr = [array objectAtIndex:i];
@@ -388,7 +426,7 @@ static NSInteger playSliderCenterY = 0;
             NSUInteger currentTime2 = [array2[0] intValue] * 60 + [array2[1] intValue];
             if (time < currentTime2) {
                 [self refreshLrcTableView:0];
-//                                NSLog(@"马上到第一句");
+                //                                NSLog(@"马上到第一句");
                 break;
             }
             // 求出下一步的歌词时间点，然后计算区间
@@ -398,9 +436,7 @@ static NSInteger playSliderCenterY = 0;
                 [self refreshLrcTableView:i];
                 break;
             }
-            
         }
-
     }
 }
 
@@ -428,6 +464,11 @@ static NSInteger playSliderCenterY = 0;
     statusMusicText_.text = currentMusic_.singerName;
 }
 
+// 显示目前时间
+- (void)setCurrentTimeLabel{
+    currentTimeLabel_.text = [NSString stringWithFormat:@"%02d:%02d",(int)playSlider_.value / 60,(int)playSlider_.value % 60];
+}
+
 // 得到歌曲数据
 - (void)initMusicData{
     
@@ -441,7 +482,6 @@ static NSInteger playSliderCenterY = 0;
     [musicArray_ addObject:music2];
     [musicArray_ addObject:music3];
     
-//        NSString *path = [NSString stringWithString:[NSBundle mainBundle]];
 }
 
 #pragma mark TableViewDatasource
@@ -505,12 +545,12 @@ static NSInteger playSliderCenterY = 0;
         }else{
             if (indexPath.row == LRCLineNumber_) {
                 cell.textLabel.text = LRCDictionary_[timeArray_[indexPath.row]];
-                cell.textLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.85];
-                cell.textLabel.font = [UIFont systemFontOfSize:19];
+                cell.textLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+                cell.textLabel.font = [UIFont systemFontOfSize:18.5];// fontWithName:@"FZLanTingHei-EL-GBK" size:19];
             } else {
                 cell.textLabel.text = LRCDictionary_[timeArray_[indexPath.row]];
-                cell.textLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-                cell.textLabel.font = [UIFont systemFontOfSize:16];
+                cell.textLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.55];
+                cell.textLabel.font = [UIFont systemFontOfSize:17];// fontWithName:@"FZLanTingHei-EL-GBK" size:16];
             }
             return cell;
         }
