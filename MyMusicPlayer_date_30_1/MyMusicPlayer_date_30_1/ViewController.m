@@ -47,7 +47,7 @@
     
     // 歌曲列表
     __weak IBOutlet UIView *musicList_;
-    BOOL isMoving;
+    BOOL isShowing_;
     
     // 播放器及相应数据
     AVAudioPlayer *audioPlayer_;
@@ -159,7 +159,9 @@ static NSInteger timersTime = 0;
     if (timersTime % 10 == 0){
         playSlider_.value++;
     }
-    [self setCurrentTimeLabel];
+    if (!isShowing_) {
+        [self setCurrentTimeLabel];
+    }
     
     [self displaySondWord:audioPlayer_.currentTime];
     // 由于硬件原因不能精确比较时间判断歌曲播放进度，所以结束时提前1毫秒.
@@ -178,8 +180,9 @@ static NSInteger timersTime = 0;
 // 弹出歌曲列表
 static NSInteger playSliderCenterY = 0;
 - (IBAction)statusMenu:(id)sender {
-    isMoving = YES;
-    [timer_ setFireDate:[NSDate distantFuture]];
+    isShowing_ = YES;
+//    statusMusicText_.enabled = NO;
+    
     //添加动画 [UIView animateWithDuration:2 animations:^] 其中2为总共移动2秒，animation激活
     [UIView animateWithDuration:0.4 animations:^{
         //UIViewAnimationCurveEaseInOut  设置动画移动模式的属性
@@ -194,15 +197,14 @@ static NSInteger playSliderCenterY = 0;
             musicList_.center = CGPointMake(musicList_.center.x, SCREEN_HEIGHT / 4 * 3);
             musicListEffeView_.center = CGPointMake(musicListEffeView_.center.x, SCREEN_HEIGHT / 4 * 3);
         } completion:^(BOOL finished) {
-            isMoving = NO;
-            [timer_ setFireDate:[NSDate distantPast]];
+            // TODO
         }];
     }];
 }
 
 // 收回歌曲列表
 - (IBAction)closeMusicList:(id)sender {
-    isMoving = YES;
+    
     [UIView animateWithDuration:0.4 animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         musicList_.center = CGPointMake(musicList_.center.x, SCREEN_HEIGHT / 4 * 5);
@@ -214,7 +216,7 @@ static NSInteger playSliderCenterY = 0;
             playSlider_.center = CGPointMake(playSlider_.center.x, SCREEN_HEIGHT - playSliderCenterY);
             effectView_.center = CGPointMake(effectView_.center.x, SCREEN_HEIGHT - effectView_.bounds.size.height / 2);
         } completion:^(BOOL finished) {
-            isMoving = NO;
+            isShowing_ = NO;
         }];
     }];
    
@@ -240,7 +242,7 @@ static NSInteger playSliderCenterY = 0;
     effectView_.frame = CGRectMake(0, SCREEN_HEIGHT - STATUSVIEW_HEIGHT, SCREEN_WIDTH, STATUSVIEW_HEIGHT);
     musicListEffeView_ = [[UIVisualEffectView alloc]initWithEffect:blur];
     musicListEffeView_.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, musicList_.bounds.size.height);
-    isMoving = NO;
+    isShowing_ = NO;
     [self.view addSubview:effectView_];
     [self.view addSubview:musicListEffeView_];
     [self.view addSubview:musicList_];
