@@ -6,7 +6,7 @@
 	<string>Helvetica-Light</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>方正兰亭纤黑_GBK.TTF</string>
+		<string>方正兰亭纤黑_GBK.TTF//此处添加自定义字体</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
