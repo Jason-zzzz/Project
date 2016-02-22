@@ -93,31 +93,6 @@
 static NSInteger a = 0;
 static NSInteger b = 0;
 
-- (void)getFirstCellImage: (NSArray *)chars{
-
-    b = chars.count;
-    for (NSInteger i = 0; i < chars.count; i++) {
-        NSString *Url = [chars[i] objectForKey:@"adImg"];
-   
-        // 创建请求对象
-        NSString *encodeUrlString = [Url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-        NSURL *url = [NSURL URLWithString:encodeUrlString];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        
-        // 创建会话配置对象
-        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-        // 创建会话对象
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
-        
-        
-        // 获取downloadTask对象
-        NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request];
-        [task resume];
-    }
-
-}
-
 - (void)getSecondImage:(NSDictionary *)dic{
     
 }
@@ -136,9 +111,30 @@ static NSInteger b = 0;
     NSURL *preferencesURL = [libraryUrl URLByAppendingPathComponent:@"Preferences"];
     NSURL *desURL = [preferencesURL URLByAppendingPathComponent:[location lastPathComponent]];
     
-    [fileManager removeItemAtURL:desURL error:nil];// 删除同名文件
-    [fileManager copyItemAtURL:location toURL:desURL error:nil];// 目标目录有同名文件会报错
+//    [fileManager removeItemAtURL:preferencesURL  error:nil];// 删除同名文件
     
+//        删除sandbox 里面的Documents目录里面的文件夹
+//        NSArray *contents，里面对应的是文件夹里面的内容，可以使用NSLog()打印输出
+//        然后通过NSEnumerator枚举出来。判断扩展名是否为tmp，如果是，则删除。
+    NSString *extension = @"tmp";
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSArray *contents = [fileManager contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    NSEnumerator *e = [contents objectEnumerator];
+    NSString *filename;
+    while ((filename = [e nextObject])) {
+        
+        if ([[filename pathExtension] isEqualToString:extension]) {
+            
+            [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:filename] error:NULL];
+        }
+    }
+    
+
+    [fileManager copyItemAtURL:location toURL:desURL error:nil];// 目标目录有同名文件会报错
+    NSLog(@"%@",desURL);
     [firstCellImages_ addObject:[desURL path]];
     
     a++;

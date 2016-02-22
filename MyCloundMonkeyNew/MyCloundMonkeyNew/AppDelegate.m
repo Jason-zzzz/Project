@@ -53,8 +53,8 @@
     shopViewController_ = [[ShopViewController alloc] init];
     userViewController_ = [[UserViewController alloc] init];
     
-    homeViewController_.title = @"云猴全球购";
-    findViewController_.title = @"云猴全球购";
+    homeViewController_.title = @"牛逼购物";
+    findViewController_.title = @"牛逼购物";
     shopViewController_.title = @"购物车";
     userViewController_.title = @"个人中心";
     

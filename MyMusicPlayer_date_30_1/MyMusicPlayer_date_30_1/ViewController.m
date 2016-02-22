@@ -44,10 +44,12 @@
     __weak IBOutlet UISlider *playSlider_;
     __weak IBOutlet UILabel *currentTimeLabel_;
     __weak IBOutlet UILabel *totalTimeLabel_;
-    __weak IBOutlet UITableView *MusicList_;
+    __weak IBOutlet UITableView *musicTableList_;
     
     // 歌曲列表
-    __weak IBOutlet UIView *musicList_;
+    __weak IBOutlet UIView *musicListView_;
+    __weak IBOutlet UIButton *circlePlay_;
+    __weak IBOutlet UIButton *clear_;
     BOOL isShowing_;
     
     // 播放器及相应数据
@@ -101,11 +103,11 @@
     effectView_ = [[UIVisualEffectView alloc]initWithEffect:blur];
     effectView_.frame = CGRectMake(0, SCREEN_HEIGHT - STATUSVIEW_HEIGHT, SCREEN_WIDTH, STATUSVIEW_HEIGHT);
     musicListEffeView_ = [[UIVisualEffectView alloc]initWithEffect:blur];
-    musicListEffeView_.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, musicList_.bounds.size.height);
+    musicListEffeView_.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, musicListView_.bounds.size.height);
     isShowing_ = NO;
     [self.view addSubview:effectView_];
     [self.view addSubview:musicListEffeView_];
-    [self.view addSubview:musicList_];
+    [self.view addSubview:musicListView_];
     [self.view addSubview:statusView_];
     
     
@@ -227,12 +229,15 @@
         playSlider_.value = 0;
         playSlider_.maximumValue = (int)audioPlayer_.duration;
         
-        [self setText];
-        [self setCurrentTimeLabel];
-        [self setTotalTimeLabel];
-        totalTimeLabel_.text = [NSString stringWithFormat:@"%02d:%02d",(int)audioPlayer_.duration / 60,(int)audioPlayer_.duration % 60];
+        if (!isShowing_) {
+            [self setText];
+            [self setCurrentTimeLabel];
+            [self setTotalTimeLabel];
+        }
         if (isPlay_) {
-            statusMusicText_.text = @"正在播放";
+            if (!isShowing_) {
+                statusMusicText_.text = @"正在播放";
+            }
             [audioPlayer_ play];
         }else{
             // TODO
@@ -457,7 +462,7 @@ static NSInteger playSliderCenterY = 0;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.4 animations:^{
             [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-            musicList_.center = CGPointMake(musicList_.center.x, SCREEN_HEIGHT / 4 * 3);
+            musicListView_.center = CGPointMake(musicListView_.center.x, SCREEN_HEIGHT / 4 * 3);
             musicListEffeView_.center = CGPointMake(musicListEffeView_.center.x, SCREEN_HEIGHT / 4 * 3);
         } completion:^(BOOL finished) {
             // TODO
@@ -470,7 +475,7 @@ static NSInteger playSliderCenterY = 0;
     
     [UIView animateWithDuration:0.4 animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-        musicList_.center = CGPointMake(musicList_.center.x, SCREEN_HEIGHT / 4 * 5);
+        musicListView_.center = CGPointMake(musicListView_.center.x, SCREEN_HEIGHT / 4 * 5);
         musicListEffeView_.center = CGPointMake(musicListEffeView_.center.x, SCREEN_HEIGHT / 4 * 5);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.4 animations:^{
@@ -492,6 +497,8 @@ static NSInteger playSliderCenterY = 0;
         return 5;
     }else if(tableView == LRCTableView_){
         return timeArray_.count + 1;
+    }else if (tableView == musicTableList_){
+        return musicArray_.count;
     }
     return 0;
 }
@@ -523,6 +530,26 @@ static NSInteger playSliderCenterY = 0;
 //            cell.textLabel.text = @"浮于表面的文字";
         return cell;
         
+    }else if (tableView == musicTableList_){
+        // 歌词列表cell
+        static NSString *listCellIdentifier = @"listCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:listCellIdentifier forIndexPath:indexPath];
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:listCellIdentifier];
+//        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textAlignment = NSTextAlignmentLeft;
+        cell.textLabel.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.8];
+        
+        // 附件类型
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        Music *musicListMusic = [[Music alloc] init];
+        musicListMusic = musicArray_[indexPath.row];
+        cell.textLabel.text = musicListMusic.musicName;
+        
+        return cell;
     }else if(tableView == LRCTableView_){
         
         static NSString *cellIdentifier = @"LRCCell";
@@ -532,12 +559,8 @@ static NSInteger playSliderCenterY = 0;
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;// 该表格选中后没有颜色
         cell.backgroundColor = [UIColor clearColor];
-        
         cell.textLabel.backgroundColor = [UIColor clearColor];
-//                cell.textLabel.textColor = [UIColor blackColor];
-        
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        
 //                [cell.contentView addSubview:lable];// 往列表视图里加label视图，然后自行布局
         if (indexPath.row == timeArray_.count){
             cell.textLabel.text = nil;
@@ -559,6 +582,35 @@ static NSInteger playSliderCenterY = 0;
 }
 
 #pragma mark TableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView == musicTableList_) {
+        currentMusicArrayNumber_ = indexPath.row;
+        [self refreshPlayerStatus];
+    }
+}
+
+// 在显示前给tableViewCell添加动画效果
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    cell.alpha = 0.5;
+//    
+//    CGAffineTransform transformScale = CGAffineTransformMakeScale(0.3,0.8);
+//    CGAffineTransform transformTranslate = CGAffineTransformMakeTranslation(0.5, 0.6);
+//    
+//    cell.transform = CGAffineTransformConcat(transformScale, transformTranslate);
+//    
+//    [tableView bringSubviewToFront:cell];
+//    [UIView animateWithDuration:.4f
+//                          delay:0
+//                        options:UIViewAnimationOptionCurveEaseIn 
+//                     animations:^{
+//                         
+//                         cell.alpha = 1;
+//                         //清空 transform
+//                         cell.transform = CGAffineTransformIdentity;
+//                         
+//                     } completion:nil];
+//}
 
 @end
 

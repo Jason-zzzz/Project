@@ -11,10 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="res/circle.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eWT-UG-Pvg">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Copyright (c) 2016年 Zjs. All rights reserved." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGO-hs-hdh">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Copyright (c) 2016年 Zjs. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGO-hs-hdh">
                     <rect key="frame" x="115" y="551" width="371" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -23,19 +20,29 @@
                         <rect key="frame" x="2" y="578" width="371" height="32"/>
                     </variation>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牛逼购物" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bn-tk-ggj">
+                    <rect key="frame" x="115" y="551" width="371" height="32"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                    <color key="textColor" red="0.91161512870855144" green="0.40177683016016558" blue="0.27522848259281235" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="2" y="150" width="371" height="193"/>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="eWT-UG-Pvg" firstAttribute="top" secondItem="Wzp-VE-UFE" secondAttribute="top" id="Cii-VJ-9WM"/>
-                <constraint firstAttribute="bottom" secondItem="eWT-UG-Pvg" secondAttribute="bottom" id="hrA-5c-E8t"/>
-                <constraint firstItem="eWT-UG-Pvg" firstAttribute="leading" secondItem="Wzp-VE-UFE" secondAttribute="leading" id="w41-4Y-COG"/>
-                <constraint firstAttribute="trailing" secondItem="eWT-UG-Pvg" secondAttribute="trailing" id="yef-BB-MMD"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="604" y="343"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="7Bn-tk-ggj"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="7Bn-tk-ggj"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="603.5" y="342.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="res/circle.jpg" width="16" height="16"/>
-    </resources>
 </document>
