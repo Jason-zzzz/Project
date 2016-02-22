@@ -21,6 +21,8 @@
 		1C00BEDA1C60D94D007D401E /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C00BED91C60D94D007D401E /* MenuViewController.m */; };
 		1C00BEDD1C60F4DE007D401E /* FirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C00BEDC1C60F4DE007D401E /* FirstCell.m */; };
 		1C00BEE01C60F950007D401E /* SecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C00BEDF1C60F950007D401E /* SecondCell.m */; };
+		1C11BE121C78C3D000F11777 /* GlobalFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C11BE111C78C3D000F11777 /* GlobalFont.m */; };
+		1C4190451C7B694600AA8C6B /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4190441C7B694600AA8C6B /* cancel@2x.png */; };
 		1CF56DD61C5CFA5900FAE39E /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF56DD51C5CFA5900FAE39E /* DataModel.m */; };
 		1CFDD9FF1C5CEB14004CA701 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFDD9FE1C5CEB14004CA701 /* main.m */; };
 		1CFDDA021C5CEB14004CA701 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFDDA011C5CEB14004CA701 /* AppDelegate.m */; };
@@ -39,6 +41,7 @@
 		843D83111C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D830B1C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 */; };
 		843D83121C73F99E00621632 /* 梁静茹-偶阵雨.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 843D830C1C73F99E00621632 /* 梁静茹-偶阵雨.lrc */; };
 		843D83131C73F99E00621632 /* 梁静茹-偶阵雨.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D830D1C73F99E00621632 /* 梁静茹-偶阵雨.mp3 */; };
+		845D488D1C7AF7F800D0D75D /* SearchIcon_red@3X.png in Resources */ = {isa = PBXBuildFile; fileRef = 845D488C1C7AF7F800D0D75D /* SearchIcon_red@3X.png */; };
 		846340FD1C72AE950040C9D5 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846340FC1C72AE950040C9D5 /* SetViewController.m */; };
 		B107243CEB3F5652FBDE6512 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 419C9C59E82007CD7A9A364B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -78,6 +81,9 @@
 		1C00BEDC1C60F4DE007D401E /* FirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCell.m; sourceTree = "<group>"; };
 		1C00BEDE1C60F950007D401E /* SecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCell.h; sourceTree = "<group>"; };
 		1C00BEDF1C60F950007D401E /* SecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCell.m; sourceTree = "<group>"; };
+		1C11BE101C78C3D000F11777 /* GlobalFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFont.h; sourceTree = "<group>"; };
+		1C11BE111C78C3D000F11777 /* GlobalFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFont.m; sourceTree = "<group>"; };
+		1C4190441C7B694600AA8C6B /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
 		1CF56DD41C5CFA5900FAE39E /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		1CF56DD51C5CFA5900FAE39E /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		1CFDD9FA1C5CEB14004CA701 /* MyMusicPlayer_date_30_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusicPlayer_date_30_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +113,7 @@
 		843D830B1C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "林俊杰-背对背拥抱.mp3"; sourceTree = "<group>"; };
 		843D830C1C73F99E00621632 /* 梁静茹-偶阵雨.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "梁静茹-偶阵雨.lrc"; sourceTree = "<group>"; };
 		843D830D1C73F99E00621632 /* 梁静茹-偶阵雨.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "梁静茹-偶阵雨.mp3"; sourceTree = "<group>"; };
+		845D488C1C7AF7F800D0D75D /* SearchIcon_red@3X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchIcon_red@3X.png"; sourceTree = "<group>"; };
 		846340FB1C72AE950040C9D5 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
 		846340FC1C72AE950040C9D5 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
 		AFE294330851CB994C4976C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +149,8 @@
 		1C00BEB61C60915E007D401E /* image */ = {
 			isa = PBXGroup;
 			children = (
+				1C4190441C7B694600AA8C6B /* cancel@2x.png */,
+				845D488C1C7AF7F800D0D75D /* SearchIcon_red@3X.png */,
 				1C00BEB71C60915E007D401E /* aboveMusic.png */,
 				1C00BEB91C60915E007D401E /* circleClose.png */,
 				1C00BEBA1C60915E007D401E /* circleOpen.png */,
@@ -184,11 +193,13 @@
 			isa = PBXGroup;
 			children = (
 				1CFDFCA91C5E515B001AF92E /* backgroundImage */,
-				1CFDFC9F1C5E4EA2001AF92E /* DataModel */,
 				843D83071C73F99E00621632 /* Songs */,
 				1C00BEB61C60915E007D401E /* image */,
 				1CFDDA001C5CEB14004CA701 /* AppDelegate.h */,
 				1CFDDA011C5CEB14004CA701 /* AppDelegate.m */,
+				1C11BE101C78C3D000F11777 /* GlobalFont.h */,
+				1C11BE111C78C3D000F11777 /* GlobalFont.m */,
+				1CFDFC9F1C5E4EA2001AF92E /* DataModel */,
 				1CFDFCA01C5E4EB7001AF92E /* HomeView */,
 				1CFDDA091C5CEB14004CA701 /* Assets.xcassets */,
 				1CFDFCB11C5E5B06001AF92E /* LaunchScreen.xib */,
@@ -394,6 +405,7 @@
 				843D83111C73F99E00621632 /* 林俊杰-背对背拥抱.mp3 in Resources */,
 				843D83131C73F99E00621632 /* 梁静茹-偶阵雨.mp3 in Resources */,
 				1C00BECD1C60915E007D401E /* sliderThumb_small.png in Resources */,
+				845D488D1C7AF7F800D0D75D /* SearchIcon_red@3X.png in Resources */,
 				1C00BEC51C60915E007D401E /* circleClose.png in Resources */,
 				843D83101C73F99E00621632 /* 林俊杰-背对背拥抱.lrc in Resources */,
 				843D830E1C73F99E00621632 /* 情非得已.lrc in Resources */,
@@ -408,6 +420,7 @@
 				843D83121C73F99E00621632 /* 梁静茹-偶阵雨.lrc in Resources */,
 				1CFDDA0A1C5CEB14004CA701 /* Assets.xcassets in Resources */,
 				1C00BEC61C60915E007D401E /* circleOpen.png in Resources */,
+				1C4190451C7B694600AA8C6B /* cancel@2x.png in Resources */,
 				1C00BECB1C60915E007D401E /* randomClose.png in Resources */,
 				1CFDFCAA1C5E515B001AF92E /* backgroundImage in Resources */,
 				1C00BECE1C60915E007D401E /* soundSlider.png in Resources */,
@@ -493,6 +506,7 @@
 				1CFDDA021C5CEB14004CA701 /* AppDelegate.m in Sources */,
 				1CFDD9FF1C5CEB14004CA701 /* main.m in Sources */,
 				1C00BEDA1C60D94D007D401E /* MenuViewController.m in Sources */,
+				1C11BE121C78C3D000F11777 /* GlobalFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

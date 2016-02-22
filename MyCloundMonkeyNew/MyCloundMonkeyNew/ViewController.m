@@ -17,6 +17,7 @@
 #import "GetInternetData.h"
 #import "SearchViewController.h"
 #import "ProductsViewController.h"
+#import "ScanningViewController.h"
 
 #define subFieldUrl @"http://global.api.yunhou.com/yunhou-global-api/service?method=bubugao.mobile.global.sysParamAndLoading.get&version=1.4.1&eCode=225bff88a45918a&mChannel=App Store&params={'sourceType':'2'}&phoneModel=iPhone&source=ios&systemVersion=IOS9.2&uCode=195858116e65781&version=1.4.1&versionCode=28"
 #define URL_FIRSTCELL @"http://global.api.yunhou.com/yunhou-global-api/service?method=bubugao.mobile.global.index.recommend.get&version=1.4.1"
@@ -61,6 +62,8 @@
 - (id)init{
     if (self = [super init]) {
         
+        NSLog(@"沙盒路径:%@", NSHomeDirectory());
+        
         arr_ = [NSMutableArray array];
         
         searchViewController_ = [[SearchViewController alloc] init];
@@ -101,7 +104,7 @@
         self.imagesArray = dataModel_.firstCellImages;
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"res/DefaultTheme/SearchIcon_red"] style:UIBarButtonItemStylePlain target:self action:@selector(searchAction:)];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"res/Root/QR_code"] style:UIBarButtonItemStyleDone target:self action:nil];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"res/Root/QR_code"] style:UIBarButtonItemStyleDone target:self action:@selector(scanAction:)];
     }
     return self;
 }
@@ -359,6 +362,19 @@ static NSMutableArray *imageArr = nil;
     [self presentViewController:searchViewController_ animated:YES completion:^{
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
+}
+
+- (IBAction)scanAction:(id)sender{
+    ScanningViewController * sVC = [[ScanningViewController alloc]init];
+//    sVC.hidesBottomBarWhenPushed=YES;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:sVC];
+    sVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"res/cancel.png"] style:UIBarButtonItemStyleDone target:self action:@selector(cancelAction)];
+    sVC.title = @"二维码扫描";
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)cancelAction{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)timerAction:(id)sender{

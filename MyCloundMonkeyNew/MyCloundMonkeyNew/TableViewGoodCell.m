@@ -39,7 +39,6 @@
         [self addSubview:self.remaindImageView];
         [self addSubview:self.goodNowPrice];
         
-        // 重绘label
         [self addSubview:self.goodAbondonPrice];
         [self addSubview:self.shopButton];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -80,7 +79,7 @@
         remaindText_ = [[UILabel alloc] initWithFrame:frame];
         remaindText_.text = @"剩余时间";
         remaindText_.textAlignment = NSTextAlignmentLeft;
-        remaindText_.font = [UIFont fontWithName:@"Menlo" size:13];
+        remaindText_.font = [UIFont systemFontOfSize:13];
         remaindText_.textColor = [UIColor grayColor];
     }
     return remaindText_;
@@ -94,7 +93,7 @@
         goodIntroduce_.textAlignment = NSTextAlignmentLeft;
         goodIntroduce_.numberOfLines = 0;
 //        NSLog(@"%@",[UIFont familyNames]);
-        goodIntroduce_.font = [UIFont fontWithName:@"Helvetica" size:15];
+        goodIntroduce_.font = [UIFont systemFontOfSize:15];
         goodIntroduce_.textColor = [UIColor blackColor];
     }
     return goodIntroduce_;
@@ -134,7 +133,7 @@
         goodNowPrice_.text = @"$150";
         goodNowPrice_.textAlignment = NSTextAlignmentLeft;
 //        goodNowPrice_.backgroundColor = [UIColor blueColor];
-        goodNowPrice_.font = [UIFont fontWithName:@"Menlo" size:18];
+        goodNowPrice_.font = [UIFont systemFontOfSize:18];
         goodNowPrice_.textColor = [UIColor redColor];
     }
     return goodNowPrice_;
@@ -146,7 +145,7 @@
         goodAbondonPrice_ = [[UILabel alloc] initWithFrame:frame];
         goodAbondonPrice_.text = @"$150";
         goodAbondonPrice_.textAlignment = NSTextAlignmentLeft;
-        goodAbondonPrice_.font = [UIFont fontWithName:@"Menlo" size:13];
+        goodAbondonPrice_.font = [UIFont systemFontOfSize:13];
 //        goodAbondonPrice_.backgroundColor = [UIColor blueColor];
         goodAbondonPrice_.textColor = [UIColor grayColor];
     }

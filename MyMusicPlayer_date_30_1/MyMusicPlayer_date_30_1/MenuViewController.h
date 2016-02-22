@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @interface MenuViewController : UIViewController
+
+@property (weak,nonatomic)  ViewController  *myMusic;
+
+@end
+
+@protocol SelectDelegate <NSObject>
+
+@required
+- (void)didSelected: (NSInteger)row;
 
 @end

@@ -129,10 +129,105 @@
                             </tableView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sPA-W6-QDV">
                                 <rect key="frame" x="0.0" y="591" width="375" height="31"/>
+                                <connections>
+                                    <action selector="playSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="e0M-Bq-j9l"/>
+                                </connections>
                             </slider>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIc-gy-eaN">
+                                <rect key="frame" x="0.0" y="667" width="375" height="334"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ofg-cA-NVm">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KK-bY-IJ0">
+                                                <rect key="frame" x="0.0" y="0.0" width="66" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" backgroundImage="circleOpen.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="37"/>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTv-0U-fDy">
+                                                <rect key="frame" x="311" y="0.0" width="66" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="清空">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JTY-sS-bpe">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="246"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listCell" id="00V-hH-hGO">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00V-hH-hGO" id="oEj-Pe-byc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cht-z0-NgQ">
+                                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                            <state key="normal" image="cancel.png"/>
+                                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                                <rect key="frame" x="335" y="11" width="30" height="22"/>
+                                                            </variation>
+                                                        </button>
+                                                    </subviews>
+                                                    <variation key="default">
+                                                        <mask key="subviews">
+                                                            <exclude reference="Cht-z0-NgQ"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="subviews">
+                                                            <include reference="Cht-z0-NgQ"/>
+                                                        </mask>
+                                                    </variation>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="3dC-xt-Ps9"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="1n6-It-OXc"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPW-pP-fwt">
+                                        <rect key="frame" x="0.0" y="290" width="375" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="关闭">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeMusicList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="84J-oV-Ker"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lj-xo-7rN">
                                 <rect key="frame" x="0.0" y="544" width="600" height="69"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hk2-qU-ZH5">
+                                        <rect key="frame" x="0.0" y="-20" width="40" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.94010416666666663" green="0.94010416666666663" blue="0.94010416666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="2" y="-20" width="40" height="20"/>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Es-NY-epM">
+                                        <rect key="frame" x="333" y="-20" width="40" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.94901842948717952" green="0.94901842948717952" blue="0.94901842948717952" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y5-jd-xM0">
                                         <rect key="frame" x="268" y="3" width="78" height="60"/>
                                         <state key="normal" backgroundImage="play.png"/>
@@ -187,7 +282,7 @@
                                             <rect key="frame" x="324" y="2" width="52" height="41"/>
                                         </variation>
                                         <connections>
-                                            <segue destination="5lG-4e-mvQ" kind="presentation" id="v5z-cu-PmO"/>
+                                            <action selector="statusMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLU-s5-mjU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-yz-wtn">
@@ -206,12 +301,6 @@
                                     <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hk2-qU-ZH5">
-                                <rect key="frame" x="0.0" y="605" width="40" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -234,20 +323,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title=" " backgroundImage="menu.png"/>
                                 <connections>
-                                    <segue destination="rH1-mE-Q8D" kind="push" id="Jqy-pC-gFh"/>
+                                    <segue destination="rH1-mE-Q8D" kind="show" id="Jqy-pC-gFh"/>
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Ai4-6Z-M8s">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="828-E4-Jhm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wve-DN-0SC">
+                                <rect key="frame" x="343" y="14" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="SearchIcon_red@3X.png"/>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="LRCTableView_" destination="zvV-eA-K5F" id="d6y-fS-L6U"/>
                         <outlet property="backgroundImageView_" destination="P5y-yD-pKp" id="P4t-yg-L9Y"/>
+                        <outlet property="circlePlay_" destination="1KK-bY-IJ0" id="CYq-kb-s0d"/>
+                        <outlet property="clear_" destination="mTv-0U-fDy" id="6uM-Cf-IfY"/>
                         <outlet property="currentTimeLabel_" destination="Hk2-qU-ZH5" id="Vi1-3y-8TR"/>
                         <outlet property="homeTableView_" destination="6YI-LM-nhT" id="X8v-DM-Xmg"/>
+                        <outlet property="musicListView_" destination="fIc-gy-eaN" id="7uU-ac-y3n"/>
+                        <outlet property="musicTableList_" destination="JTY-sS-bpe" id="eSp-oU-zqN"/>
                         <outlet property="playSlider_" destination="sPA-W6-QDV" id="PHN-Zz-s7a"/>
                         <outlet property="statusBack_" destination="XBG-yz-wtn" id="B6M-nn-c2z"/>
                         <outlet property="statusMenu_" destination="KXa-aV-YvJ" id="n4d-B2-ZBu"/>
@@ -257,6 +354,7 @@
                         <outlet property="statusNext_" destination="Cia-hI-Kru" id="OdE-Qe-fB6"/>
                         <outlet property="statusPlay_" destination="2Y5-jd-xM0" id="VcX-dK-FrT"/>
                         <outlet property="statusView_" destination="0lj-xo-7rN" id="gse-3g-uqT"/>
+                        <outlet property="totalTimeLabel_" destination="4Es-NY-epM" id="mb4-FT-0X7"/>
                         <outlet property="userMenu_" destination="j3U-kQ-1TF" id="zBu-ag-scN"/>
                     </connections>
                 </viewController>
@@ -300,69 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8n-Ph-RmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031.25" y="1095.5"/>
-        </scene>
-        <!--Menu View Controller-->
-        <scene sceneID="eWe-jr-DFT">
-            <objects>
-                <viewController id="5lG-4e-mvQ" customClass="MenuViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HQq-CY-7GZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="hLg-Ju-sg1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Uds-En-ixv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdP-gg-Zl2">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                </variation>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-0S-b00">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" backgroundImage="backgroundImage/sean.jpg"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="320" y="614" width="45" height="45"/>
-                                </variation>
-                                <connections>
-                                    <action selector="returnButtonAction:" destination="5lG-4e-mvQ" eventType="touchUpInside" id="xgG-mv-K7C"/>
-                                </connections>
-                            </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taJ-Qo-mkY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <color key="barTintColor" red="0.36790013310000003" green="0.49627845920000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="MusicList" id="ywb-3Z-7Vt"/>
-                                </items>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                </variation>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="xdP-gg-Zl2"/>
-                                <exclude reference="rsH-0S-b00"/>
-                                <exclude reference="taJ-Qo-mkY"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="xdP-gg-Zl2"/>
-                                <include reference="rsH-0S-b00"/>
-                                <include reference="taJ-Qo-mkY"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4DM-Po-M0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1722.75" y="313.5"/>
+            <point key="canvasLocation" x="1030.5" y="1287.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0BX-qb-5LO">
@@ -385,11 +421,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="SearchIcon_red@3X.png" width="58" height="57"/>
         <image name="aboveMusic.png" width="78" height="60"/>
         <image name="backgroundImage/cloud.jpg" width="16" height="16"/>
         <image name="backgroundImage/man.jpg" width="480" height="800"/>
-        <image name="backgroundImage/sean.jpg" width="480" height="800"/>
         <image name="backgroundImage/woman.jpg" width="16" height="16"/>
+        <image name="cancel.png" width="16" height="16"/>
+        <image name="circleOpen.png" width="78" height="60"/>
         <image name="menu.png" width="78" height="60"/>
         <image name="nextMusic.png" width="78" height="60"/>
         <image name="play.png" width="78" height="60"/>
