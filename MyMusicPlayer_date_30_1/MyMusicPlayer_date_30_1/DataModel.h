@@ -14,7 +14,7 @@
 @interface DataModel : NSObject
 
 // 声明一个遵循DataModelDelegate协议的实例属性
-@property (nonatomic, strong) id <DataModelDelegate> modelDelegate;
+@property (nonatomic, assign) id <DataModelDelegate> modelDelegate;
 
 // 声明一个外部可访问的ID属性供测试使用
 @property (nonatomic, assign) NSInteger ID;

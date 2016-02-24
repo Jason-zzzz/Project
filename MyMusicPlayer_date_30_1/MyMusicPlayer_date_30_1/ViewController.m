@@ -86,6 +86,14 @@
     
     // 初始化播放器状态
     [self initPlayerStatus];
+    
+    [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark Methods
@@ -104,7 +112,7 @@
     effectView_.frame = CGRectMake(0, SCREEN_HEIGHT - STATUSVIEW_HEIGHT, SCREEN_WIDTH, STATUSVIEW_HEIGHT);
     musicListEffeView_ = [[UIVisualEffectView alloc]initWithEffect:blur];
     musicListEffeView_.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, musicListView_.bounds.size.height);
-    isShowing_ = NO;
+
     [self.view addSubview:effectView_];
     [self.view addSubview:musicListEffeView_];
     [self.view addSubview:musicListView_];
@@ -118,6 +126,7 @@
     [playSlider_ addTarget:self action:@selector(dragToNext) forControlEvents:UIControlEventTouchUpOutside];
     
     currentTimeLabel_.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.7];
+    totalTimeLabel_.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.7];
     
     // 设置歌名前的图片
     [self setStatusMusicImage];
@@ -127,6 +136,7 @@
 // 初始化播放器状态
 - (void)initPlayerStatus{
     
+    isShowing_ = NO;
     isPlay_ = NO;
     isPlayButton_ = NO;
     
@@ -323,9 +333,13 @@
 
 // 显示歌名及歌词信息
 - (void)setText{
-    
-    statusMusicName_.text = currentMusic_.musicName;
-    statusMusicText_.text = currentMusic_.singerName;
+    if (!isShowing_) {
+        statusMusicText_.text = currentMusic_.singerName;
+        statusMusicName_.text = currentMusic_.musicName;
+    }
+    if (isPlay_) {
+        statusMusicText_.text = @"正在播放";
+    }
 }
 
 // 显示目前时间
@@ -335,7 +349,9 @@
 
 // 显示总时间
 - (void)setTotalTimeLabel{
-    totalTimeLabel_.text = [NSString stringWithFormat:@"%02d:%02d",(int)audioPlayer_.duration / 60,(int)audioPlayer_.duration % 60];
+    if (!isShowing_) {
+        totalTimeLabel_.text = [NSString stringWithFormat:@"%02d:%02d",(int)audioPlayer_.duration / 60,(int)audioPlayer_.duration % 60];
+    }
 }
 
 // 得到歌曲数据
@@ -484,8 +500,12 @@ static NSInteger playSliderCenterY = 0;
             playSlider_.center = CGPointMake(playSlider_.center.x, SCREEN_HEIGHT - playSliderCenterY);
             effectView_.center = CGPointMake(effectView_.center.x, SCREEN_HEIGHT - effectView_.bounds.size.height / 2);
         } completion:^(BOOL finished) {
-            isShowing_ = NO;
+
         }];
+        isShowing_ = NO;
+        [self setTotalTimeLabel];
+        [self setCurrentTimeLabel];
+        [self setText];
     }];
     
 }
