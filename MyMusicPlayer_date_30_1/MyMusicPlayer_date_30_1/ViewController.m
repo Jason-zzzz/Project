@@ -93,7 +93,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-//    [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark Methods
@@ -103,8 +103,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     // 设置背景图片
-    backgroundImageView_.image = [UIImage imageNamed:@"backgroundImage/woman.jpg"];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundImage/womanTitle.jpg"]];
+//    backgroundImageView_.image = [UIImage imageNamed:@"woman.jpg"];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"womanTitle.jpg"]];
     
     // 毛玻璃效果
     UIBlurEffect * blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
