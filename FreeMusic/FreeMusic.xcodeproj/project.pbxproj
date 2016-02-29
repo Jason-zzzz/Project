@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842E34BF1C80451000A2BCA9 /* NSArray Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E34BA1C80451000A2BCA9 /* NSArray Chinese.m */; };
+		842E34C01C80451000A2BCA9 /* NSDictionary Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E34BC1C80451000A2BCA9 /* NSDictionary Chinese.m */; };
+		842E34C11C80451000A2BCA9 /* NSSet Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E34BE1C80451000A2BCA9 /* NSSet Chinese.m */; };
 		AA0F8F25193491CC00668DCB /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0F8F24193491CC00668DCB /* UIView+Additions.m */; };
 		AA1007BF19359CF7003B5EF9 /* FMMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1007BE19359CF7003B5EF9 /* FMMusicViewController.m */; };
 		AA1007C219359D3F003B5EF9 /* RFRadioView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1007C119359D3F003B5EF9 /* RFRadioView.m */; };
@@ -136,6 +139,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		842E34B91C80451000A2BCA9 /* NSArray Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray Chinese.h"; sourceTree = "<group>"; };
+		842E34BA1C80451000A2BCA9 /* NSArray Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray Chinese.m"; sourceTree = "<group>"; };
+		842E34BB1C80451000A2BCA9 /* NSDictionary Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary Chinese.h"; sourceTree = "<group>"; };
+		842E34BC1C80451000A2BCA9 /* NSDictionary Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary Chinese.m"; sourceTree = "<group>"; };
+		842E34BD1C80451000A2BCA9 /* NSSet Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet Chinese.h"; sourceTree = "<group>"; };
+		842E34BE1C80451000A2BCA9 /* NSSet Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet Chinese.m"; sourceTree = "<group>"; };
 		AA0F8F23193491CC00668DCB /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		AA0F8F24193491CC00668DCB /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		AA1007BD19359CF7003B5EF9 /* FMMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMusicViewController.h; sourceTree = "<group>"; };
@@ -527,6 +536,12 @@
 		AAB0DBEF193416CF00DE28CD = {
 			isa = PBXGroup;
 			children = (
+				842E34B91C80451000A2BCA9 /* NSArray Chinese.h */,
+				842E34BA1C80451000A2BCA9 /* NSArray Chinese.m */,
+				842E34BB1C80451000A2BCA9 /* NSDictionary Chinese.h */,
+				842E34BC1C80451000A2BCA9 /* NSDictionary Chinese.m */,
+				842E34BD1C80451000A2BCA9 /* NSSet Chinese.h */,
+				842E34BE1C80451000A2BCA9 /* NSSet Chinese.m */,
 				AA8CB70A1946FEE000C5214F /* ProgressHUD */,
 				AA8CB6D21946F96500C5214F /* ImageBrowser */,
 				AACE19951946A8CA0089C5A3 /* DropDown */,
@@ -900,6 +915,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = xiaozi;
 				TargetAttributes = {
+					AAB0DBF7193416CF00DE28CD = {
+						DevelopmentTeam = NU355HK68D;
+					};
 					AAB0DC12193416D000DE28CD = {
 						TestTargetID = AAB0DBF7193416CF00DE28CD;
 					};
@@ -956,6 +974,7 @@
 				AAB0DCE41934260E00DE28CD /* LKDBUtils.m in Sources */,
 				AAACCD931938178B00707CE3 /* FMLrcView.m in Sources */,
 				AA854B861945AFC2001A000A /* FMTDMovieModel.m in Sources */,
+				842E34C01C80451000A2BCA9 /* NSDictionary Chinese.m in Sources */,
 				AA8CB6FF1946F96500C5214F /* SDWebImageManager.m in Sources */,
 				AAA875B019406ECF00DB7A96 /* HttpDataSource.m in Sources */,
 				AAB0DC40193416E900DE28CD /* NSAlert+MKNetworkKitAdditions.m in Sources */,
@@ -1008,6 +1027,7 @@
 				AA8CB7031946F96500C5214F /* UIImage+MultiFormat.m in Sources */,
 				AA8CB7011946F96500C5214F /* UIButton+WebCache.m in Sources */,
 				AAA875AC19406ECF00DB7A96 /* AutoRecoveringHttpDataSource.m in Sources */,
+				842E34BF1C80451000A2BCA9 /* NSArray Chinese.m in Sources */,
 				AA376DEE1946CB4000315A1E /* FMTDTableViewCell.m in Sources */,
 				AAB0DCE51934260E00DE28CD /* NSObject+LKDBHelper.m in Sources */,
 				AAB0DC0C193416D000DE28CD /* AppDelegate.m in Sources */,
@@ -1022,6 +1042,7 @@
 				AA8CB6F81946F96500C5214F /* NSData+GIF.m in Sources */,
 				AAB0DC42193416E900DE28CD /* NSDate+RFC1123.m in Sources */,
 				AAB0DC53193416F500DE28CD /* KHNetworkOperation.m in Sources */,
+				842E34C11C80451000A2BCA9 /* NSSet Chinese.m in Sources */,
 				AAB0DC7D1934177300DE28CD /* ICSDrawerController.m in Sources */,
 				AAE7B1201945A7920076C302 /* FMTudouViewController.m in Sources */,
 				AA616547193574D90063782B /* FMMainTableViewCell.m in Sources */,
@@ -1162,6 +1183,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FreeMusic/FreeMusic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1170,7 +1192,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "FreeMusic/FreeMusic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1181,6 +1203,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FreeMusic/FreeMusic-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1189,7 +1212,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "FreeMusic/FreeMusic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

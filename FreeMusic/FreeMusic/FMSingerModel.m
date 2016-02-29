@@ -43,6 +43,7 @@
 -(NSMutableArray *)itemTop100
 {
 //    NSMutableArray * array = [FMSingerModel searchWithWhere:[NSString stringWithFormat:@"'songs_total' >1000"] orderBy:nil offset:0 count:50];
+//    NSLog(@"%@", [self itemWith:@"李"]);
     return [self itemWith:@"李"];
 }
 

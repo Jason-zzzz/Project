@@ -34,7 +34,7 @@
     UIScrollView *contentScrollView;
     
     // tableview视图控制器
-    HomeTableView *homeTableView_;
+    UITableViewController *homeTableView_;
     HomeTableViewSecondCell *homeTableViewSecondCell_;
     HomeTableViewCell *firstCell_;
     HomeTableViewThirdCell *thirdCell_;
@@ -150,10 +150,20 @@
     contentScrollView.scrollsToTop  = NO;
     contentScrollView.showsHorizontalScrollIndicator = NO;
     
-    
     [self addHomeTableView];
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self action:@selector(fuck) forControlEvents:UIControlEventValueChanged];
+    homeTableView_.refreshControl = refresh;
+    
     [self.view addSubview:contentScrollView];
     
+}
+
+- (void)fuck{
+    NSLog(@"123");
+    [homeTableView_.tableView reloadData];
+    [homeTableView_.refreshControl endRefreshing];
 }
 
 #pragma mark -QHNavSliderMenuDelegate
@@ -175,18 +185,21 @@
 
 - (void)addHomeTableView{
     //    for (NSInteger i = 0; i < 8; i++) {
+    homeTableView_ = [[UITableViewController alloc] init];
+    
     CGRect frame = CGRectMake(0, 0, screenWidth, screenHeight - 152);
-    homeTableView_ = [[HomeTableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
-    [homeTableView_ registerClass:[HomeTableViewCell class] forCellReuseIdentifier:@"firstCell"];
+    homeTableView_.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
+    [homeTableView_.tableView registerClass:[HomeTableViewCell class] forCellReuseIdentifier:@"firstCell"];
     //    [homeTableView_ registerClass:[HomeTableViewSecondCell class] forCellReuseIdentifier:@"secondCell"];
-    [homeTableView_ registerClass:[HomeTableViewThirdCell class] forCellReuseIdentifier:@"thirdCell"];
-    [homeTableView_ registerClass:[TableViewGoodCell class] forCellReuseIdentifier:@"goodCell"];
+    [homeTableView_.tableView registerClass:[HomeTableViewThirdCell class] forCellReuseIdentifier:@"thirdCell"];
+    [homeTableView_.tableView registerClass:[TableViewGoodCell class] forCellReuseIdentifier:@"goodCell"];
     
-    homeTableView_.separatorStyle = UITableViewCellSeparatorStyleNone;
-    homeTableView_.delegate = self;
-    homeTableView_.dataSource = self;
+    homeTableView_.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    homeTableView_.tableView.delegate = self;
+    homeTableView_.tableView.dataSource = self;
     
-    [contentScrollView addSubview:homeTableView_];
+    [self addChildViewController:homeTableView_];
+    [contentScrollView addSubview:homeTableView_.tableView];
     //    }
 }
 
@@ -222,7 +235,7 @@ static NSMutableArray *imageArr = nil;
         return firstCell_;
     }else if(indexPath.section == 1){
         UINib *nib = [UINib nibWithNibName:@"HomeTableViewSecondCell" bundle:nil];
-        [homeTableView_ registerNib:nib forCellReuseIdentifier:@"homeTableViewSecondCell"];
+        [homeTableView_.tableView registerNib:nib forCellReuseIdentifier:@"homeTableViewSecondCell"];
         homeTableViewSecondCell_ = [tableView dequeueReusableCellWithIdentifier:@"homeTableViewSecondCell" forIndexPath:indexPath];
         return homeTableViewSecondCell_;
     }else if(indexPath.section == 2 || indexPath.section == 4){
@@ -353,18 +366,18 @@ static NSMutableArray *imageArr = nil;
 
 #pragma mark MyAction
 
-- (IBAction)refreshAction:(id)sender{
+- (IBAction)refreshAction:(id)sender {
     
 }
 
-- (IBAction)searchAction:(id)sender{
+- (IBAction)searchAction:(id)sender {
     searchViewController_.view.backgroundColor = [UIColor whiteColor];
     [self presentViewController:searchViewController_ animated:YES completion:^{
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 
-- (IBAction)scanAction:(id)sender{
+- (IBAction)scanAction:(id)sender {
     ScanningViewController * sVC = [[ScanningViewController alloc]init];
 //    sVC.hidesBottomBarWhenPushed=YES;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:sVC];

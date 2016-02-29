@@ -126,6 +126,52 @@
     [_session startRunning];
 }
 #pragma mark AVCaptureMetadataOutputObjectsDelegate
+
+//- (void)checkAVAuthorizationStatus {
+//    
+//    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+//    NSString *tips = NSLocalizedString(@"AVAuthorization", @"您没有权限访问相机");
+//    if(status == AVAuthorizationStatusAuthorized) {
+//        // authorized [self setupCamera];
+//    } else {
+////        [SVProgressHUD showWithStatus:tips];
+//    }
+//}
+
+//@property (nonatomic, strong) AVCaptureMetadataOutput *output;
+//@property (nonatomic, strong) AVCaptureSession *session;
+
+//- (AVCaptureMetadataOutput *)output
+//{
+//    if (!_output) {
+//        _output = [[AVCaptureMetadataOutput alloc] init];
+//        [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+//    }
+//    return _output;
+//}
+//
+//- (AVCaptureSession *)session
+//{
+//    if (!_session) {
+//        _session = [[AVCaptureSession alloc] init];
+//        
+//        [_session setSessionPreset:AVCaptureSessionPresetHigh];
+//        
+//        if ([_session canAddInput:self.input]) {
+//            [_session addInput:self.input];
+//        }
+//        
+//        if ([_session canAddOutput:self.output]) {
+//            [_session addOutput:self.output];
+//            
+//            NSArray *typeList = self.output.availableMetadataObjectTypes;
+//            NSLog(@"availableMetadataObjectTypes : %@", typeList);
+//            self.output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+//        }
+//    }
+//    return _session;
+//}
+
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     

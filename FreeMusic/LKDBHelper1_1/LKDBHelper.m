@@ -463,10 +463,11 @@ return NO;}
             set = [db executeQuery:query];
         else
             set = [db executeQuery:query withArgumentsInArray:values];
-        
+
         results = [self executeResult:set Class:modelClass];
         [set close];
     }];
+    NSLog(@"results:%@",results);
     return results;
 }
 -(void)sqlString:(NSMutableString*)sql AddOder:(NSString*)orderby offset:(int)offset count:(int)count
