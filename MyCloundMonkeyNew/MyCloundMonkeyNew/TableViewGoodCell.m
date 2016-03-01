@@ -46,24 +46,6 @@
     return self;
 }
 
-- (void)setUrlString:(NSString *)urlString{
-    // 异步下载
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        // 1.下载globle
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-
-        
-        // 2.回到主线程显示图片
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.goodImageView.image =  image;
-        });
-    });
-
-}
-
 - (UIImageView *)goodImageView{
     if (!goodImageView_) {
         CGRect frame = CGRectMake(0, 0, 135, 135);

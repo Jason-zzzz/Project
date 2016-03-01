@@ -8,14 +8,20 @@
 
 #import "SetViewController.h"
 
-@interface SetViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface SetViewController ()<UITableViewDataSource, UITableViewDelegate>{
+    NSArray <NSString *> *stringArr_;
+}
 
 @end
 
 @implementation SetViewController
 
+@synthesize setButton = setButton_;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    stringArr_ = @[@"我的",@"你的",@"他的",@"设置",@"歌曲",@"主题",@""];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,12 +30,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingFirstCell" forIndexPath:indexPath];
+    setButton_.titleLabel.text = stringArr_[indexPath.row];
     return cell;
 }
 

@@ -87,18 +87,18 @@
     // 初始化播放器状态
     [self initPlayerStatus];
     
-    [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    // 未知原因
     [LRCTableView_ reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark Methods
 
-- (void)initView{
+- (void)initView {
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -134,7 +134,7 @@
 }
 
 // 初始化播放器状态
-- (void)initPlayerStatus{
+- (void)initPlayerStatus {
     
     isShowing_ = NO;
     isPlay_ = NO;
@@ -158,7 +158,7 @@
     playSlider_.maximumValue = (int)audioPlayer_.duration;
     [self setTotalTimeLabel];
     
-//     后台播放音频设置
+//     后台播放音频设置 (需添加plist文件条目)
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:YES error:nil];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -167,7 +167,7 @@
     
 }
 
-- (void)setStatusMusicImage{
+- (void)setStatusMusicImage {
     
     // 圆形图片实际上就是设圆角
     [statusMusicImage_.layer setCornerRadius:(statusMusicImage_.frame.size.height / 2)];
@@ -196,7 +196,7 @@
 }
 
 // 更新播放器状态
-- (void)refreshPlayerStatus{
+- (void)refreshPlayerStatus {
     
     if (isPlayButton_) {
         isPlayButton_ = NO;
@@ -332,7 +332,7 @@
 }
 
 // 显示歌名及歌词信息
-- (void)setText{
+- (void)setText {
     if (!isShowing_) {
         statusMusicText_.text = currentMusic_.singerName;
         statusMusicName_.text = currentMusic_.musicName;
@@ -343,7 +343,7 @@
 }
 
 // 显示目前时间
-- (void)setCurrentTimeLabel{
+- (void)setCurrentTimeLabel {
     currentTimeLabel_.text = [NSString stringWithFormat:@"%02d:%02d",(int)playSlider_.value / 60,(int)playSlider_.value % 60];
 }
 
@@ -355,7 +355,7 @@
 }
 
 // 得到歌曲数据
-- (void)initMusicData{
+- (void)initMusicData {
     
     musicArray_ = [NSMutableArray array];
     
@@ -427,7 +427,7 @@
 }
 
 // 拖动到下一首
-- (void)dragToNext{
+- (void)dragToNext {
     if (playSlider_.value != 0 && playSlider_.value == (int)audioPlayer_.duration) {
         [self nextButtonAction:statusNext_];
     }
@@ -438,7 +438,7 @@
 }
 
 static NSInteger timersTime = 0;
-- (void)timerAction{
+- (void)timerAction {
     
     // 进度条更新值
     timersTime++;
@@ -512,7 +512,7 @@ static NSInteger playSliderCenterY = 0;
 
 #pragma mark TableViewDatasource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == homeTableView_) {
         return 5;
     }else if(tableView == LRCTableView_){
@@ -523,7 +523,7 @@ static NSInteger playSliderCenterY = 0;
     return 0;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == homeTableView_) {
         return 3;
     }else{
@@ -531,7 +531,7 @@ static NSInteger playSliderCenterY = 0;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == homeTableView_) {
         FirstCell *cell;
@@ -550,7 +550,7 @@ static NSInteger playSliderCenterY = 0;
 //            cell.textLabel.text = @"浮于表面的文字";
         return cell;
         
-    }else if (tableView == musicTableList_){
+    }else if (tableView == musicTableList_) {
         // 歌词列表cell
         static NSString *listCellIdentifier = @"listCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:listCellIdentifier forIndexPath:indexPath];
@@ -570,7 +570,7 @@ static NSInteger playSliderCenterY = 0;
         cell.textLabel.text = musicListMusic.musicName;
         
         return cell;
-    }else if(tableView == LRCTableView_){
+    }else if(tableView == LRCTableView_) {
         
         static NSString *cellIdentifier = @"LRCCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -582,7 +582,7 @@ static NSInteger playSliderCenterY = 0;
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
 //                [cell.contentView addSubview:lable];// 往列表视图里加label视图，然后自行布局
-        if (indexPath.row == timeArray_.count){
+        if (indexPath.row == timeArray_.count) {
             cell.textLabel.text = nil;
             return cell;
         }else{
@@ -603,7 +603,7 @@ static NSInteger playSliderCenterY = 0;
 
 #pragma mark TableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == musicTableList_) {
         currentMusicArrayNumber_ = indexPath.row;
         [self refreshPlayerStatus];
@@ -611,7 +611,7 @@ static NSInteger playSliderCenterY = 0;
 }
 
 // 在显示前给tableViewCell添加动画效果
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 //    cell.alpha = 0.5;
 //    
 //    CGAffineTransform transformScale = CGAffineTransformMakeScale(0.3,0.8);

@@ -32,18 +32,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
-    lunchView_ = [[NSBundle mainBundle ]loadNibNamed:@"LaunchScreen" owner:nil options:nil][0];
-    lunchView_.frame = CGRectMake(0, 0, self.window.screen.bounds.size.width, self.window.screen.bounds.size.height);
-    [self.window addSubview:lunchView_];
-    
-    UIImageView *imageV = [[UIImageView alloc] initWithFrame:lunchView_.frame];
-    
-    imageV.image = [UIImage imageNamed:@"res/circle.jpg"];
-    [lunchView_ addSubview:imageV];
-    
-    [self.window bringSubviewToFront:lunchView_];
-    
-    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
+    // 等待画面
+//    lunchView_ = [[NSBundle mainBundle ]loadNibNamed:@"LaunchScreen" owner:nil options:nil][0];
+//    lunchView_.frame = CGRectMake(0, 0, self.window.screen.bounds.size.width, self.window.screen.bounds.size.height);
+//    [self.window addSubview:lunchView_];
+//    
+//    UIImageView *imageV = [[UIImageView alloc] initWithFrame:lunchView_.frame];
+//    
+//    imageV.image = [UIImage imageNamed:@"res/circle.jpg"];
+//    [lunchView_ addSubview:imageV];
+//    
+//    [self.window bringSubviewToFront:lunchView_];
+//    
+//    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(removeLun) userInfo:nil repeats:NO];
     
     // 设置栏目底色
     [self setColor];
@@ -72,13 +73,13 @@
     UINavigationController *shopNavController = [[UINavigationController alloc] initWithRootViewController:shopViewController_];
     
     UIImage *homeImage = [[UIImage imageNamed:@"res/DefaultTheme/Home.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImage *homeImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/Home_clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *homeImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/Home_Clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *findImage = [[UIImage imageNamed:@"res/DefaultTheme/Find.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImage *findImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/Find_clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *findImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/Find_Clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *shopImage = [[UIImage imageNamed:@"res/DefaultTheme/ShoppingCart.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImage *shopImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/ShoppingCart_clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *shopImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/ShoppingCart_Clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *userImage = [[UIImage imageNamed:@"res/DefaultTheme/UserCenter.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImage *userImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/UserCenter_clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *userImageSelect = [[UIImage imageNamed:@"res/DefaultTheme/UserCenter_Clicked.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     UITabBarItem *homeItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:homeImage selectedImage:homeImageSelect];
     UITabBarItem *findItem = [[UITabBarItem alloc] initWithTitle:@"分类" image:findImage selectedImage:findImageSelect];
