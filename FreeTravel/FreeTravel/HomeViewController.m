@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "MapViewController.h"
+#import "PopViewController.h"
 
 @interface HomeViewController () {
     MapViewController *mapVC_;
@@ -35,6 +36,10 @@
     mapVC_ = [[MapViewController alloc] init];
     [self.navigationController pushViewController:mapVC_ animated:YES];
     
+}
+- (IBAction)clickForPop:(id)sender {
+    PopViewController *popVC = [[PopViewController alloc] init];
+    [self presentViewController:popVC animated:YES completion:nil];
 }
 
 /*

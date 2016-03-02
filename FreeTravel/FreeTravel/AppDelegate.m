@@ -23,7 +23,7 @@
     
     UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
     
-    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"地图" image:nil selectedImage:nil  ];
+    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"首页" image:nil selectedImage:nil  ];
     
     homeNav.tabBarItem = item;
     
