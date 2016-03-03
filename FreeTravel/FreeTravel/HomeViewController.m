@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 #import "MapViewController.h"
-#import "PopViewController.h"
+#import "PPViewController.h"
 
 @interface HomeViewController () {
     MapViewController *mapVC_;
@@ -20,11 +20,10 @@
 
 @implementation HomeViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
-
-    // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,8 +37,10 @@
     
 }
 - (IBAction)clickForPop:(id)sender {
-    PopViewController *popVC = [[PopViewController alloc] init];
-    [self presentViewController:popVC animated:YES completion:nil];
+//    PopViewController *popVC = [[PopViewController alloc] init];
+    PPViewController *popVC = [[PPViewController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:popVC animated:YES];
 }
 
 /*

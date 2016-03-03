@@ -36,19 +36,11 @@
         _leftTableView.rowHeight = 38;
         _leftTableView.dataSource = self;
         _leftTableView.delegate = self;
-        
-        
-//        _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(origin.x, self.frame.origin.y + self.frame.size.height, ScreenWidth*0.7, 0) style:UITableViewStylePlain];
-//        _rightTableView.rowHeight = 38;
-//        _rightTableView.dataSource = self;
-//        _rightTableView.delegate = self;
-//        _rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//        _rightTableView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.f];
-        
+    
         //self tapped
         self.backgroundColor = [UIColor whiteColor];
         
-        //background init and tapped
+        //background init and tappe/d
         _backGroundView = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, screenSize.width, screenSize.height)];
         _backGroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
         _backGroundView.opaque = NO;
@@ -56,9 +48,7 @@
         [_backGroundView addGestureRecognizer:gesture];
         
         //add bottom shadow
-        UIView *bottomShadow = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-0.5, screenSize.width, 0.5)];
-        bottomShadow.backgroundColor = [UIColor lightGrayColor];
-        [self addSubview:bottomShadow];
+
     }
     return self;
 }
@@ -116,14 +106,9 @@
 
         _leftTableView.frame = CGRectMake(0, self.frame.origin.y, ScreenWidth, 0);
         [self.superview addSubview:_leftTableView];
-        _rightTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y, ScreenWidth*0.7, 0);
-        [self.superview addSubview:_rightTableView];
-        
         _leftTableView.alpha = 1.f;
-        _rightTableView.alpha = 1.f;
         [UIView animateWithDuration:0.2 animations:^{
             _leftTableView.frame = CGRectMake(0, self.frame.origin.y, ScreenWidth, _height);
-            _rightTableView.frame = CGRectMake(self.origin.x, self.frame.origin.y, ScreenWidth*0.7, _height);
             if (self.transformView) {
                 self.transformView.transform = CGAffineTransformMakeRotation(M_PI);
             }
@@ -134,13 +119,11 @@
 
         [UIView animateWithDuration:0.2 animations:^{
             _leftTableView.alpha = 0.f;
-            _rightTableView.alpha = 0.f;
             if (self.transformView) {
                 self.transformView.transform = CGAffineTransformMakeRotation(0);
             }
         } completion:^(BOOL finished) {
             [_leftTableView removeFromSuperview];
-            [_rightTableView removeFromSuperview];
         }];
     }
     complete();

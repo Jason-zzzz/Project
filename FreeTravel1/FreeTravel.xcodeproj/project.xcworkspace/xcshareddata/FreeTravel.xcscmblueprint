@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5546109d-ac40-4917-b4a3-bb6a2b833cc7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "5546109d-ac40-4917-b4a3-bb6a2b833cc7" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5546109d-ac40-4917-b4a3-bb6a2b833cc7" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "17E390C6-91F9-4D3A-8F7A-6B34DEDC8DEB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5546109d-ac40-4917-b4a3-bb6a2b833cc7" : "%E9%A1%B9%E7%9B%AESVN\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FreeTravel",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "项目\/FreeTravel\/FreeTravel.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/198.71.81.221:3612\/FreeTravel",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5546109d-ac40-4917-b4a3-bb6a2b833cc7"
+    }
+  ]
+}

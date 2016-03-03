@@ -1,5 +1,5 @@
 //
-//  PopViewController.h
+//  MapViewController.h
 //  FreeTravel
 //
 //  Created by Jason_zzzz on 16/3/1.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PopViewController : UIViewController
+@interface MapViewController : UIViewController
 
 @end

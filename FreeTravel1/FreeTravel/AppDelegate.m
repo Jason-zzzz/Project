@@ -2,12 +2,11 @@
 //  AppDelegate.m
 //  FreeTravel
 //
-//  Created by Jason_zzzz on 16/3/1.
-//  Copyright © 2016年 Jason_zzzz. All rights reserved.
+//  Created by Admin on 16/2/23.
+//  Copyright © 2016年 Miko. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,18 +16,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self setColor];
+    // Override point for customization after application launch.
     
+    [self setColor];
     return YES;
 }
 
+
 - (void)setColor{
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_back.png"] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"res/DefaultTheme/NavBar.png"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.095 green:0.676 blue:0.141 alpha:1.000]];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithWhite:0.287 alpha:1.000], NSForegroundColorAttributeName,nil] forState:UIControlStateNormal];
-    UIColor *titleHighlightedColor = [UIColor colorWithRed:0.867 green:0.000 blue:0.267 alpha:1.000];
+    UIColor *titleHighlightedColor = [UIColor colorWithRed:0.157 green:0.684 blue:0.216 alpha:1.000];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:titleHighlightedColor, NSForegroundColorAttributeName,nil] forState:UIControlStateSelected];
 }
 
