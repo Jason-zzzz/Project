@@ -54,7 +54,7 @@
     
     
     searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 300, 28)];
-    searchBar.backgroundImage = [UIImage imageNamed:@"nav_back.png"];
+//    searchBar.backgroundImage = [UIImage imageNamed:@"nav_back1.jpg"];
     searchBar.placeholder = @"搜索";
     searchBar.delegate = self;
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc]initWithCustomView:searchBar];

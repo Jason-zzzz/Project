@@ -39,11 +39,11 @@ static NSString *hotMessageIdentifer = nil;
     [self.navigationController.navigationBar addSubview:statusView];
     statusView.backgroundColor = [UIColor colorWithRed:0.24 green:0.78 blue:0.49 alpha:1.0];
     
-    UIImage *titleImage = [UIImage imageNamed:@"nav_back.jpg"];
-    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
-    titleImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
+//    UIImage *titleImage = [UIImage image∫Named:@"nav_back1.jpg"];
+//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
+//    titleImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
     
-    [self.navigationController.navigationBar addSubview:titleImageView];
+//    [self.navigationController.navigationBar addSubview:titleImageView];
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"header_02.jpg"]];
     
@@ -67,16 +67,39 @@ static NSString *hotMessageIdentifer = nil;
     popVC_ = [[PPViewController alloc] init];
     self.tabBarController.tabBar.hidden = NO;
     // Do any additional setup after loading the view, typically from a nib.
+    
+    isFirst = YES;
 }
 
+static BOOL isFirst;
+- (void)viewWillAppear:(BOOL)animated{
+    if (isFirst) {
+        self.hidesBottomBarWhenPushed = YES;
+        isFirst = NO;
+    } else {
+        self.hidesBottomBarWhenPushed = NO;
+        if (isButton) {
+            self.hidesBottomBarWhenPushed = YES;
+        }
+    }
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    isButton = NO;
+}
 
 #pragma mark popViewDelegate
 
+static BOOL isButton;
 - (void)popView:(NSInteger)tag{
     switch (tag) {
         case 10001:
+            isButton = YES;
             [self.navigationController showViewController:popVC_ sender:self];
-//            popVC_.tabBarController.tabBar.hidden = YES;
+            self.hidesBottomBarWhenPushed = NO;
             break;
             
         default:

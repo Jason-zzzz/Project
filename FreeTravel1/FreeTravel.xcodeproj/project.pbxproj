@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		840643931C8839ED0069DF39 /* nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 840643921C8839ED0069DF39 /* nav_back.png */; };
+		1C5E412A1C888205009314C8 /* nav_back1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C5E41291C888205009314C8 /* nav_back1.jpg */; };
+		1C5E41331C888972009314C8 /* NSArray Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E412E1C888972009314C8 /* NSArray Chinese.m */; };
+		1C5E41341C888972009314C8 /* NSDictionary Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E41301C888972009314C8 /* NSDictionary Chinese.m */; };
+		1C5E41351C888972009314C8 /* NSSet Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E41321C888972009314C8 /* NSSet Chinese.m */; };
 		840643971C88425F0069DF39 /* PPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840643951C88425F0069DF39 /* PPViewController.m */; };
 		840643981C88425F0069DF39 /* PPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840643961C88425F0069DF39 /* PPViewController.xib */; };
 		8406439B1C8844A90069DF39 /* FSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406439A1C8844A90069DF39 /* FSDropDownMenu.m */; };
@@ -46,6 +49,7 @@
 		84C32B841C7D91990080D786 /* imag_08.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84C32B781C7D91990080D786 /* imag_08.jpg */; };
 		84C32B851C7D91990080D786 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C32B791C7D91990080D786 /* search.png */; };
 		84D898621C853946007DEC7C /* header_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84D898611C853946007DEC7C /* header_02.jpg */; };
+		F95A16842356B7CCFA4384D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5940103BB85126F45BE4D60D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +70,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		840643921C8839ED0069DF39 /* nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_back.png; sourceTree = "<group>"; };
+		1C5E41291C888205009314C8 /* nav_back1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nav_back1.jpg; sourceTree = "<group>"; };
+		1C5E412D1C888972009314C8 /* NSArray Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray Chinese.h"; sourceTree = "<group>"; };
+		1C5E412E1C888972009314C8 /* NSArray Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray Chinese.m"; sourceTree = "<group>"; };
+		1C5E412F1C888972009314C8 /* NSDictionary Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary Chinese.h"; sourceTree = "<group>"; };
+		1C5E41301C888972009314C8 /* NSDictionary Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary Chinese.m"; sourceTree = "<group>"; };
+		1C5E41311C888972009314C8 /* NSSet Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet Chinese.h"; sourceTree = "<group>"; };
+		1C5E41321C888972009314C8 /* NSSet Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet Chinese.m"; sourceTree = "<group>"; };
+		5940103BB85126F45BE4D60D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		840643941C88425F0069DF39 /* PPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPViewController.h; sourceTree = "<group>"; };
 		840643951C88425F0069DF39 /* PPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPViewController.m; sourceTree = "<group>"; };
 		840643961C88425F0069DF39 /* PPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPViewController.xib; sourceTree = "<group>"; };
@@ -77,6 +88,7 @@
 		8406439F1C885B850069DF39 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		840643A01C885B850069DF39 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		840643A41C885CF70069DF39 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		8455D4B25D68F76FAFD14F79 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		847CC7551C88248D0063506B /* HotMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMessageCell.h; sourceTree = "<group>"; };
 		847CC7561C88248D0063506B /* HotMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMessageCell.m; sourceTree = "<group>"; };
 		847CC7571C88248D0063506B /* HotMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotMessageCell.xib; sourceTree = "<group>"; };
@@ -120,6 +132,7 @@
 		84C32B781C7D91990080D786 /* imag_08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imag_08.jpg; sourceTree = "<group>"; };
 		84C32B791C7D91990080D786 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		84D898611C853946007DEC7C /* header_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header_02.jpg; sourceTree = "<group>"; };
+		FAC8EBD8AC9017BFA0F350CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95A16842356B7CCFA4384D9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +161,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C5E41361C888978009314C8 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				1C5E412D1C888972009314C8 /* NSArray Chinese.h */,
+				1C5E412E1C888972009314C8 /* NSArray Chinese.m */,
+				1C5E412F1C888972009314C8 /* NSDictionary Chinese.h */,
+				1C5E41301C888972009314C8 /* NSDictionary Chinese.m */,
+				1C5E41311C888972009314C8 /* NSSet Chinese.h */,
+				1C5E41321C888972009314C8 /* NSSet Chinese.m */,
+			);
+			name = code;
+			sourceTree = "<group>";
+		};
+		4C7E1836D9F7AAE72D9F5223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5940103BB85126F45BE4D60D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		840643A31C885B910069DF39 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +200,8 @@
 				84AD7D791C7C0B630066064A /* FreeTravelTests */,
 				84AD7D841C7C0B630066064A /* FreeTravelUITests */,
 				84AD7D5E1C7C0B620066064A /* Products */,
+				D844396866B03139EDA78097 /* Pods */,
+				4C7E1836D9F7AAE72D9F5223 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +218,7 @@
 		84AD7D5F1C7C0B620066064A /* FreeTravel */ = {
 			isa = PBXGroup;
 			children = (
+				1C5E41361C888978009314C8 /* code */,
 				84AD7D631C7C0B620066064A /* AppDelegate.h */,
 				84AD7D641C7C0B620066064A /* AppDelegate.m */,
 				84AD7D691C7C0B620066064A /* Main.storyboard */,
@@ -251,7 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				8406439C1C8858E90069DF39 /* expandableImage@2x.png */,
-				840643921C8839ED0069DF39 /* nav_back.png */,
+				1C5E41291C888205009314C8 /* nav_back1.jpg */,
 				84C32B6A1C7D5AF80080D786 /* Remu.jpg */,
 				84C32B6B1C7D5AF80080D786 /* UUZ.jpg */,
 				84D898611C853946007DEC7C /* header_02.jpg */,
@@ -271,6 +309,15 @@
 			name = Media;
 			sourceTree = "<group>";
 		};
+		D844396866B03139EDA78097 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAC8EBD8AC9017BFA0F350CB /* Pods.debug.xcconfig */,
+				8455D4B25D68F76FAFD14F79 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,9 +325,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84AD7D8A1C7C0B630066064A /* Build configuration list for PBXNativeTarget "FreeTravel" */;
 			buildPhases = (
+				56DE76D60DF14482A87182E3 /* Check Pods Manifest.lock */,
 				84AD7D591C7C0B620066064A /* Sources */,
 				84AD7D5A1C7C0B620066064A /* Frameworks */,
 				84AD7D5B1C7C0B620066064A /* Resources */,
+				3B7A7C3449C5745B042F5D00 /* Embed Pods Frameworks */,
+				3F5700ABC32EAFCC7D1F0B38 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,7 +429,6 @@
 				840643A21C885B850069DF39 /* MapViewController.xib in Resources */,
 				84C32B7C1C7D91990080D786 /* icon_play.png in Resources */,
 				8493BC201C7C5D560011EC54 /* secendCell.xib in Resources */,
-				840643931C8839ED0069DF39 /* nav_back.png in Resources */,
 				840643981C88425F0069DF39 /* PPViewController.xib in Resources */,
 				84C32B7B1C7D91990080D786 /* icon_car.png in Resources */,
 				8406439D1C8858E90069DF39 /* expandableImage@2x.png in Resources */,
@@ -401,6 +450,7 @@
 				847CC7591C88248D0063506B /* HotMessageCell.xib in Resources */,
 				840643A51C885CF70069DF39 /* Podfile in Resources */,
 				84C32B801C7D91990080D786 /* icon3.png in Resources */,
+				1C5E412A1C888205009314C8 /* nav_back1.jpg in Resources */,
 				84C32B831C7D91990080D786 /* imag_04.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +471,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3B7A7C3449C5745B042F5D00 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F5700ABC32EAFCC7D1F0B38 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56DE76D60DF14482A87182E3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84AD7D591C7C0B620066064A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -429,12 +527,15 @@
 				847CC7581C88248D0063506B /* HotMessageCell.m in Sources */,
 				84AD7D681C7C0B620066064A /* ViewController.m in Sources */,
 				8493BC241C7C5D6C0011EC54 /* thirdCell.m in Sources */,
+				1C5E41341C888972009314C8 /* NSDictionary Chinese.m in Sources */,
 				84AD7D651C7C0B620066064A /* AppDelegate.m in Sources */,
 				840643971C88425F0069DF39 /* PPViewController.m in Sources */,
 				84AD7D971C7C0D000066064A /* firstCell.m in Sources */,
 				8493BC1F1C7C5D560011EC54 /* secendCell.m in Sources */,
+				1C5E41351C888972009314C8 /* NSSet Chinese.m in Sources */,
 				840643A11C885B850069DF39 /* MapViewController.m in Sources */,
 				8406439B1C8844A90069DF39 /* FSDropDownMenu.m in Sources */,
+				1C5E41331C888972009314C8 /* NSArray Chinese.m in Sources */,
 				84AD7D621C7C0B620066064A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,10 +675,12 @@
 		};
 		84AD7D8B1C7C0B630066064A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAC8EBD8AC9017BFA0F350CB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FreeTravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cckong.FreeTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -586,10 +689,12 @@
 		};
 		84AD7D8C1C7C0B630066064A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8455D4B25D68F76FAFD14F79 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FreeTravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cckong.FreeTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";

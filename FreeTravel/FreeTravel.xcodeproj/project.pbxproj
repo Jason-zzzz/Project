@@ -61,7 +61,14 @@
 		1C0329DC1C8533D200DACF92 /* FreeTravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreeTravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C0329E01C8533D200DACF92 /* FreeTravelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeTravelUITests.m; sourceTree = "<group>"; };
 		1C0329E21C8533D200DACF92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		1CF3EA931C85E431000BF88B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+=======
+		1CF3EA8E1C85E293000BF88B /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
+		1CF3EA8F1C85E294000BF88B /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
+		1CF3EA901C85E294000BF88B /* PopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopViewController.xib; sourceTree = "<group>"; };
+		1CF3EA931C85E431000BF88B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+>>>>>>> Stashed changes
 		1CF3EA951C85E757000BF88B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		1CF3EA961C85E757000BF88B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		1CF3EA971C85E757000BF88B /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
