@@ -11,12 +11,17 @@
 #import "HotMessageCell.h"
 #import "PPViewController.h"
 #import "firstCell.h"
+#import "PP2ViewController.h"
+#import "secendCell.h"
+#import "Pop3ViewController.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate, popViewDelegate>{
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate, popViewDelegate, secondPopDelegate, thirdPopDelegate>{
     
     __weak IBOutlet UITableView *homeTableView_;
     __weak IBOutlet UIBarButtonItem *searchButton_;
     PPViewController *popVC_;
+    PP2ViewController *popTC_;
+    Pop3ViewController *pop3VC_;
 }
 
 @end
@@ -47,6 +52,7 @@ static NSString *hotMessageIdentifer = nil;
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"header_02.jpg"]];
     
+
     //注册cell
     firstIdentifier = @"firstCell";
     UINib *nib1 = [UINib nibWithNibName:@"firstCell" bundle:nil];
@@ -65,41 +71,96 @@ static NSString *hotMessageIdentifer = nil;
     [homeTableView_ registerNib:nib4 forCellReuseIdentifier:hotMessageIdentifer];
     
     popVC_ = [[PPViewController alloc] init];
+    popTC_ = [[PP2ViewController alloc] init];
+    pop3VC_ = [[Pop3ViewController alloc] init];
     self.tabBarController.tabBar.hidden = NO;
     // Do any additional setup after loading the view, typically from a nib.
+    
+}
+- (void)loadView{
+    [super loadView];
     
     isFirst = YES;
 }
 
 static BOOL isFirst;
-- (void)viewWillAppear:(BOOL)animated{
-    if (isFirst) {
-        self.hidesBottomBarWhenPushed = YES;
-        isFirst = NO;
-    } else {
-        self.hidesBottomBarWhenPushed = NO;
-        if (isButton) {
-            self.hidesBottomBarWhenPushed = YES;
-        }
-    }
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    isButton = NO;
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    if (isFirst) {
+//        self.hidesBottomBarWhenPushed = YES;
+//        isFirst = NO;
+//    } else {
+//        self.hidesBottomBarWhenPushed = NO;
+//        if (isButton) {
+//            self.hidesBottomBarWhenPushed = YES;
+//        }
+//    }
+//    [super viewWillAppear:animated];
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    
+//    isButton = NO;
+//}
 
 #pragma mark popViewDelegate
 
-static BOOL isButton;
 - (void)popView:(NSInteger)tag{
     switch (tag) {
         case 10001:
-            isButton = YES;
+            self.hidesBottomBarWhenPushed = YES;
             [self.navigationController showViewController:popVC_ sender:self];
             self.hidesBottomBarWhenPushed = NO;
+            break;
+           
+        case 10004:
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController showViewController:popVC_ sender:self];
+            self.hidesBottomBarWhenPushed = NO;
+            break;
+            
+        case 10003:
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController showViewController:popVC_ sender:self];
+            self.hidesBottomBarWhenPushed = NO;
+            break;
+            
+        case 10002:
+            self.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController showViewController:popTC_ sender:self];
+            [self.navigationController presentViewController:popTC_ animated:YES completion:nil];
+            self.hidesBottomBarWhenPushed = NO;
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)secondPop:(NSInteger)tag{
+    switch (tag) {
+        case 10020:
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController showViewController:pop3VC_ sender:self];
+            self.hidesBottomBarWhenPushed = NO;
+            break;
+        case 10021:
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController showViewController:pop3VC_ sender:self];
+            self.hidesBottomBarWhenPushed = NO;
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)thirdPopView:(NSInteger)tag{
+    switch (tag) {
+        case 10030:
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController showViewController:pop3VC_ sender:self];
+            self.hidesBottomBarWhenPushed = NO;
+            
             break;
             
         default:
@@ -131,69 +192,72 @@ static BOOL isButton;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = nil;
     if (0 == indexPath.section) {
         firstCell *cell = nil;
         cell = [tableView dequeueReusableCellWithIdentifier:firstIdentifier forIndexPath:indexPath];
         cell.popDelegate = self;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     if (1 == indexPath.section) {
+        secendCell *cell = nil;
         cell = [tableView dequeueReusableCellWithIdentifier:secendIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.delegate = self;
+        return cell;
     }
+    
     if (2 == indexPath.section && 0 == indexPath.row){
-        thirdCell *hotCell = nil;
-        hotCell = [tableView dequeueReusableCellWithIdentifier:hotMessageIdentifer forIndexPath:indexPath];
-        
-        return hotCell;
+        HotMessageCell *cell = nil;
+        cell = [tableView dequeueReusableCellWithIdentifier:hotMessageIdentifer forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
+    
+    thirdCell *cell = nil;
     
     if (2 == indexPath.section && 1 == indexPath.row) {
-        thirdCell *imagecell = nil;
-        imagecell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
         UIImage *image = [UIImage imageNamed:@"imag_08.jpg"];
-        [imagecell.imageButton setImage:image forState:UIControlStateNormal];
+        [cell.imageButton setImage:image forState:UIControlStateNormal];
         
         //取消选中灰色背景
-        imagecell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return imagecell;
-    }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else
     if (2 == indexPath.section && 2 == indexPath.row) {
-        thirdCell *imagecell = nil;
-        imagecell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
         UIImage *image = [UIImage imageNamed:@"UUZ.jpg"];
-        [imagecell.imageButton setImage:image forState:UIControlStateNormal];
+        [cell.imageButton setImage:image forState:UIControlStateNormal];
         
-        imagecell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return imagecell;
-    }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else
     if (2 == indexPath.section && 3 == indexPath.row) {
-        thirdCell *imagecell = nil;
-        imagecell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
         UIImage *image = [UIImage imageNamed:@"Remu.jpg"];
-        imagecell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [imagecell.imageButton setImage:image forState:UIControlStateNormal];
-        return imagecell;
-    }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.imageButton setImage:image forState:UIControlStateNormal];
+    } else
     if (2 == indexPath.section && 4 == indexPath.row) {
-        thirdCell *imagecell = nil;
-        imagecell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
         UIImage *image = [UIImage imageNamed:@"UUZ.jpg"];
-        imagecell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [imagecell.imageButton setImage:image forState:UIControlStateNormal];
-        return imagecell;
-    }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.imageButton setImage:image forState:UIControlStateNormal];
+        return cell;
+    } else
     if (2 == indexPath.section && 5 == indexPath.row) {
-        thirdCell *imagecell = nil;
-        imagecell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
         UIImage *image = [UIImage imageNamed:@"Remu.jpg"];
-        imagecell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [imagecell.imageButton setImage:image forState:UIControlStateNormal];
-        return imagecell;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.imageButton setImage:image forState:UIControlStateNormal];
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        }
+        return cell;
     }
-    
-    
-   
+    cell.delegate = self;
     return cell;
 }
 
@@ -219,7 +283,6 @@ static BOOL isButton;
 
 //设置section的header的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    NSLog(@"123");
     switch (section) {
         case 1:
             return 1;

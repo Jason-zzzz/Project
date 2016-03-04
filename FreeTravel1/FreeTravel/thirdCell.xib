@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppJ-Vk-4qq">
+                    <button opaque="NO" tag="10030" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppJ-Vk-4qq">
                         <rect key="frame" x="10" y="0.0" width="355" height="100"/>
                         <animations/>
                         <constraints>
@@ -22,6 +22,9 @@
                             <constraint firstAttribute="width" constant="355" id="kP9-Wm-Y49"/>
                         </constraints>
                         <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="thirdPop:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DWf-nd-SKL"/>
+                        </connections>
                     </button>
                 </subviews>
                 <animations/>
@@ -33,7 +36,7 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
-                <outlet property="imageButton" destination="ppJ-Vk-4qq" id="dXb-Hc-XjW"/>
+                <outlet property="imageButton" destination="ppJ-Vk-4qq" id="cOr-Ul-QHs"/>
             </connections>
             <point key="canvasLocation" x="498" y="374.5"/>
         </tableViewCell>

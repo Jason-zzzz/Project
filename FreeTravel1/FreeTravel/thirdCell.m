@@ -10,14 +10,10 @@
 
 @implementation thirdCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (IBAction)thirdPop:(id)sender {
+    UIButton *btn = sender;
+    
+    [_delegate thirdPopView:btn.tag];
 }
 
 @end

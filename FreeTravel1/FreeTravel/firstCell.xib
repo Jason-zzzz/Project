@@ -26,19 +26,8 @@
                             <action selector="popPopView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JsM-BJ-kuA"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAA-Qz-dRf">
-                        <rect key="frame" x="290" y="20" width="50" height="50"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="50" id="dfS-rd-kDt"/>
-                            <constraint firstAttribute="height" constant="50" id="pol-Dx-53k"/>
-                        </constraints>
-                        <state key="normal" image="icon_write.png">
-                            <color key="titleColor" red="0.21176470588235294" green="0.65490196078431373" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市玩乐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y17-bi-mr0">
-                        <rect key="frame" x="117" y="86" width="56" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="签证" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y17-bi-mr0">
+                        <rect key="frame" x="131" y="86" width="28" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,21 +40,24 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="签证" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dx-11-cBp">
-                        <rect key="frame" x="301" y="86" width="28" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市玩乐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dx-11-cBp">
+                        <rect key="frame" x="287" y="86" width="56" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0o-Yb-Mri">
+                    <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0o-Yb-Mri">
                         <rect key="frame" x="120" y="20" width="50" height="50"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Bmz-Jf-aoj"/>
                             <constraint firstAttribute="height" constant="50" id="DZt-D0-lBm"/>
                         </constraints>
-                        <state key="normal" image="icon_play.png"/>
+                        <state key="normal" image="icon_write.png"/>
+                        <connections>
+                            <action selector="popPopView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="D5j-fG-Bpz"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="机票" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqM-YH-1W9">
                         <rect key="frame" x="46" y="86" width="28" height="17"/>
@@ -74,7 +66,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Th-Wf-QZ9">
+                    <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Th-Wf-QZ9">
                         <rect key="frame" x="205" y="20" width="50" height="50"/>
                         <animations/>
                         <constraints>
@@ -82,6 +74,23 @@
                             <constraint firstAttribute="height" constant="50" id="uy0-Fr-KEq"/>
                         </constraints>
                         <state key="normal" image="icon_car.png"/>
+                        <connections>
+                            <action selector="popPopView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8cp-GH-KmM"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="10004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAA-Qz-dRf">
+                        <rect key="frame" x="290" y="20" width="50" height="50"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="dfS-rd-kDt"/>
+                            <constraint firstAttribute="height" constant="50" id="pol-Dx-53k"/>
+                        </constraints>
+                        <state key="normal" image="icon_play.png">
+                            <color key="titleColor" red="0.21176470588235294" green="0.65490196078431373" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="popPopView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jPT-dT-JsC"/>
+                        </connections>
                     </button>
                 </subviews>
                 <animations/>

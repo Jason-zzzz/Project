@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="LastCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-6.png" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-ro-YFO">
+                        <rect key="frame" x="12" y="12" width="24" height="25"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="2AX-EQ-Hke"/>
+                            <constraint firstAttribute="width" secondItem="7P4-ro-YFO" secondAttribute="height" multiplier="24:25" id="oUV-6M-Zj3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2AX-EQ-Hke"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="常用旅客信息  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atv-SA-Fah">
+                        <rect key="frame" x="48" y="0.0" width="239" height="49"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="7P4-ro-YFO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="1zf-ce-3w3"/>
+                    <constraint firstAttribute="bottom" secondItem="atv-SA-Fah" secondAttribute="bottom" id="5Az-GE-mhx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7P4-ro-YFO" secondAttribute="bottom" constant="4" id="IZk-MD-5yO"/>
+                    <constraint firstItem="7P4-ro-YFO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="NBw-gC-Vz8"/>
+                    <constraint firstItem="atv-SA-Fah" firstAttribute="leading" secondItem="7P4-ro-YFO" secondAttribute="trailing" constant="12" id="RXi-xR-QR6"/>
+                    <constraint firstItem="atv-SA-Fah" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ezT-1t-geQ"/>
+                    <constraint firstAttribute="trailing" secondItem="atv-SA-Fah" secondAttribute="trailing" id="pKV-qC-adL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lastImage" destination="7P4-ro-YFO" id="xZA-mr-pfr"/>
+                <outlet property="lastLabel" destination="atv-SA-Fah" id="0qT-MZ-wNA"/>
+            </connections>
+            <point key="canvasLocation" x="448" y="386"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon-6.png" width="35" height="48"/>
+    </resources>
+</document>

@@ -14,21 +14,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1f-1L-whm">
+                    <button opaque="NO" tag="10021" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1f-1L-whm">
                         <rect key="frame" x="189" y="0.0" width="186" height="145"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="186" id="bJX-nR-xvZ"/>
                         </constraints>
                         <state key="normal" image="imag_04.png"/>
+                        <connections>
+                            <action selector="clickAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Fbe-Is-4lc"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wuj-wG-r31">
+                    <button opaque="NO" tag="10020" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wuj-wG-r31">
                         <rect key="frame" x="0.0" y="0.0" width="186" height="145"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="186" id="y53-57-ul2"/>
                         </constraints>
                         <state key="normal" image="imag_02.png"/>
+                        <connections>
+                            <action selector="clickAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GrF-a9-mjO"/>
+                        </connections>
                     </button>
                 </subviews>
                 <animations/>

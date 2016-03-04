@@ -14,6 +14,7 @@
     __weak IBOutlet UIButton *firstButton_;
     __weak IBOutlet UIButton *secondButton_;
     __weak IBOutlet UIButton *thirdButton_;
+    __weak IBOutlet UITableView *popTableView_;
     
     UISearchBar *searchBar;
 }
@@ -31,12 +32,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UINib *nib = [UINib nibWithNibName:@"PopCell" bundle:nil];
+    [popTableView_ registerNib:nib forCellReuseIdentifier:@"popCell"];
+    popTableView_.separatorColor = [UIColor lightGrayColor];
     [self initView];
 }
 
 #pragma mark SelfMethods
 
 - (void)initView {
+    
     
     _cityArr = @[@"附近",@"上海",@"北京",@"同城"];
     _areaArr = @[
@@ -159,6 +164,10 @@ static BOOL isFirstButton;
 
 #pragma mark UITableViewDelegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 102;
+}
+
 #pragma mark UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -166,16 +175,16 @@ static BOOL isFirstButton;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"popCell" forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text = @"123";
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//    }
+//    cell.textLabel.text = @"123";
     
     return cell;
 }

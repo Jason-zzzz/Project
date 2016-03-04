@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol secondPopDelegate <NSObject>
+
+- (void)secondPop:(NSInteger)tag;
+
+@end
+
 @interface secendCell : UITableViewCell
+
+@property (nonatomic, assign) id <secondPopDelegate> delegate;
 
 @end

@@ -10,14 +10,11 @@
 
 @implementation secendCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (IBAction)clickAction:(id)sender {
+    UIButton *btn = sender;
+    
+    [_delegate secondPop:btn.tag];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end
