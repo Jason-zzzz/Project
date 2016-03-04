@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "DataModel.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+    DataModel *dataModel_;
+}
 
 @end
 
@@ -17,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    dataModel_ = [[DataModel allocWithZone:NULL] init];
     
     [self setColor];
     return YES;

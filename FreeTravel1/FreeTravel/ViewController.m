@@ -145,6 +145,7 @@ static BOOL isFirst;
             break;
         case 10021:
             self.hidesBottomBarWhenPushed = YES;
+            pop3VC_.requestString = @"http://m.qyer.com/z/zt/graduate&source=app2&campaign=zkapp&category=zk192_graduate/?client_id=qyer_discount_ios&track_app_version=1.9.3&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&ra_referer=app_lastminute_list&ra_model=route";
             [self.navigationController showViewController:pop3VC_ sender:self];
             self.hidesBottomBarWhenPushed = NO;
             break;

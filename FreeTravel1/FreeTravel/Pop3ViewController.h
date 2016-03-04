@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface Pop3ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIWebView *pop3Web;
+
+@property (nonatomic, copy) NSString *requestString;
 
 @end
