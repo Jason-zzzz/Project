@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
+#import <AMapna>
 
 #define API_KEY @"cdc5a7b6966fcab4b40028dd5a3f44a7"
 
@@ -16,6 +17,11 @@
 {
     MAMapView *mapView_;
     AMapSearchAPI *_search;
+    
+    UILongPressGestureRecognizer *_longPressGesture;
+    MAPointAnnotation *_destinationPoint;
+    
+    CLLocation *_currentLocation;
 }
 @end
 
@@ -37,13 +43,24 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+
+- (void)pathAction
+{
+    if (_destinationPoint == nil || _currentLocation == nil || _search == nil)
+    {
+        NSLog(@"path search failed");
+        return;
+    }
     
-    mapView_.showsUserLocation = YES;
-    mapView_.userTrackingMode = MAUserTrackingModeFollowWithHeading;
+    AMapNavigationShareSearchRequest *request = [[AMapNavigationShareSearchRequest alloc] init];
     
-    [mapView_ setZoomLevel:16.5 animated:YES];
+    // 设置为步行路径规划
+    request.searchType = AMapSearchType_NaviDrive;
+    
+    request.origin = [AMapGeoPoint locationWithLatitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude];
+    request.destination = [AMapGeoPoint locationWithLatitude:_destinationPoint.coordinate.latitude longitude:_destinationPoint.coordinate.longitude];
+    
+    [_search AMapNavigationSearch:request];
 }
 
 #pragma mark Methods
@@ -60,6 +77,11 @@
     // 地图跟着定位移动
     [mapView_ setUserTrackingMode: MAUserTrackingModeFollowWithHeading animated:YES];
     
+    
+    mapView_.showsUserLocation = YES;
+    mapView_.userTrackingMode = MAUserTrackingModeFollowWithHeading;
+    
+    [mapView_ setZoomLevel:16.5 animated:YES];
     [self.view addSubview:mapView_];
 }
 

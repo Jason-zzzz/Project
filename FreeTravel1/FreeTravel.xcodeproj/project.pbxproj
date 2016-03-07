@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C516C601C8DCF8D00BEC00F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C516C5E1C8DCF8D00BEC00F /* SearchViewController.m */; };
+		1C516C611C8DCF8D00BEC00F /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C516C5F1C8DCF8D00BEC00F /* SearchViewController.xib */; };
 		1C593CBB1C89C304000FCEDB /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C593CBA1C89C304000FCEDB /* DataModel.m */; };
 		1C5E412A1C888205009314C8 /* nav_back1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C5E41291C888205009314C8 /* nav_back1.jpg */; };
 		1C5E41331C888972009314C8 /* NSArray Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E412E1C888972009314C8 /* NSArray Chinese.m */; };
@@ -100,6 +102,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C516C5D1C8DCF8D00BEC00F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		1C516C5E1C8DCF8D00BEC00F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		1C516C5F1C8DCF8D00BEC00F /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		1C593CB91C89C304000FCEDB /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		1C593CBA1C89C304000FCEDB /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		1C5E41291C888205009314C8 /* nav_back1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nav_back1.jpg; sourceTree = "<group>"; };
@@ -233,6 +238,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C516C5C1C8DCF6800BEC00F /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				1C516C5D1C8DCF8D00BEC00F /* SearchViewController.h */,
+				1C516C5E1C8DCF8D00BEC00F /* SearchViewController.m */,
+				1C516C5F1C8DCF8D00BEC00F /* SearchViewController.xib */,
+			);
+			name = SearchController;
+			sourceTree = "<group>";
+		};
 		1C593CB61C89C2BB000FCEDB /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +380,7 @@
 				84AD7D641C7C0B620066064A /* AppDelegate.m */,
 				84AD7D691C7C0B620066064A /* Main.storyboard */,
 				84AD7D931C7C0C440066064A /* HomeView */,
+				1C516C5C1C8DCF6800BEC00F /* SearchController */,
 				840643A31C885B910069DF39 /* Map */,
 				845108051C891B2C000D16E2 /* User */,
 				84AD7D6C1C7C0B620066064A /* Assets.xcassets */,
@@ -619,6 +635,7 @@
 				8451085C1C8978E5000D16E2 /* Pop3ViewController.xib in Resources */,
 				84C32B7E1C7D91990080D786 /* icon1.png in Resources */,
 				845108231C891BEB000D16E2 /* icon-3.png in Resources */,
+				1C516C611C8DCF8D00BEC00F /* SearchViewController.xib in Resources */,
 				847CC7591C88248D0063506B /* HotMessageCell.xib in Resources */,
 				840643A51C885CF70069DF39 /* Podfile in Resources */,
 				84C32B801C7D91990080D786 /* icon3.png in Resources */,
@@ -710,6 +727,7 @@
 				845108171C891B41000D16E2 /* UserViewController.m in Sources */,
 				845108401C894EC2000D16E2 /* LoginViewController.m in Sources */,
 				845108131C891B41000D16E2 /* LastCell.m in Sources */,
+				1C516C601C8DCF8D00BEC00F /* SearchViewController.m in Sources */,
 				8493BC1F1C7C5D560011EC54 /* secendCell.m in Sources */,
 				8451082C1C89236F000D16E2 /* GlobalFont.m in Sources */,
 				845108151C891B41000D16E2 /* SecondCell.m in Sources */,

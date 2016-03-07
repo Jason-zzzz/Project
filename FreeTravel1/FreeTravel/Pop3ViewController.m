@@ -14,7 +14,9 @@
 
 @implementation Pop3ViewController
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidLoad:(BOOL)animated {
+    [super viewDidLoad];
+    
     [self loadWeb];
 }
 

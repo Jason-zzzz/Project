@@ -77,31 +77,21 @@ static NSString *hotMessageIdentifer = nil;
     // Do any additional setup after loading the view, typically from a nib.
     
 }
-- (void)loadView{
-    [super loadView];
-    
-    isFirst = YES;
-}
 
-static BOOL isFirst;
-//- (void)viewWillAppear:(BOOL)animated{
-//    if (isFirst) {
-//        self.hidesBottomBarWhenPushed = YES;
-//        isFirst = NO;
-//    } else {
-//        self.hidesBottomBarWhenPushed = NO;
-//        if (isButton) {
-//            self.hidesBottomBarWhenPushed = YES;
-//        }
-//    }
-//    [super viewWillAppear:animated];
-//}
-//
-//- (void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//    
-//    isButton = NO;
-//}
+#pragma mark Actions
+
+- (IBAction)searchButtonAction:(id)sender {
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor redColor];
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:vc];
+    searchController.dimsBackgroundDuringPresentation = YES;            //是否添加半透明覆盖层
+    
+//    searchController.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20, 375, 35)];
+    searchController.searchBar.backgroundImage = [UIImage imageNamed:@"Remu.jpg"];
+    searchController.hidesNavigationBarDuringPresentation = NO;     //是否隐藏导航栏
+    self.definesPresentationContext = YES;
+    [self.navigationController presentViewController:searchController animated:YES completion:nil];
+}
 
 #pragma mark popViewDelegate
 
