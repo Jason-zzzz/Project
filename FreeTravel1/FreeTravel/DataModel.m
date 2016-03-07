@@ -54,7 +54,7 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                NSLog(@"%@",dic);
+//                NSLog(@"%@",dic);
         NSDictionary *dataDict = [dic objectForKey:@"data"];
     }];
     
