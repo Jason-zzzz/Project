@@ -33,6 +33,7 @@
     [self POIRequest];
     [self aroundSearch];
     [self drvingSearch];
+    [self searchServices];
     
 }
 
@@ -69,6 +70,17 @@
     _search.delegate = self;
 }
 
+// 创建搜索提示
+- (void)searchServices{
+    //构造AMapInputTipsSearchRequest对象，设置请求参数
+    AMapInputTipsSearchRequest *tipsRequest = [[AMapInputTipsSearchRequest alloc] init];
+    tipsRequest.keywords = @"肯德基";
+    tipsRequest.city = @"北京";
+    
+    //发起输入提示搜索
+    [_search AMapInputTipsSearch: tipsRequest];
+}
+
 // 创建POI请求
 - (void)POIRequest {
     
@@ -90,7 +102,6 @@
     AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
     request.location = [AMapGeoPoint locationWithLatitude:39.990459 longitude:116.481476];
     request.keywords = @"北京烤鸭";
-    //    request.
     //    request.types = @"餐饮服务|生活服务";
     request.sortrule = 0;
     request.requireExtension = YES;
@@ -113,6 +124,8 @@
     [_search AMapDrivingRouteSearch:request];
 }
 
+#pragma mark CallBack
+
 //实现路径搜索的回调函数
 - (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response
 {
@@ -126,7 +139,23 @@
     NSLog(@"%@", route);
 }
 
-#pragma mark CallBack
+//实现输入提示的回调函数
+-(void)onInputTipsSearchDone:(AMapInputTipsSearchRequest*)request response:(AMapInputTipsSearchResponse *)response
+{
+    if(response.tips.count == 0)
+    {
+        return;
+    }
+    
+    //通过AMapInputTipsSearchResponse对象处理搜索结果
+    NSString *strCount = [NSString stringWithFormat:@"count: %ld", response.count];
+    NSString *strtips = @"";
+    for (AMapTip *p in response.tips) {
+        strtips = [NSString stringWithFormat:@"%@\nTip: %@ %@", strtips, p.description, p.name];
+    }
+    NSString *result = [NSString stringWithFormat:@"%@ \n %@", strCount, strtips];
+    NSLog(@"InputTips: %@", result);
+}
 
 // 会不断调用
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation {
