@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,18 +16,20 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUe-tE-USR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
-                        <animations/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pho-tou.png.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZhV-rk-aUY">
                         <rect key="frame" x="150" y="35" width="75" height="75"/>
-                        <animations/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="75" id="Oup-ss-HSw"/>
                             <constraint firstAttribute="height" constant="75" id="Qbb-UP-HUk"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" tag="10010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="649-nq-I4o">
                         <rect key="frame" x="120" y="125" width="135" height="24"/>
-                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Nje-NZ-4CU"/>
+                            <constraint firstAttribute="width" constant="135" id="TJb-Tl-ZRa"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="点击登录，体验更多">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,22 +39,31 @@
                         </connections>
                     </button>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="NUe-tE-USR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="07y-1x-bBv"/>
                     <constraint firstAttribute="trailing" secondItem="649-nq-I4o" secondAttribute="trailing" constant="120" id="1Jt-Th-ywL"/>
+                    <constraint firstItem="ZhV-rk-aUY" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="D02-ro-WhF"/>
                     <constraint firstItem="ZhV-rk-aUY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="150" id="EP0-Lv-EJh"/>
                     <constraint firstItem="649-nq-I4o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="120" id="Iyu-P9-nM8"/>
+                    <constraint firstItem="649-nq-I4o" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="KzR-hK-uoA"/>
                     <constraint firstAttribute="trailing" secondItem="ZhV-rk-aUY" secondAttribute="trailing" constant="150" id="VyY-Ud-E11"/>
                     <constraint firstAttribute="bottom" secondItem="NUe-tE-USR" secondAttribute="bottom" id="loO-La-YoR"/>
                     <constraint firstAttribute="bottom" secondItem="649-nq-I4o" secondAttribute="bottom" constant="10" id="nhZ-PH-4wS"/>
                     <constraint firstAttribute="trailing" secondItem="NUe-tE-USR" secondAttribute="trailing" id="rIO-Ja-7ga"/>
                     <constraint firstItem="649-nq-I4o" firstAttribute="top" secondItem="ZhV-rk-aUY" secondAttribute="bottom" constant="15" id="sEV-bz-UFG"/>
                     <constraint firstItem="ZhV-rk-aUY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="wGF-BF-l73"/>
+                    <constraint firstItem="NUe-tE-USR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="wUU-lT-w9h"/>
                     <constraint firstItem="NUe-tE-USR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wmk-wj-fS5"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="EP0-Lv-EJh"/>
+                        <exclude reference="VyY-Ud-E11"/>
+                        <exclude reference="1Jt-Th-ywL"/>
+                        <exclude reference="Iyu-P9-nM8"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
-            <animations/>
             <point key="canvasLocation" x="704" y="330"/>
         </tableViewCell>
     </objects>

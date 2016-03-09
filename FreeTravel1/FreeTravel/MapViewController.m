@@ -9,12 +9,14 @@
 #import "MapViewController.h"
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
-#import <AMapna>
+#import <AMapSearchKit/AMapCommonObj.h>
 
 #define API_KEY @"cdc5a7b6966fcab4b40028dd5a3f44a7"
 
 @interface MapViewController ()<MAMapViewDelegate, AMapSearchDelegate>
 {
+    __weak IBOutlet UIView *view_;
+    
     MAMapView *mapView_;
     AMapSearchAPI *_search;
     
@@ -40,49 +42,82 @@
     [self aroundSearch];
     [self drvingSearch];
     [self searchServices];
+    [self pathAction];
     
 }
 
+#pragma mark Actions
+
+- (IBAction)locAction:(id)sender {
+    
+    // 地图跟着定位移动
+    [mapView_ setUserTrackingMode: MAUserTrackingModeFollowWithHeading animated:YES];
+    
+    [mapView_ setZoomLevel:16.5 animated:YES];
+}
 
 - (void)pathAction
 {
-    if (_destinationPoint == nil || _currentLocation == nil || _search == nil)
-    {
-        NSLog(@"path search failed");
-        return;
-    }
+//    if (_destinationPoint == nil || _currentLocation == nil || _search == nil)
+//    {
+//        NSLog(@"path search failed");
+//        return;
+//    }
     
     AMapNavigationShareSearchRequest *request = [[AMapNavigationShareSearchRequest alloc] init];
     
     // 设置为步行路径规划
-    request.searchType = AMapSearchType_NaviDrive;
+    request.strategy = 0;
     
-    request.origin = [AMapGeoPoint locationWithLatitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude];
-    request.destination = [AMapGeoPoint locationWithLatitude:_destinationPoint.coordinate.latitude longitude:_destinationPoint.coordinate.longitude];
+    request.startCoordinate = [AMapGeoPoint locationWithLatitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude];
+    request.destinationCoordinate = [AMapGeoPoint locationWithLatitude:_destinationPoint.coordinate.latitude longitude:_destinationPoint.coordinate.longitude];
     
-    [_search AMapNavigationSearch:request];
+    request.startCoordinate = [AMapGeoPoint locationWithLatitude:37 longitude:120];
+    request.destinationCoordinate = [AMapGeoPoint locationWithLatitude:37 longitude:118];
+    
+    [_search AMapNavigationShareSearch:request];
+}
+
+
+- (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response {
+    NSLog(@"request: %@", request);
+    AMapPath *p = response.route.paths[0];
+    for (AMapStep *t in p.steps) {
+        NSLog(@"%@", t.road);
+    }
+
+    NSLog(@"distance: %ld",p.distance);
+//    if (response.count > 0)
+//    {
+//        [mapView_ removeOverlays:_pathPolylines];
+//        _pathPolylines = nil; v
+//        
+//        // 只显示第一条
+//        _pathPolylines = [self polylinesForPath:response.route.paths[0]];
+//        [_mapView addOverlays:_pathPolylines];
+//        
+//        [_mapView showAnnotations:@[_destinationPoint, _mapView.userLocation] animated:YES];
+//    }
 }
 
 #pragma mark Methods
 
 - (void)initView {
     
-    mapView_ = [[MAMapView alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 64)];
+    mapView_ = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view_.bounds), CGRectGetHeight(view_.bounds))];
+    
     mapView_.mapType = MAMapTypeStandard;
     mapView_.delegate = self;
     
     // 定位
     mapView_.showsUserLocation = YES;
     
-    // 地图跟着定位移动
-    [mapView_ setUserTrackingMode: MAUserTrackingModeFollowWithHeading animated:YES];
-    
-    
     mapView_.showsUserLocation = YES;
     mapView_.userTrackingMode = MAUserTrackingModeFollowWithHeading;
     
     [mapView_ setZoomLevel:16.5 animated:YES];
-    [self.view addSubview:mapView_];
+//        view_ = mapView_;
+    [view_ addSubview:mapView_];
 }
 
 - (void)initSearch {
@@ -139,7 +174,7 @@
     AMapDrivingRouteSearchRequest *request = [[AMapDrivingRouteSearchRequest alloc] init];
     request.origin = [AMapGeoPoint locationWithLatitude:39.994949 longitude:128.447265];
     request.destination = [AMapGeoPoint locationWithLatitude:39.990459 longitude:116.481476];
-    request.strategy = 2;//距离优先
+    request.strategy = 0;//距离优先
     request.requireExtension = YES;
     
     //发起路径搜索
@@ -149,17 +184,17 @@
 #pragma mark CallBack
 
 //实现路径搜索的回调函数
-- (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response
-{
-    if(response.route == nil)
-    {
-        return;
-    }
-    
-    //通过AMapNavigationSearchResponse对象处理搜索结果
-    NSString *route = [NSString stringWithFormat:@"Navi: %@ %ld", response.route.paths[0], response.count];
-    NSLog(@"%@", route);
-}
+//- (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response
+//{
+//    if(response.route == nil)
+//    {
+//        return;
+//    }
+//    
+//    //通过AMapNavigationSearchResponse对象处理搜索结果
+//    NSString *route = [NSString stringWithFormat:@"Navi: %@ %ld", response.route.paths[0], response.count];
+//    NSLog(@"%@", route);
+//}
 
 //实现输入提示的回调函数
 -(void)onInputTipsSearchDone:(AMapInputTipsSearchRequest*)request response:(AMapInputTipsSearchResponse *)response

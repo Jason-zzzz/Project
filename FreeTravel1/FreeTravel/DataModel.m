@@ -8,7 +8,8 @@
 
 #import "DataModel.h"
 
-@interface DataModel () <NSURLSessionDelegate>
+@interface DataModel () <NSURLSessionDelegate> {
+}
 
 @end
 

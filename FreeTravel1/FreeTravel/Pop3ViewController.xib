@@ -16,45 +16,64 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0pB-OB-yFi">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pB-OB-yFi">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ixT-kA-tsY"/>
+                    </connections>
                 </webView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXc-Mz-YlF">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4Y-dU-H2A">
                     <rect key="frame" x="0.0" y="629" width="375" height="38"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4Y-dU-H2A">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYf-Y0-ibF">
-                                    <rect key="frame" x="29" y="9" width="30" height="20"/>
-                                    <state key="normal" backgroundImage="backicon.png"/>
-                                    <connections>
-                                        <action selector="goBack" destination="0pB-OB-yFi" eventType="touchUpInside" id="sPA-bc-7EQ"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-xt-YoI">
-                                    <rect key="frame" x="320" y="5" width="25" height="25"/>
-                                    <state key="normal" backgroundImage="cancel.png"/>
-                                    <connections>
-                                        <action selector="reload" destination="0pB-OB-yFi" eventType="touchUpInside" id="3z6-Ci-srZ"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhG-ir-rSL">
-                                    <rect key="frame" x="172" y="8" width="30" height="20"/>
-                                    <state key="normal" backgroundImage="nexticon.png"/>
-                                    <connections>
-                                        <action selector="goForward" destination="0pB-OB-yFi" eventType="touchUpInside" id="84Q-fn-wNA"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYf-Y0-ibF">
+                            <rect key="frame" x="29" y="9" width="30" height="20"/>
+                            <state key="normal" backgroundImage="backicon.png"/>
+                            <connections>
+                                <action selector="goBack" destination="0pB-OB-yFi" eventType="touchUpInside" id="sPA-bc-7EQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-xt-YoI">
+                            <rect key="frame" x="320" y="5" width="25" height="25"/>
+                            <state key="normal" backgroundImage="cancel.png"/>
+                            <connections>
+                                <action selector="reload" destination="0pB-OB-yFi" eventType="touchUpInside" id="3z6-Ci-srZ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhG-ir-rSL">
+                            <rect key="frame" x="172" y="8" width="30" height="20"/>
+                            <state key="normal" backgroundImage="nexticon.png"/>
+                            <connections>
+                                <action selector="goForward" destination="0pB-OB-yFi" eventType="touchUpInside" id="84Q-fn-wNA"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="375" id="0PD-Li-z6s"/>
+                        <constraint firstAttribute="height" constant="38" id="1A2-tV-Diw"/>
+                        <constraint firstAttribute="height" constant="38" id="1Tv-vn-55b"/>
+                        <constraint firstAttribute="height" constant="38" id="VvC-1m-zMY"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0PD-Li-z6s"/>
+                            <exclude reference="1A2-tV-Diw"/>
+                            <exclude reference="VvC-1m-zMY"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0pB-OB-yFi" secondAttribute="trailing" id="450-87-8bD"/>
+                <constraint firstAttribute="bottom" secondItem="U4Y-dU-H2A" secondAttribute="bottom" id="Ceg-fW-zJ5"/>
+                <constraint firstItem="0pB-OB-yFi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FoZ-lY-iy4"/>
+                <constraint firstAttribute="bottom" secondItem="0pB-OB-yFi" secondAttribute="bottom" constant="35" id="Fz6-KC-ar4"/>
+                <constraint firstItem="0pB-OB-yFi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eHI-Tx-vgv"/>
+                <constraint firstItem="U4Y-dU-H2A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kgL-fe-ai0"/>
+                <constraint firstAttribute="trailing" secondItem="U4Y-dU-H2A" secondAttribute="trailing" id="spW-uq-F34"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="341.5" y="432.5"/>
         </view>

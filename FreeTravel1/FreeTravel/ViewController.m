@@ -14,6 +14,10 @@
 #import "PP2ViewController.h"
 #import "secendCell.h"
 #import "Pop3ViewController.h"
+#import "WMPageController.h"
+#import "WMViewController.h"
+#import "WMTableViewController.h"
+#import "WMCollectionViewController.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate, popViewDelegate, secondPopDelegate, thirdPopDelegate>{
     
@@ -22,6 +26,9 @@
     PPViewController *popVC_;
     PP2ViewController *popTC_;
     Pop3ViewController *pop3VC_;
+    
+    WMPageController *pageController;
+    WMTableViewController *wmTVC_;
 }
 
 @end
@@ -35,6 +42,7 @@ static NSString *hotMessageIdentifer = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"icon1"];
     
@@ -73,6 +81,11 @@ static NSString *hotMessageIdentifer = nil;
     popVC_ = [[PPViewController alloc] init];
     popTC_ = [[PP2ViewController alloc] init];
     pop3VC_ = [[Pop3ViewController alloc] init];
+    
+    pop3VC_.requestString = @"http://m.qyer.com/z/zt/graduate&source=app2&campaign=zkapp&category=zk192_graduate/?client_id=qyer_discount_ios&track_app_version=1.9.3&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&ra_referer=app_lastminute_list&ra_model=route";
+    
+    wmTVC_ = [[WMTableViewController alloc] init];
+    
     self.tabBarController.tabBar.hidden = NO;
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -117,7 +130,8 @@ static NSString *hotMessageIdentifer = nil;
             
         case 10002:
             self.hidesBottomBarWhenPushed = YES;
-//            [self.navigationController showViewController:popTC_ sender:self];
+//            [self.navigationController presentViewController:wmTVC_ animated:YES completion:nil];
+            
             [self.navigationController presentViewController:popTC_ animated:YES completion:nil];
             self.hidesBottomBarWhenPushed = NO;
             break;
@@ -125,6 +139,7 @@ static NSString *hotMessageIdentifer = nil;
             break;
     }
 }
+
 
 - (void)secondPop:(NSInteger)tag{
     switch (tag) {
@@ -135,7 +150,6 @@ static NSString *hotMessageIdentifer = nil;
             break;
         case 10021:
             self.hidesBottomBarWhenPushed = YES;
-            pop3VC_.requestString = @"http://m.qyer.com/z/zt/graduate&source=app2&campaign=zkapp&category=zk192_graduate/?client_id=qyer_discount_ios&track_app_version=1.9.3&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&ra_referer=app_lastminute_list&ra_model=route";
             [self.navigationController showViewController:pop3VC_ sender:self];
             self.hidesBottomBarWhenPushed = NO;
             break;

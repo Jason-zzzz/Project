@@ -8,15 +8,14 @@
 
 #import "Pop3ViewController.h"
 
-@interface Pop3ViewController ()
+@interface Pop3ViewController () <UIWebViewDelegate>
 
 @end
 
 @implementation Pop3ViewController
 
-- (void)viewDidLoad:(BOOL)animated {
+- (void)viewDidLoad{
     [super viewDidLoad];
-    
     [self loadWeb];
 }
 
@@ -38,5 +37,22 @@
     // 发起网络请求
     [_pop3Web loadRequest:request];
 }
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    //判断是否是单击
+    if (navigationType == UIWebViewNavigationTypeLinkClicked)
+    {
+        NSURL *url = [request URL];
+//        if([[UIApplication sharedApplication]canOpenURL:url])
+//        {
+//            [[UIApplication sharedApplication]openURL:url];
+//        }
+        NSLog(@"--------------%@--------------------", url);
+        return NO;
+    }
+    return YES;
+}
+
 
 @end

@@ -10,4 +10,6 @@
 
 @interface MapViewController : UIViewController
 
+@property (nonatomic, strong) UISearchController *searchController;
+
 @end
