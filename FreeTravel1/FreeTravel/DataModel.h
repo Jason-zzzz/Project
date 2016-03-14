@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol dataModelDelegate <NSObject>
+
+- (void)finishGetData;
+
+@end
+
 @interface DataModel : NSObject
+
+@property (nonatomic, assign) id <dataModelDelegate> modelDelegate;
+@property (nonatomic, copy) NSMutableArray <NSString *> * destinationState;
 
 + (DataModel *)defaultObject;
 

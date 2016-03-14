@@ -17,14 +17,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="158" height="152"/>
                         <state key="normal" image="imag_02.png"/>
                     </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X7p-Y5-N2x">
+                        <rect key="frame" x="55" y="49" width="49" height="16"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mauritius" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dho-VF-9L4">
+                                <rect key="frame" x="0.0" y="0.0" width="49" height="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O1y-1j-4qW">
+                        <rect key="frame" x="49" y="20" width="60" height="18"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛里求斯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZd-9a-SXc">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="5sh-Y9-3O5" secondAttribute="trailing" id="4FN-FW-oih"/>
+                <constraint firstItem="O1y-1j-4qW" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="8gN-Pw-eJ1"/>
+                <constraint firstItem="X7p-Y5-N2x" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="JTB-qs-kBj"/>
                 <constraint firstAttribute="bottom" secondItem="5sh-Y9-3O5" secondAttribute="bottom" id="KiR-Ao-FUA"/>
                 <constraint firstItem="5sh-Y9-3O5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RET-pW-hhy"/>
                 <constraint firstItem="5sh-Y9-3O5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TpS-LB-SiD"/>
+                <constraint firstItem="O1y-1j-4qW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="fLj-03-Fek"/>
+                <constraint firstItem="X7p-Y5-N2x" firstAttribute="top" secondItem="O1y-1j-4qW" secondAttribute="bottom" constant="11" id="iYn-5Z-olM"/>
             </constraints>
             <size key="customSize" width="158" height="152"/>
             <point key="canvasLocation" x="283" y="270"/>

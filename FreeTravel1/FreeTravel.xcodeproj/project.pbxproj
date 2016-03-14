@@ -21,7 +21,7 @@
 		1C0C17321C8EBD8800135336 /* DesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0C17291C8EBD8800135336 /* DesCell.xib */; };
 		1C0C17331C8EBD8800135336 /* DesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C172B1C8EBD8800135336 /* DesModel.m */; };
 		1C0C17341C8EBD8800135336 /* DesNavImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0C172C1C8EBD8800135336 /* DesNavImage.png */; };
-		1C0C17351C8EBD8800135336 /* DesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C172E1C8EBD8800135336 /* DesViewController.m */; };
+		1C0C17351C8EBD8800135336 /* DesViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C172E1C8EBD8800135336 /* DesViewControlelr.m */; };
 		1C0C17371C8EBFBD00135336 /* ImagetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0C17361C8EBFBD00135336 /* ImagetCell.xib */; };
 		1C4403591C900587001D352E /* cancel_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4403581C900587001D352E /* cancel_black@2x.png */; };
 		1C44035D1C9015A7001D352E /* PP2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C44035B1C9015A7001D352E /* PP2CollectionViewCell.m */; };
@@ -35,6 +35,7 @@
 		1C5E41331C888972009314C8 /* NSArray Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E412E1C888972009314C8 /* NSArray Chinese.m */; };
 		1C5E41341C888972009314C8 /* NSDictionary Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E41301C888972009314C8 /* NSDictionary Chinese.m */; };
 		1C5E41351C888972009314C8 /* NSSet Chinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E41321C888972009314C8 /* NSSet Chinese.m */; };
+		1C69F6831C9571C400DD5CBA /* DesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C69F6821C9571C400DD5CBA /* DesCollectionView.m */; };
 		1CFB24311C8EB866004DCA7D /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB24271C8EB866004DCA7D /* WMFooldView.m */; };
 		1CFB24321C8EB866004DCA7D /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB24291C8EB866004DCA7D /* WMMenuItem.m */; };
 		1CFB24331C8EB866004DCA7D /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB242B1C8EB866004DCA7D /* WMMenuView.m */; };
@@ -159,7 +160,7 @@
 		1C0C172B1C8EBD8800135336 /* DesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesModel.m; sourceTree = "<group>"; };
 		1C0C172C1C8EBD8800135336 /* DesNavImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DesNavImage.png; sourceTree = "<group>"; };
 		1C0C172D1C8EBD8800135336 /* DesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesViewController.h; sourceTree = "<group>"; };
-		1C0C172E1C8EBD8800135336 /* DesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesViewController.m; sourceTree = "<group>"; };
+		1C0C172E1C8EBD8800135336 /* DesViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesViewControlelr.m; sourceTree = "<group>"; };
 		1C0C17361C8EBFBD00135336 /* ImagetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagetCell.xib; sourceTree = "<group>"; };
 		1C4403581C900587001D352E /* cancel_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_black@2x.png"; sourceTree = "<group>"; };
 		1C44035A1C9015A7001D352E /* PP2CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PP2CollectionViewCell.h; sourceTree = "<group>"; };
@@ -180,6 +181,8 @@
 		1C5E41301C888972009314C8 /* NSDictionary Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary Chinese.m"; sourceTree = "<group>"; };
 		1C5E41311C888972009314C8 /* NSSet Chinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet Chinese.h"; sourceTree = "<group>"; };
 		1C5E41321C888972009314C8 /* NSSet Chinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet Chinese.m"; sourceTree = "<group>"; };
+		1C69F6811C9571C400DD5CBA /* DesCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCollectionView.h; sourceTree = "<group>"; };
+		1C69F6821C9571C400DD5CBA /* DesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesCollectionView.m; sourceTree = "<group>"; };
 		1CFB24261C8EB866004DCA7D /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
 		1CFB24271C8EB866004DCA7D /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
 		1CFB24281C8EB866004DCA7D /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
@@ -218,7 +221,7 @@
 		8406439C1C8858E90069DF39 /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
 		8406439E1C885B850069DF39 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		8406439F1C885B850069DF39 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		840643A41C885CF70069DF39 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		840643A41C885CF70069DF39 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		845108001C89113D000D16E2 /* PopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopCell.h; sourceTree = "<group>"; };
 		845108011C89113D000D16E2 /* PopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopCell.m; sourceTree = "<group>"; };
 		845108021C89113D000D16E2 /* PopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopCell.xib; sourceTree = "<group>"; };
@@ -337,7 +340,9 @@
 			isa = PBXGroup;
 			children = (
 				1C0C172D1C8EBD8800135336 /* DesViewController.h */,
-				1C0C172E1C8EBD8800135336 /* DesViewController.m */,
+				1C0C172E1C8EBD8800135336 /* DesViewControlelr.m */,
+				1C69F6811C9571C400DD5CBA /* DesCollectionView.h */,
+				1C69F6821C9571C400DD5CBA /* DesCollectionView.m */,
 				1C0C17241C8EBD8800135336 /* CollectionViewCell.h */,
 				1C0C17251C8EBD8800135336 /* CollectionViewCell.m */,
 				1C0C17261C8EBD8800135336 /* CollectionViewCell.xib */,
@@ -945,6 +950,7 @@
 				845108461C895002000D16E2 /* UIView+Draw.m in Sources */,
 				1CFB24351C8EB866004DCA7D /* WMPageController.m in Sources */,
 				840643971C88425F0069DF39 /* PPViewController.m in Sources */,
+				1C69F6831C9571C400DD5CBA /* DesCollectionView.m in Sources */,
 				845108111C891B41000D16E2 /* ImagetCell.m in Sources */,
 				1CFB24341C8EB866004DCA7D /* WMProgressView.m in Sources */,
 				84AD7D971C7C0D000066064A /* firstCell.m in Sources */,
@@ -956,7 +962,7 @@
 				8493BC1F1C7C5D560011EC54 /* secendCell.m in Sources */,
 				1CFB243E1C8EB8C0004DCA7D /* WMTableViewController.m in Sources */,
 				1CFB24561C8EBC72004DCA7D /* WMImageViewCell.m in Sources */,
-				1C0C17351C8EBD8800135336 /* DesViewController.m in Sources */,
+				1C0C17351C8EBD8800135336 /* DesViewControlelr.m in Sources */,
 				8451082C1C89236F000D16E2 /* GlobalFont.m in Sources */,
 				1CFB243F1C8EB8C0004DCA7D /* WMViewController.m in Sources */,
 				845108151C891B41000D16E2 /* SecondCell.m in Sources */,
@@ -1122,6 +1128,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cckong.FreeTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1137,6 +1144,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cckong.FreeTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

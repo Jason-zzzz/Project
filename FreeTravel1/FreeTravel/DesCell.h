@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DesCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *desLabel;
 
 @end

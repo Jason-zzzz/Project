@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C4DA3B21C96CB97004EDBA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DA3B11C96CB97004EDBA5 /* main.m */; };
+		1C4DA3B51C96CB97004EDBA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DA3B41C96CB97004EDBA5 /* AppDelegate.m */; };
+		1C4DA3B81C96CB97004EDBA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DA3B71C96CB97004EDBA5 /* ViewController.m */; };
+		1C4DA3BB1C96CB97004EDBA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DA3B91C96CB97004EDBA5 /* Main.storyboard */; };
+		1C4DA3BD1C96CB97004EDBA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DA3BC1C96CB97004EDBA5 /* Assets.xcassets */; };
+		1C4DA3C01C96CB97004EDBA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DA3BE1C96CB97004EDBA5 /* LaunchScreen.storyboard */; };
+		1C4DA3CB1C96CB99004EDBA5 /* FreeTravel2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DA3CA1C96CB99004EDBA5 /* FreeTravel2Tests.m */; };
+		1C4DA3D61C96CB99004EDBA5 /* FreeTravel2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DA3D51C96CB99004EDBA5 /* FreeTravel2UITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C4DA3C71C96CB99004EDBA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C4DA3A51C96CB96004EDBA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C4DA3AC1C96CB97004EDBA5;
+			remoteInfo = FreeTravel2;
+		};
+		1C4DA3D21C96CB99004EDBA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C4DA3A51C96CB96004EDBA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C4DA3AC1C96CB97004EDBA5;
+			remoteInfo = FreeTravel2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C4DA3AD1C96CB97004EDBA5 /* FreeTravel2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeTravel2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C4DA3B11C96CB97004EDBA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C4DA3B31C96CB97004EDBA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1C4DA3B41C96CB97004EDBA5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1C4DA3B61C96CB97004EDBA5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1C4DA3B71C96CB97004EDBA5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1C4DA3BA1C96CB97004EDBA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1C4DA3BC1C96CB97004EDBA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C4DA3BF1C96CB97004EDBA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1C4DA3C11C96CB97004EDBA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C4DA3C61C96CB99004EDBA5 /* FreeTravel2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreeTravel2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C4DA3CA1C96CB99004EDBA5 /* FreeTravel2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeTravel2Tests.m; sourceTree = "<group>"; };
+		1C4DA3CC1C96CB99004EDBA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C4DA3D11C96CB99004EDBA5 /* FreeTravel2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreeTravel2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C4DA3D51C96CB99004EDBA5 /* FreeTravel2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeTravel2UITests.m; sourceTree = "<group>"; };
+		1C4DA3D71C96CB99004EDBA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C4DA3AA1C96CB97004EDBA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C4DA3C31C96CB99004EDBA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C4DA3CE1C96CB99004EDBA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C4DA3A41C96CB96004EDBA5 = {
+			isa = PBXGroup;
+			children = (
+				1C4DA3AF1C96CB97004EDBA5 /* FreeTravel2 */,
+				1C4DA3C91C96CB99004EDBA5 /* FreeTravel2Tests */,
+				1C4DA3D41C96CB99004EDBA5 /* FreeTravel2UITests */,
+				1C4DA3AE1C96CB97004EDBA5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C4DA3AE1C96CB97004EDBA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C4DA3AD1C96CB97004EDBA5 /* FreeTravel2.app */,
+				1C4DA3C61C96CB99004EDBA5 /* FreeTravel2Tests.xctest */,
+				1C4DA3D11C96CB99004EDBA5 /* FreeTravel2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C4DA3AF1C96CB97004EDBA5 /* FreeTravel2 */ = {
+			isa = PBXGroup;
+			children = (
+				1C4DA3B31C96CB97004EDBA5 /* AppDelegate.h */,
+				1C4DA3B41C96CB97004EDBA5 /* AppDelegate.m */,
+				1C4DA3B61C96CB97004EDBA5 /* ViewController.h */,
+				1C4DA3B71C96CB97004EDBA5 /* ViewController.m */,
+				1C4DA3B91C96CB97004EDBA5 /* Main.storyboard */,
+				1C4DA3BC1C96CB97004EDBA5 /* Assets.xcassets */,
+				1C4DA3BE1C96CB97004EDBA5 /* LaunchScreen.storyboard */,
+				1C4DA3C11C96CB97004EDBA5 /* Info.plist */,
+				1C4DA3B01C96CB97004EDBA5 /* Supporting Files */,
+			);
+			path = FreeTravel2;
+			sourceTree = "<group>";
+		};
+		1C4DA3B01C96CB97004EDBA5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C4DA3B11C96CB97004EDBA5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C4DA3C91C96CB99004EDBA5 /* FreeTravel2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1C4DA3CA1C96CB99004EDBA5 /* FreeTravel2Tests.m */,
+				1C4DA3CC1C96CB99004EDBA5 /* Info.plist */,
+			);
+			path = FreeTravel2Tests;
+			sourceTree = "<group>";
+		};
+		1C4DA3D41C96CB99004EDBA5 /* FreeTravel2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				1C4DA3D51C96CB99004EDBA5 /* FreeTravel2UITests.m */,
+				1C4DA3D71C96CB99004EDBA5 /* Info.plist */,
+			);
+			path = FreeTravel2UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C4DA3AC1C96CB97004EDBA5 /* FreeTravel2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C4DA3DA1C96CB99004EDBA5 /* Build configuration list for PBXNativeTarget "FreeTravel2" */;
+			buildPhases = (
+				1C4DA3A91C96CB97004EDBA5 /* Sources */,
+				1C4DA3AA1C96CB97004EDBA5 /* Frameworks */,
+				1C4DA3AB1C96CB97004EDBA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FreeTravel2;
+			productName = FreeTravel2;
+			productReference = 1C4DA3AD1C96CB97004EDBA5 /* FreeTravel2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C4DA3C51C96CB99004EDBA5 /* FreeTravel2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C4DA3DD1C96CB99004EDBA5 /* Build configuration list for PBXNativeTarget "FreeTravel2Tests" */;
+			buildPhases = (
+				1C4DA3C21C96CB99004EDBA5 /* Sources */,
+				1C4DA3C31C96CB99004EDBA5 /* Frameworks */,
+				1C4DA3C41C96CB99004EDBA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C4DA3C81C96CB99004EDBA5 /* PBXTargetDependency */,
+			);
+			name = FreeTravel2Tests;
+			productName = FreeTravel2Tests;
+			productReference = 1C4DA3C61C96CB99004EDBA5 /* FreeTravel2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1C4DA3D01C96CB99004EDBA5 /* FreeTravel2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C4DA3E01C96CB99004EDBA5 /* Build configuration list for PBXNativeTarget "FreeTravel2UITests" */;
+			buildPhases = (
+				1C4DA3CD1C96CB99004EDBA5 /* Sources */,
+				1C4DA3CE1C96CB99004EDBA5 /* Frameworks */,
+				1C4DA3CF1C96CB99004EDBA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C4DA3D31C96CB99004EDBA5 /* PBXTargetDependency */,
+			);
+			name = FreeTravel2UITests;
+			productName = FreeTravel2UITests;
+			productReference = 1C4DA3D11C96CB99004EDBA5 /* FreeTravel2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C4DA3A51C96CB96004EDBA5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Jason_zzzz;
+				TargetAttributes = {
+					1C4DA3AC1C96CB97004EDBA5 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = NU355HK68D;
+					};
+					1C4DA3C51C96CB99004EDBA5 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 1C4DA3AC1C96CB97004EDBA5;
+					};
+					1C4DA3D01C96CB99004EDBA5 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 1C4DA3AC1C96CB97004EDBA5;
+					};
+				};
+			};
+			buildConfigurationList = 1C4DA3A81C96CB96004EDBA5 /* Build configuration list for PBXProject "FreeTravel2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C4DA3A41C96CB96004EDBA5;
+			productRefGroup = 1C4DA3AE1C96CB97004EDBA5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C4DA3AC1C96CB97004EDBA5 /* FreeTravel2 */,
+				1C4DA3C51C96CB99004EDBA5 /* FreeTravel2Tests */,
+				1C4DA3D01C96CB99004EDBA5 /* FreeTravel2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C4DA3AB1C96CB97004EDBA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4DA3C01C96CB97004EDBA5 /* LaunchScreen.storyboard in Resources */,
+				1C4DA3BD1C96CB97004EDBA5 /* Assets.xcassets in Resources */,
+				1C4DA3BB1C96CB97004EDBA5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C4DA3C41C96CB99004EDBA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C4DA3CF1C96CB99004EDBA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C4DA3A91C96CB97004EDBA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4DA3B81C96CB97004EDBA5 /* ViewController.m in Sources */,
+				1C4DA3B51C96CB97004EDBA5 /* AppDelegate.m in Sources */,
+				1C4DA3B21C96CB97004EDBA5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C4DA3C21C96CB99004EDBA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4DA3CB1C96CB99004EDBA5 /* FreeTravel2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C4DA3CD1C96CB99004EDBA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4DA3D61C96CB99004EDBA5 /* FreeTravel2UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C4DA3C81C96CB99004EDBA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C4DA3AC1C96CB97004EDBA5 /* FreeTravel2 */;
+			targetProxy = 1C4DA3C71C96CB99004EDBA5 /* PBXContainerItemProxy */;
+		};
+		1C4DA3D31C96CB99004EDBA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C4DA3AC1C96CB97004EDBA5 /* FreeTravel2 */;
+			targetProxy = 1C4DA3D21C96CB99004EDBA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C4DA3B91C96CB97004EDBA5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C4DA3BA1C96CB97004EDBA5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1C4DA3BE1C96CB97004EDBA5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C4DA3BF1C96CB97004EDBA5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C4DA3D81C96CB99004EDBA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C4DA3D91C96CB99004EDBA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C4DA3DB1C96CB99004EDBA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = FreeTravel2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zjs.FreeTravel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1C4DA3DC1C96CB99004EDBA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = FreeTravel2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zjs.FreeTravel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		1C4DA3DE1C96CB99004EDBA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FreeTravel2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zjs.FreeTravel2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FreeTravel2.app/FreeTravel2";
+			};
+			name = Debug;
+		};
+		1C4DA3DF1C96CB99004EDBA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FreeTravel2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zjs.FreeTravel2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FreeTravel2.app/FreeTravel2";
+			};
+			name = Release;
+		};
+		1C4DA3E11C96CB99004EDBA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FreeTravel2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zjs.FreeTravel2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FreeTravel2;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		1C4DA3E21C96CB99004EDBA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FreeTravel2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zjs.FreeTravel2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FreeTravel2;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C4DA3A81C96CB96004EDBA5 /* Build configuration list for PBXProject "FreeTravel2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C4DA3D81C96CB99004EDBA5 /* Debug */,
+				1C4DA3D91C96CB99004EDBA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C4DA3DA1C96CB99004EDBA5 /* Build configuration list for PBXNativeTarget "FreeTravel2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C4DA3DB1C96CB99004EDBA5 /* Debug */,
+				1C4DA3DC1C96CB99004EDBA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C4DA3DD1C96CB99004EDBA5 /* Build configuration list for PBXNativeTarget "FreeTravel2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C4DA3DE1C96CB99004EDBA5 /* Debug */,
+				1C4DA3DF1C96CB99004EDBA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C4DA3E01C96CB99004EDBA5 /* Build configuration list for PBXNativeTarget "FreeTravel2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C4DA3E11C96CB99004EDBA5 /* Debug */,
+				1C4DA3E21C96CB99004EDBA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C4DA3A51C96CB96004EDBA5 /* Project object */;
+}

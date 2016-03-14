@@ -44,7 +44,7 @@
         [alert show];
     } else {
         if (!dataModel_) {
-            dataModel_ = [[DataModel allocWithZone:NULL] init];
+            dataModel_ = [DataModel allocWithZone:NULL];
         }
     }
 }
