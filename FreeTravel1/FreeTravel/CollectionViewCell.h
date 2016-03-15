@@ -10,4 +10,8 @@
 
 @interface CollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, copy) NSString *chineseName;
+@property (nonatomic, copy) NSString *engName;
+@property (weak, nonatomic) IBOutlet UIImageView *cityImageView;
+
 @end

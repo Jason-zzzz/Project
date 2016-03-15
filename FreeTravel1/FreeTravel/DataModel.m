@@ -32,7 +32,6 @@
 
 - (id)init{
     if (self = [super init]) {
-        destinationState_ = [NSMutableArray array];
         
         [self getData:nil];
     }
@@ -41,7 +40,6 @@
 
 - (void)getData:(NSString *)urlString{
     
-    // 获取分栏数据
     // 构建Request
     urlString = @"http://open.qyer.com/lastminute/conf/destination?app_installtime=1456065462&client_id=qyer_discount_ios&client_secret=44c86dbde623340b5e0a&lat=30.65624599563414&lon=104.0673926574023&page=1&page_size=20&ra_referer=app_lastminute_list&size=375x667&track_app_channel=App%2520Store&track_app_version=1.9.3&track_device_info=iPhone7%2C2&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&track_os=ios%25209.2.1&track_user_id=";
     NSString *encodeUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -55,25 +53,44 @@
     // 构建NSUrlSession
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
     
-    // 得到Task对象
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    if (!destinationState_) {
         
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-//                NSLog(@"%@",dic);
-        NSArray *dataArr = [dic objectForKey:@"data"];
-        destinationState_ = (NSMutableArray *)dataArr;
-//        for (NSDictionary *d in dataArr) {
-//            [destinationState_ addObject:[d objectForKey:@"name"]];
-//        }
-//        
-//        for (NSDictionary *s in dataArr) {
-//            
-//        }
-//        NSLog(@"%@",destinationState_);
-        [_modelDelegate finishGetData];
-    }];
-    [dataTask resume];
-    
+        // 得到Task对象
+        NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            //                NSLog(@"%@",dic);
+            NSArray *dataArr = [dic objectForKey:@"data"];
+            
+            destinationState_ = [NSMutableArray array];
+            destinationState_ = (NSMutableArray *)dataArr;
+            //        for (NSDictionary *d in dataArr) {
+            //            [destinationState_ addObject:[d objectForKey:@"name"]];
+            //        }
+            //
+            //        for (NSDictionary *s in dataArr) {
+            //
+            //        }
+//                    NSLog(@"%@",destinationState_);
+            [_modelDelegate finishGetData];
+        }];
+        [dataTask resume];
+    } else {
+        [_modelDelegate finishGetData];        
+    }
 }
 
+- (void)getCityImagesWith: (NSIndexPath *)cityIndex andUrl:(NSString *)cityImageUrl {
+    
+    // 异步下载
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // 下载
+        NSURL *url = [NSURL URLWithString:cityImageUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        [_modelDelegate finishGetCityImage:image andIndex:cityIndex];
+    });
+}
 @end

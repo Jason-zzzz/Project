@@ -54,6 +54,7 @@
 //    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"res/DefaultTheme/NavBar.png"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
+    // 设置tabBar
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.095 green:0.676 blue:0.141 alpha:1.000]];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithWhite:0.287 alpha:1.000], NSForegroundColorAttributeName,nil] forState:UIControlStateNormal];
     UIColor *titleHighlightedColor = [UIColor colorWithRed:0.157 green:0.684 blue:0.216 alpha:1.000];

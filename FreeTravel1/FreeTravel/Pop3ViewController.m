@@ -14,8 +14,10 @@
 
 @implementation Pop3ViewController
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [_pop3Web stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML='';"];
     [self loadWeb];
 }
 

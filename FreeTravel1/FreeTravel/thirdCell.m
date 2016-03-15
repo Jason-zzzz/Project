@@ -10,10 +10,4 @@
 
 @implementation thirdCell
 
-- (IBAction)thirdPop:(id)sender {
-    UIButton *btn = sender;
-    
-    [_delegate thirdPopView:btn.tag];
-}
-
 @end

@@ -12,7 +12,6 @@
 
 - (IBAction)clickAction:(id)sender {
     UIButton *btn = sender;
-    
     [_delegate secondPop:btn.tag];
 }
 

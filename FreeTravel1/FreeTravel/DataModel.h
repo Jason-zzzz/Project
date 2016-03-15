@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol dataModelDelegate <NSObject>
 
 - (void)finishGetData;
+- (void)finishGetCityImage: (UIImage *)image andIndex: (NSIndexPath *) index;
 
 @end
 
@@ -20,5 +22,8 @@
 @property (nonatomic, copy) NSMutableArray <NSString *> * destinationState;
 
 + (DataModel *)defaultObject;
+
+- (void)getData: (NSString *) urlString;
+- (void)getCityImagesWith: (NSIndexPath *) cityIndex andUrl: (NSString *) cityImageUrl;
 
 @end

@@ -11,5 +11,7 @@
 @interface DesCollectionView : UICollectionView
 
 @property (nonatomic, strong) NSMutableArray *cityArr;
+@property (nonatomic, strong) NSMutableArray *cityImageArr;
+@property (nonatomic, strong) NSMutableArray *sectionCityImage;
 
 @end

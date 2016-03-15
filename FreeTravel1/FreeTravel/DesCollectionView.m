@@ -13,6 +13,8 @@
 - (id)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
         self.cityArr = [NSMutableArray array];
+        self.cityImageArr = [NSMutableArray array];
+        self.sectionCityImage = [NSMutableArray array];
     }
     return self;
 }
