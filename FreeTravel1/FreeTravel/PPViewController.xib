@@ -24,7 +24,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="105" width="375" height="562"/>
+                        <rect key="frame" x="0.0" y="41" width="375" height="562"/>
                     </variation>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Aag-RX-hOn"/>
@@ -35,7 +35,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="105" width="375" height="1"/>
+                        <rect key="frame" x="0.0" y="41" width="375" height="1"/>
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReJ-Kb-tFL">
@@ -70,7 +70,7 @@
                         </mask>
                     </variation>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                         <mask key="subviews">
                             <include reference="GDF-gM-spa"/>
                             <include reference="PBV-O1-BmN"/>

@@ -61,12 +61,13 @@ static NSInteger row = 0;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [dataModel_ getData:nil];
+    [dataModel_ getData:basicData];
 
-    // 初始化选中
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-    [tableViewPlus selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-    
+    if (dataModel_.destinationState.count > 0) {
+        // 初始化选中
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+        [tableViewPlus selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
 //            // 延迟执行 （太明显）
 //        double delayInSeconds = 0.3;
 //        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -198,20 +199,25 @@ static NSInteger row = 0;
 
 #pragma mark DataModelDelegate
 
+- (void)finishGetVisa {
+}
+
 - (void)finishGetData {
     
     [self setData:0];
     [tableViewPlus reloadData];
+    if (dataModel_.destinationState.count > 0) {
+        // 初始化选中
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+        [tableViewPlus selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
     [collectionViewPlus reloadData];
     
 }
 
 #pragma mark tableViewDelegate
 
-static NSInteger sectionNum = 0;
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    sectionNum = indexPath.row;
     row = indexPath.row;
     [self setData:indexPath.row];
     [collectionViewPlus reloadData];
@@ -249,7 +255,7 @@ static NSInteger sectionNum = 0;
     
     DesCollectionView *view = (DesCollectionView *)collectionView;
     
-    NSLog(@"---cell--%ld-----num------%ld", view.tag, view.cityArr.count);
+//    NSLog(@"---cell--%ld-----num------%ld", view.tag, view.cityArr.count);
     NSArray *arr = nil;
     if (view.cityArr.count > 0) {
         arr = view.cityArr[0];
@@ -258,11 +264,11 @@ static NSInteger sectionNum = 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"-----------cell--%ld",collectionView.tag);
+//    NSLog(@"-----------cell--%ld",collectionView.tag);
     CollectionViewCell *cellPlus = nil;
     
     cellPlus = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
-    NSLog(@"%ld",indexPath.row);
+//    NSLog(@"%ld",indexPath.row);
     
     cellPlus.chineseName = collectionViewPlus.cityArr[0][indexPath.item];
     cellPlus.engName = collectionViewPlus.cityArr[1][indexPath.item];
@@ -283,7 +289,7 @@ static NSInteger sectionNum = 0;
         UICollectionViewCell *cell = [collectionViewPlus cellForItemAtIndexPath:index];
         ((CollectionViewCell *)cell).cityImageView.image = image;
         collectionViewPlus.sectionCityImage[index.item] = image;
-        cityImageArr[sectionNum] = collectionViewPlus.sectionCityImage;
+        cityImageArr[row] = collectionViewPlus.sectionCityImage;
     });
 }
 

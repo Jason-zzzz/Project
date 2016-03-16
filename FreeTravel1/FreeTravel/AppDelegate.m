@@ -10,6 +10,7 @@
 #import "DataModel.h"
 #import "Reachability.h"
 
+
 @interface AppDelegate () {
     DataModel *dataModel_;
     
@@ -22,7 +23,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    dataModel_ = [DataModel allocWithZone:NULL];
     
     // 实时检测网络状态
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
@@ -43,9 +45,8 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"自由行" message:@"当前网络不可用，请检查网络连接"  delegate:nil cancelButtonTitle:@"YES" otherButtonTitles:nil];
         [alert show];
     } else {
-        if (!dataModel_) {
-            dataModel_ = [DataModel allocWithZone:NULL];
-        }
+        [dataModel_ getData:basicData];
+        [dataModel_ getData:visa];
     }
 }
 

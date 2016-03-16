@@ -32,6 +32,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 去白带
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     UINib *nib = [UINib nibWithNibName:@"PopCell" bundle:nil];
     [popTableView_ registerNib:nib forCellReuseIdentifier:@"popCell"];
     popTableView_.separatorColor = [UIColor lightGrayColor];

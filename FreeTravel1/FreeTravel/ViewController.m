@@ -18,8 +18,10 @@
 #import "WMViewController.h"
 #import "WMTableViewController.h"
 #import "WMCollectionViewController.h"
+#import "DataModel.h"
+#import "VisaData.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate, popViewDelegate, secondPopDelegate>{
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate, popViewDelegate, secondPopDelegate, dataModelDelegate>{
     
     __weak IBOutlet UITableView *homeTableView_;
     __weak IBOutlet UIBarButtonItem *searchButton_;
@@ -29,6 +31,9 @@
     
     WMPageController *pageController;
     WMTableViewController *wmTVC_;
+    DataModel *dataModel_;
+    VisaData *visaData_;
+    NSMutableArray *visaDataArr_;
 }
 
 @end
@@ -43,6 +48,9 @@ static NSString *hotMessageIdentifer = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    dataModel_ = [DataModel allocWithZone:NULL];
+    dataModel_.modelDelegate = self;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"icon1"];
     
@@ -52,15 +60,15 @@ static NSString *hotMessageIdentifer = nil;
     [self.navigationController.navigationBar addSubview:statusView];
     statusView.backgroundColor = [UIColor colorWithRed:0.24 green:0.78 blue:0.49 alpha:1.0];
     
-//    UIImage *titleImage = [UIImage image∫Named:@"nav_back1.jpg"];
-//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
-//    titleImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
+    //    UIImage *titleImage = [UIImage image∫Named:@"nav_back1.jpg"];
+    //    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
+    //    titleImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
     
-//    [self.navigationController.navigationBar addSubview:titleImageView];
+    //    [self.navigationController.navigationBar addSubview:titleImageView];
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"header_02.jpg"]];
     
-
+    
     //注册cell
     firstIdentifier = @"firstCell";
     UINib *nib1 = [UINib nibWithNibName:@"firstCell" bundle:nil];
@@ -97,11 +105,32 @@ static NSString *hotMessageIdentifer = nil;
     UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:vc];
     searchController.dimsBackgroundDuringPresentation = YES;            //是否添加半透明覆盖层
     
-//    searchController.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20, 375, 35)];
+    //    searchController.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20, 375, 35)];
     searchController.searchBar.backgroundImage = [UIImage imageNamed:@"Remu.jpg"];
     searchController.hidesNavigationBarDuringPresentation = NO;     //是否隐藏导航栏
     self.definesPresentationContext = YES;
     [self.navigationController presentViewController:searchController animated:YES completion:nil];
+}
+
+#pragma mark dataModelDelegate 
+
+- (void)finishGetData {
+}
+
+- (void)finishGetVisa {
+    visaDataArr_ = [NSMutableArray array];
+    for (NSDictionary *dic in [((NSDictionary *)dataModel_.visaData) objectForKey:@"slide"]) {
+        visaData_ = [[VisaData alloc] init];
+        visaData_.imgUrl = [dic objectForKey:@"img"];
+        visaData_.url = [dic objectForKey:@"url"];
+        [visaDataArr_ addObject:visaData_];
+    }
+    for (NSDictionary *dic in [((NSDictionary *)dataModel_.visaData) objectForKey:@"destination"]) {
+        visaData_ = [[VisaData alloc] init];
+        visaData_.name = [dic objectForKey:@"name"];
+        visaData_.pic = [dic objectForKey:@"pic"];
+        [visaDataArr_ addObject:visaData_];
+    }
 }
 
 #pragma mark popViewDelegate
@@ -113,7 +142,7 @@ static NSString *hotMessageIdentifer = nil;
             [self.navigationController showViewController:popVC_ sender:self];
             self.hidesBottomBarWhenPushed = NO;
             break;
-           
+            
         case 10004:
             self.hidesBottomBarWhenPushed = YES;
             [self.navigationController showViewController:popVC_ sender:self];
@@ -128,8 +157,8 @@ static NSString *hotMessageIdentifer = nil;
             
         case 10002:
             self.hidesBottomBarWhenPushed = YES;
-//            [self.navigationController presentViewController:wmTVC_ animated:YES completion:nil];
-            
+            //            [self.navigationController presentViewController:wmTVC_ animated:YES completion:nil];
+//            [dataModel_ getData:visa];
             [self.navigationController presentViewController:popTC_ animated:YES completion:nil];
             self.hidesBottomBarWhenPushed = NO;
             break;
@@ -156,10 +185,10 @@ static NSString *hotMessageIdentifer = nil;
 - (void)thirdPopView:(NSInteger)tag{
     switch (tag) {
         case 10030:
-//            self.hidesBottomBarWhenPushed = YES;
-//            pop3VC_.requestString = @"http://m.qyer.com/z/zt/2016321go0314&source=app&campaign=zkapp&category=hot_2016321go0314/?client_id=qyer_discount_ios&track_app_version=1.9.3&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&ra_referer=choiceness&ra_model=hot_zt";
-//            [self.navigationController showViewController:pop3VC_ sender:self];
-//            self.hidesBottomBarWhenPushed = NO;
+            //            self.hidesBottomBarWhenPushed = YES;
+            //            pop3VC_.requestString = @"http://m.qyer.com/z/zt/2016321go0314&source=app&campaign=zkapp&category=hot_2016321go0314/?client_id=qyer_discount_ios&track_app_version=1.9.3&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&ra_referer=choiceness&ra_model=hot_zt";
+            //            [self.navigationController showViewController:pop3VC_ sender:self];
+            //            self.hidesBottomBarWhenPushed = NO;
             
             break;
             
@@ -249,7 +278,7 @@ static NSString *hotMessageIdentifer = nil;
 
 //tableView有多少个section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-   
+    
     return 3;
 }
 
@@ -284,61 +313,46 @@ static NSString *hotMessageIdentifer = nil;
         return cell;
     }
     
-    if (2 == indexPath.section && 0 == indexPath.row){
-        HotMessageCell *cell = nil;
-        cell = [tableView dequeueReusableCellWithIdentifier:hotMessageIdentifer forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
-    }
     
     thirdCell *cell = nil;
     
-    if (2 == indexPath.section && 1 == indexPath.row) {
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
-        UIImage *image = [UIImage imageNamed:@"qiang.jpg"];
-        cell.imageView.image = image;
-        
-        //取消选中灰色背景
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    } else
-    if (2 == indexPath.section && 2 == indexPath.row) {
-        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
-        UIImage *image = [UIImage imageNamed:@"poshui.jpg"];
-        cell.imageView.image = image;
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    } else
-    if (2 == indexPath.section && 3 == indexPath.row) {
-        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
-        UIImage *image = [UIImage imageNamed:@"chun.jpg"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.imageView.image = image;
-    } else
-    if (2 == indexPath.section && 4 == indexPath.row) {
-        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
-        UIImage *image = [UIImage imageNamed:@"movie.jpg"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.imageView.image = image;
-        return cell;
-    } else
-    if (2 == indexPath.section && 5 == indexPath.row) {
-        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
-        UIImage *image = [UIImage imageNamed:@"shuangren.jpg"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.imageView.image = image;
-    }
-    if (2 == indexPath.section && 6 == indexPath.row) {
-        cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
-        UIImage *image = [UIImage imageNamed:@"heart.jpg"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.imageView.image = image;
-    } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    if (2 == indexPath.section) {
+        if (0 == indexPath.row){
+            HotMessageCell *hotCell = nil;
+            hotCell = [tableView dequeueReusableCellWithIdentifier:hotMessageIdentifer forIndexPath:indexPath];
+            hotCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return hotCell;
+        } else if (7 == indexPath.row) {
+            UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+            if (!cell1) {
+                cell1 = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+            }
+            return cell1;
         }
-        return cell;
+        else {
+            
+            cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier forIndexPath:indexPath];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        if (1 == indexPath.row) {
+            UIImage *image = [UIImage imageNamed:@"qiang.jpg"];
+            cell.cellImageView.image = image;
+        } else if (2 == indexPath.row) {
+            UIImage *image = [UIImage imageNamed:@"poshui.jpg"];
+            cell.cellImageView.image = image;
+        } else if (3 == indexPath.row) {
+            UIImage *image = [UIImage imageNamed:@"chun.jpg"];
+            cell.cellImageView.image = image;
+        } else if (4 == indexPath.row) {
+            UIImage *image = [UIImage imageNamed:@"movie.jpg"];
+            cell.cellImageView.image = image;
+        } else if (5 == indexPath.row) {
+            UIImage *image = [UIImage imageNamed:@"shuangren.jpg"];
+            cell.cellImageView.image = image;
+        } else if (6 == indexPath.row) {
+            UIImage *image = [UIImage imageNamed:@"heart.jpg"];
+            cell.cellImageView.image = image;
+        }
     }
     return cell;
 }

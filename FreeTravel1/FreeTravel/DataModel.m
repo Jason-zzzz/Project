@@ -16,6 +16,7 @@
 @implementation DataModel
 
 @synthesize destinationState = destinationState_;
+@synthesize visaData = visaData_;
 
 + (id)allocWithZone:(struct _NSZone *)zone{
     return [self defaultObject];
@@ -30,18 +31,9 @@
     return singleInstance;
 }
 
-- (id)init{
-    if (self = [super init]) {
-        
-        [self getData:nil];
-    }
-    return self;
-}
-
 - (void)getData:(NSString *)urlString{
     
     // 构建Request
-    urlString = @"http://open.qyer.com/lastminute/conf/destination?app_installtime=1456065462&client_id=qyer_discount_ios&client_secret=44c86dbde623340b5e0a&lat=30.65624599563414&lon=104.0673926574023&page=1&page_size=20&ra_referer=app_lastminute_list&size=375x667&track_app_channel=App%2520Store&track_app_version=1.9.3&track_device_info=iPhone7%2C2&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&track_os=ios%25209.2.1&track_user_id=";
     NSString *encodeUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     //    NSLog(@"%@",encodeUrl);
     NSURL *url = [NSURL URLWithString:encodeUrl];
@@ -53,31 +45,32 @@
     // 构建NSUrlSession
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
     
-    if (!destinationState_) {
+    void (^aBlock)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        // 得到Task对象
-        NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-            //                NSLog(@"%@",dic);
-            NSArray *dataArr = [dic objectForKey:@"data"];
-            
-            destinationState_ = [NSMutableArray array];
-            destinationState_ = (NSMutableArray *)dataArr;
-            //        for (NSDictionary *d in dataArr) {
-            //            [destinationState_ addObject:[d objectForKey:@"name"]];
-            //        }
-            //
-            //        for (NSDictionary *s in dataArr) {
-            //
-            //        }
-//                    NSLog(@"%@",destinationState_);
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        if ([urlString isEqualToString:basicData]) {
+            destinationState_ = [dic objectForKey:@"data"];
             [_modelDelegate finishGetData];
-        }];
-        [dataTask resume];
-    } else {
-        [_modelDelegate finishGetData];        
+        }
+        if ([urlString isEqualToString:visa]) {
+            visaData_ = [dic objectForKey:@"data"];
+            //                NSLog(@"%@",visaData_);
+            [_modelDelegate finishGetVisa];
+        }
+    };
+    if (destinationState_ && [urlString isEqualToString:basicData]) {
+        [_modelDelegate finishGetData];
+        return;
+    } else if (visaData_ && [urlString isEqualToString:visa]) {
+        [_modelDelegate finishGetVisa];
+        return;
     }
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:aBlock];
+    [dataTask resume];
+}
+ 
+- (void)getVisaImageWith:(NSString *)visaImageUrl {
+
 }
 
 - (void)getCityImagesWith: (NSIndexPath *)cityIndex andUrl:(NSString *)cityImageUrl {
@@ -93,4 +86,5 @@
         [_modelDelegate finishGetCityImage:image andIndex:cityIndex];
     });
 }
+
 @end

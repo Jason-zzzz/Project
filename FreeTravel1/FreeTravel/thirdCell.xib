@@ -14,8 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zwv-KC-4tT">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dragon Spirit.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zwv-KC-4tT">
                         <rect key="frame" x="10" y="5" width="355" height="94"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,9 +28,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageView" destination="Zwv-KC-4tT" id="Qbc-0L-1jd"/>
+                <outlet property="cellImageView" destination="Zwv-KC-4tT" id="f15-dz-cme"/>
             </connections>
             <point key="canvasLocation" x="260.5" y="258.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Dragon Spirit.jpg" width="395" height="395"/>
+    </resources>
 </document>

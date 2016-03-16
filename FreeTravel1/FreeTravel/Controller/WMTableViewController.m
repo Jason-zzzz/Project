@@ -36,7 +36,7 @@ static NSString * firstIdentifier = @"ppFirstCell";
     
     self.tableView.showsVerticalScrollIndicator = NO;
     NSArray *images = @[@"zoro.jpg",@"three.jpg",@"onepiece.jpg"];
-    WMLoopView *loopView = [[WMLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width/1.8) images:images autoPlay:YES delay:10.0];
+    WMLoopView *loopView = [[WMLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width/1.8) images:images autoPlay:YES delay:1.0];
     loopView.delegate = self;
     self.tableView.tableHeaderView = loopView;
     self.tableView.rowHeight = 80;

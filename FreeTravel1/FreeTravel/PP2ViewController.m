@@ -9,15 +9,18 @@
 #import "PP2ViewController.h"
 #import "PPfirstCell.h"
 #import "WMLoopView.h"
+#import "DataModel.h"
 
 #define CELL_HEIGHT 370
 
-@interface PP2ViewController () <UITableViewDataSource, UITableViewDelegate, WMLoopViewDelegate> {
+@interface PP2ViewController () <UITableViewDataSource, UITableViewDelegate, WMLoopViewDelegate, dataModelDelegate> {
     UIButton *cancelButton_;
     UINib *nib_;
+    WMLoopView *loopView;
+    NSArray *images;
+    DataModel *dataModel_;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation PP2ViewController
@@ -28,16 +31,24 @@ static NSString * secondIdentifier = @"PPsecondCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    dataModel_ = [DataModel allocWithZone:NULL];
+    dataModel_.modelDelegate = self;
+
     [self initView];
+}
+
+#pragma mark dataModelDelegate
+
+- (void)finishGetVisaImage {
+    
 }
 
 - (void)initView {
     
     self.tableView.showsVerticalScrollIndicator = NO;
-    NSArray *images = @[@"zoro.jpg",@"three.jpg",@"onepiece.jpg"];
+    images = @[@"zoro.jpg",@"three.jpg",@"onepiece.jpg"];
     
-    WMLoopView *loopView = [[WMLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width/1.8) images:images autoPlay:YES delay:5.0];
-
+    loopView = [[WMLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width/1.8) images:images autoPlay:YES delay:3.0];
     loopView.delegate = self;
     self.tableView.tableHeaderView = loopView;
     

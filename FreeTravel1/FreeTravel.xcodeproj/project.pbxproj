@@ -37,6 +37,7 @@
 		1C44035E1C9015A7001D352E /* PP2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C44035C1C9015A7001D352E /* PP2CollectionViewCell.xib */; };
 		1C4403621C9023C9001D352E /* PPsecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4403601C9023C9001D352E /* PPsecondCell.m */; };
 		1C4403631C9023C9001D352E /* PPsecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4403611C9023C9001D352E /* PPsecondCell.xib */; };
+		1C508B971C9965B700351FA1 /* VisaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C508B961C9965B700351FA1 /* VisaData.m */; };
 		1C516C601C8DCF8D00BEC00F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C516C5E1C8DCF8D00BEC00F /* SearchViewController.m */; };
 		1C516C611C8DCF8D00BEC00F /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C516C5F1C8DCF8D00BEC00F /* SearchViewController.xib */; };
 		1C593CBB1C89C304000FCEDB /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C593CBA1C89C304000FCEDB /* DataModel.m */; };
@@ -187,6 +188,8 @@
 		1C44035F1C9023C9001D352E /* PPsecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPsecondCell.h; sourceTree = "<group>"; };
 		1C4403601C9023C9001D352E /* PPsecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPsecondCell.m; sourceTree = "<group>"; };
 		1C4403611C9023C9001D352E /* PPsecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPsecondCell.xib; sourceTree = "<group>"; };
+		1C508B951C9965B700351FA1 /* VisaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisaData.h; sourceTree = "<group>"; };
+		1C508B961C9965B700351FA1 /* VisaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisaData.m; sourceTree = "<group>"; };
 		1C516C5D1C8DCF8D00BEC00F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		1C516C5E1C8DCF8D00BEC00F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		1C516C5F1C8DCF8D00BEC00F /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 			children = (
 				1C593CB91C89C304000FCEDB /* DataModel.h */,
 				1C593CBA1C89C304000FCEDB /* DataModel.m */,
+				1C508B951C9965B700351FA1 /* VisaData.h */,
+				1C508B961C9965B700351FA1 /* VisaData.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -979,6 +984,7 @@
 				1C4403621C9023C9001D352E /* PPsecondCell.m in Sources */,
 				8493BC241C7C5D6C0011EC54 /* thirdCell.m in Sources */,
 				845108031C89113D000D16E2 /* PopCell.m in Sources */,
+				1C508B971C9965B700351FA1 /* VisaData.m in Sources */,
 				1CFB24321C8EB866004DCA7D /* WMMenuItem.m in Sources */,
 				1C5E41341C888972009314C8 /* NSDictionary Chinese.m in Sources */,
 				1C0C17331C8EBD8800135336 /* DesModel.m in Sources */,
