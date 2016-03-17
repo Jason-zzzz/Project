@@ -199,9 +199,6 @@ static NSInteger row = 0;
 
 #pragma mark DataModelDelegate
 
-- (void)finishGetVisa {
-}
-
 - (void)finishGetData {
     
     [self setData:0];

@@ -79,7 +79,11 @@
     CGFloat height = self.frame.size.height;
     for (int i = 0; i < 3; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * width, 0, width, height)];
-        imageView.image = [UIImage imageNamed:self.currentImages[i]];
+        if ([self.currentImages[i] isKindOfClass:[UIImage class]]) {
+            imageView.image = self.currentImages[i];
+        } else {
+            imageView.image = [UIImage imageNamed:self.currentImages[i]];
+        }
         [scrollView addSubview:imageView];
     }
     scrollView.contentSize = CGSizeMake(3*width, height);
@@ -99,7 +103,11 @@
     NSArray *subViews = self.scrollView.subviews;
     for (int i = 0; i < subViews.count; i++) {
         UIImageView *imageView = (UIImageView *)subViews[i];
-        imageView.image = [UIImage imageNamed:self.currentImages[i]];
+        if ([self.currentImages[i] isKindOfClass:[UIImage class]]) {
+            imageView.image = self.currentImages[i];
+        } else {
+            imageView.image = [UIImage imageNamed:self.currentImages[i]];
+        }
     }
     
     [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];

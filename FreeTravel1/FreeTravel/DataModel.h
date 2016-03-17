@@ -15,9 +15,15 @@
 @protocol dataModelDelegate <NSObject>
 
 @optional
-- (void)finishGetVisaImage;
 - (void)finishGetCityImage: (UIImage *)image andIndex: (NSIndexPath *) index;
 - (void)finishGetData;
+
+@end
+
+@protocol visaDataDelegate <NSObject>
+
+@optional
+- (void)finishGetVisaImage: (UIImage *)image andNum: (NSInteger) num;
 - (void)finishGetVisa;
 
 @end
@@ -25,6 +31,7 @@
 @interface DataModel : NSObject
 
 @property (nonatomic, assign) id <dataModelDelegate> modelDelegate;
+@property (nonatomic, assign) id <visaDataDelegate> visaModelDelegate;
 @property (nonatomic, copy) NSMutableArray * destinationState;
 @property (nonatomic, strong) NSMutableArray * visaData;
 
@@ -35,5 +42,6 @@
 // 获取目的地城市图片数据
 - (void)getCityImagesWith: (NSIndexPath *) cityIndex andUrl: (NSString *) cityImageUrl;
 // 获取签证页图片数据
-- (void)getVisaImageWith: (NSString *) visaImageUrl;
+- (void)getVisaImageWith: (NSString *) visaImageUrl andNum: (NSInteger) num;
+
 @end

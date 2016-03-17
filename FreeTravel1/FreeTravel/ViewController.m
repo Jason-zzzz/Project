@@ -21,16 +21,15 @@
 #import "DataModel.h"
 #import "VisaData.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate, popViewDelegate, secondPopDelegate, dataModelDelegate>{
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate, popViewDelegate, secondPopDelegate, visaDataDelegate, dataModelDelegate>{
     
+    __weak IBOutlet UIView *netErrorView;
     __weak IBOutlet UITableView *homeTableView_;
     __weak IBOutlet UIBarButtonItem *searchButton_;
     PPViewController *popVC_;
     PP2ViewController *popTC_;
     Pop3ViewController *pop3VC_;
     
-    WMPageController *pageController;
-    WMTableViewController *wmTVC_;
     DataModel *dataModel_;
     VisaData *visaData_;
     NSMutableArray *visaDataArr_;
@@ -49,7 +48,9 @@ static NSString *hotMessageIdentifer = nil;
     [super viewDidLoad];
     
     dataModel_ = [DataModel allocWithZone:NULL];
+    dataModel_.visaModelDelegate = self;
     dataModel_.modelDelegate = self;
+//    [dataModel_ getData:visa];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"icon1"];
@@ -90,14 +91,19 @@ static NSString *hotMessageIdentifer = nil;
     popTC_ = [[PP2ViewController alloc] init];
     pop3VC_ = [[Pop3ViewController alloc] init];
     
-    wmTVC_ = [[WMTableViewController alloc] init];
-    
-    self.tabBarController.tabBar.hidden = NO;
+    self.tabBarController.tabBar.hidden = YES;
     // Do any additional setup after loading the view, typically from a nib.
     
 }
 
 #pragma mark Actions
+
+- (IBAction)restartAction:(id)sender {
+    if (dataModel_.destinationState.count > 0) {
+        [self.view sendSubviewToBack:netErrorView];
+        self.tabBarController.tabBar.hidden = NO;
+    }
+}
 
 - (IBAction)searchButtonAction:(id)sender {
     UIViewController *vc = [[UIViewController alloc] init];
@@ -112,25 +118,37 @@ static NSString *hotMessageIdentifer = nil;
     [self.navigationController presentViewController:searchController animated:YES completion:nil];
 }
 
-#pragma mark dataModelDelegate 
+#pragma mark dataModelDelegate
 
 - (void)finishGetData {
+//    if (dataModel_.destinationState.count > 0) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view sendSubviewToBack:netErrorView];
+        self.tabBarController.tabBar.hidden = NO;
+    });
+//    }
 }
 
 - (void)finishGetVisa {
     visaDataArr_ = [NSMutableArray array];
+    
+    [visaDataArr_ removeAllObjects];
     for (NSDictionary *dic in [((NSDictionary *)dataModel_.visaData) objectForKey:@"slide"]) {
         visaData_ = [[VisaData alloc] init];
         visaData_.imgUrl = [dic objectForKey:@"img"];
         visaData_.url = [dic objectForKey:@"url"];
         [visaDataArr_ addObject:visaData_];
     }
+    popTC_.visaSlideArray = visaDataArr_;
+    
+    [visaDataArr_ removeAllObjects];
     for (NSDictionary *dic in [((NSDictionary *)dataModel_.visaData) objectForKey:@"destination"]) {
         visaData_ = [[VisaData alloc] init];
         visaData_.name = [dic objectForKey:@"name"];
         visaData_.pic = [dic objectForKey:@"pic"];
         [visaDataArr_ addObject:visaData_];
     }
+    popTC_.visaCityArray = visaDataArr_;
 }
 
 #pragma mark popViewDelegate
@@ -159,10 +177,10 @@ static NSString *hotMessageIdentifer = nil;
             self.hidesBottomBarWhenPushed = YES;
             //            [self.navigationController presentViewController:wmTVC_ animated:YES completion:nil];
 //            [dataModel_ getData:visa];
-            [self.navigationController presentViewController:popTC_ animated:YES completion:nil];
+            [self.navigationController presentViewController:popTC_ animated:YES completion:^{
+                [self finishGetVisa];
+            }];
             self.hidesBottomBarWhenPushed = NO;
-            break;
-        default:
             break;
     }
 }
@@ -175,21 +193,6 @@ static NSString *hotMessageIdentifer = nil;
             break;
         case 10021:
             [self pop3View:@"http://m.qyer.com/z/zt/europeart&source=app2&campaign=zkapp&category=zk192_europeart/?client_id=qyer_discount_ios&track_app_version=1.9.3&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&ra_referer=app_lastminute_list&ra_model=route"];
-            break;
-            
-        default:
-            break;
-    }
-}
-
-- (void)thirdPopView:(NSInteger)tag{
-    switch (tag) {
-        case 10030:
-            //            self.hidesBottomBarWhenPushed = YES;
-            //            pop3VC_.requestString = @"http://m.qyer.com/z/zt/2016321go0314&source=app&campaign=zkapp&category=hot_2016321go0314/?client_id=qyer_discount_ios&track_app_version=1.9.3&track_deviceid=4BB342C6-D1A3-4AE1-A585-7A16BED33C19&ra_referer=choiceness&ra_model=hot_zt";
-            //            [self.navigationController showViewController:pop3VC_ sender:self];
-            //            self.hidesBottomBarWhenPushed = NO;
-            
             break;
             
         default:

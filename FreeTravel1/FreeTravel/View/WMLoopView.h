@@ -17,7 +17,7 @@
 @property (nonatomic, weak) id<WMLoopViewDelegate> delegate;
 @property (nonatomic, assign) BOOL autoPlay;
 @property (nonatomic, assign) NSTimeInterval timeInterval;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, copy) NSArray *images;
 
 - (instancetype)initWithFrame:(CGRect)frame images:(NSArray *)images autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval;
 @end

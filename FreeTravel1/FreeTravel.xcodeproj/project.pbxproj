@@ -32,6 +32,7 @@
 		1C0C17341C8EBD8800135336 /* DesNavImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0C172C1C8EBD8800135336 /* DesNavImage.png */; };
 		1C0C17351C8EBD8800135336 /* DesViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C172E1C8EBD8800135336 /* DesViewControlelr.m */; };
 		1C0C17371C8EBFBD00135336 /* ImagetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0C17361C8EBFBD00135336 /* ImagetCell.xib */; };
+		1C20A5AA1C9B00BF00F0D09D /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20A5A91C9B00BF00F0D09D /* LaunchViewController.m */; };
 		1C4403591C900587001D352E /* cancel_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4403581C900587001D352E /* cancel_black@2x.png */; };
 		1C44035D1C9015A7001D352E /* PP2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C44035B1C9015A7001D352E /* PP2CollectionViewCell.m */; };
 		1C44035E1C9015A7001D352E /* PP2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C44035C1C9015A7001D352E /* PP2CollectionViewCell.xib */; };
@@ -181,6 +182,8 @@
 		1C0C172D1C8EBD8800135336 /* DesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesViewController.h; sourceTree = "<group>"; };
 		1C0C172E1C8EBD8800135336 /* DesViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesViewControlelr.m; sourceTree = "<group>"; };
 		1C0C17361C8EBFBD00135336 /* ImagetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagetCell.xib; sourceTree = "<group>"; };
+		1C20A5A81C9B00BF00F0D09D /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		1C20A5A91C9B00BF00F0D09D /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		1C4403581C900587001D352E /* cancel_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_black@2x.png"; sourceTree = "<group>"; };
 		1C44035A1C9015A7001D352E /* PP2CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PP2CollectionViewCell.h; sourceTree = "<group>"; };
 		1C44035B1C9015A7001D352E /* PP2CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PP2CollectionViewCell.m; sourceTree = "<group>"; };
@@ -603,6 +606,8 @@
 				845108051C891B2C000D16E2 /* User */,
 				84AD7D6C1C7C0B620066064A /* Assets.xcassets */,
 				84AD7D6E1C7C0B620066064A /* LaunchScreen.storyboard */,
+				1C20A5A81C9B00BF00F0D09D /* LaunchViewController.h */,
+				1C20A5A91C9B00BF00F0D09D /* LaunchViewController.m */,
 				84AD7D711C7C0B620066064A /* Info.plist */,
 				84AD7D601C7C0B620066064A /* Supporting Files */,
 			);
@@ -981,6 +986,7 @@
 				8451085B1C8978E5000D16E2 /* Pop3ViewController.m in Sources */,
 				847CC7581C88248D0063506B /* HotMessageCell.m in Sources */,
 				84AD7D681C7C0B620066064A /* ViewController.m in Sources */,
+				1C20A5AA1C9B00BF00F0D09D /* LaunchViewController.m in Sources */,
 				1C4403621C9023C9001D352E /* PPsecondCell.m in Sources */,
 				8493BC241C7C5D6C0011EC54 /* thirdCell.m in Sources */,
 				845108031C89113D000D16E2 /* PopCell.m in Sources */,

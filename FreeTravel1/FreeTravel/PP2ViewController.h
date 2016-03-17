@@ -10,4 +10,7 @@
 
 @interface PP2ViewController : UIViewController
 
+@property (nonatomic, copy) NSArray *visaSlideArray;
+@property (nonatomic, copy) NSArray *visaCityArray;
+
 @end

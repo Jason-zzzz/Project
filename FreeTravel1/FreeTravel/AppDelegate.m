@@ -31,6 +31,11 @@
     hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
     [hostReach startNotifier];
     
+    // 延长launchScreen的显示时间
+    [NSThread sleepForTimeInterval:1.5];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
     [self setColor];
     return YES;
 }
@@ -44,6 +49,7 @@
     if (status == NotReachable) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"自由行" message:@"当前网络不可用，请检查网络连接"  delegate:nil cancelButtonTitle:@"YES" otherButtonTitles:nil];
         [alert show];
+        [self.window bringSubviewToFront:[[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 667)]];
     } else {
         [dataModel_ getData:basicData];
         [dataModel_ getData:visa];
