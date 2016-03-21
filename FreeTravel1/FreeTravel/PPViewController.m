@@ -76,7 +76,7 @@
 - (void)buttonInit: (id)sender {
     
     UIButton *btn = sender;
-    FSDropDownMenu *menu = [[FSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 104) andHeight:300];
+    FSDropDownMenu *menu = [[FSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 42) andHeight:300];
     
     if (btn == firstButton_) {
         menu.tag = 1001;
@@ -113,6 +113,7 @@
 }
 
 static BOOL isFirstButton;
+
 - (void)btnPressed: (id)sender {
     
     FSDropDownMenu *menu;

@@ -10,4 +10,8 @@
 
 @interface PPViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray * continent;
+@property (nonatomic, strong) NSMutableArray * cityList;
+//@property (nonatomic, strong) NSMutableArray * 
+
 @end

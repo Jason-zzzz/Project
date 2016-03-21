@@ -8,6 +8,8 @@
 
 #import "DataModel.h"
 
+NSURLRequest * (^requestBlock)(NSString *);
+
 @interface DataModel () <NSURLSessionDelegate> {
 }
 
@@ -27,21 +29,62 @@
     static DataModel *singleInstance = nil;
     if (!singleInstance) {
         singleInstance = [[super allocWithZone:NULL] init];
+        
+        requestBlock = ^(NSString * urlString){
+            // 构建Request
+            NSString *encodeUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            //    NSLog(@"%@",encodeUrl);
+            NSURL *url = [NSURL URLWithString:encodeUrl];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            return request;
+        };
     }
     return singleInstance;
 }
 
-- (void)getData:(NSString *)urlString{
+- (void)getDataByAF {
     
-    // 构建Request
-    NSString *encodeUrl = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    //    NSLog(@"%@",encodeUrl);
-    NSURL *url = [NSURL URLWithString:encodeUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    [session GET:destinationData parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"成功%@", responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"失败");
+    }];
+}
+
+- (void)getDestinationData: (NSString *)desUrl {
+    NSURLRequest *request = requestBlock(desUrl);
     // 构建session的congigurations
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    // 构建NSUrlSession
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
     
+    void (^aBlock)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSDictionary *dataDic = [dic objectForKey:@"data"];
+//        NSLog(@"%@",dataDic);
+        NSDictionary *poiDic = [dataDic objectForKey:@"poi"];
+        for (NSDictionary *continent in poiDic) {
+//            NSLog(@"%@", [continent objectForKey:@"continent_name"]);
+//            NSLog(@"%@", [continent objectForKey:@"country"]);
+            NSDictionary *countryDic = [continent objectForKey:@"country"];
+            for (NSDictionary *cityDic in countryDic) {
+                NSDictionary *cityList = [cityDic objectForKey:@"city_list"];
+                NSLog(@"%@", cityList);
+            }
+        }
+//        NSLog(@"==-==-==-==-%@",poiDic);
+    };
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:aBlock];
+    [dataTask resume];
+}
+
+- (void)getData:(NSString *)urlString{
+
+    NSURLRequest *request = requestBlock(urlString);
+    // 构建session的congigurations
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     // 构建NSUrlSession
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
     
@@ -65,6 +108,7 @@
         [_visaModelDelegate finishGetVisa];
         return;
     }
+    
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:aBlock];
     [dataTask resume];
 }
@@ -82,7 +126,7 @@
     });
 }
 
-- (void)getCityImagesWith: (NSIndexPath *)cityIndex andUrl: (NSString *)cityImageUrl {
+- (void)getCityImagesWith:(NSIndexPath *)cityIndex tableRow:(NSInteger)tableRow andUrl:(NSString *)cityImageUrl {
     
     // 异步下载
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -92,8 +136,9 @@
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         
-        [_modelDelegate finishGetCityImage:image andIndex:cityIndex];
+        [_modelDelegate finishGetCityImage:image tableRow:tableRow andIndex:cityIndex];
     });
 }
+
 
 @end

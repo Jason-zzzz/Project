@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C034BD01C9C0249004C9A73 /* sousuo_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C034BCF1C9C0249004C9A73 /* sousuo_04.png */; };
 		1C066C421C98392100F04297 /* DesNavImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C066C411C98392100F04297 /* DesNavImage2.png */; };
 		1C066C441C98399200F04297 /* DesNavImage2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C066C431C98399200F04297 /* DesNavImage2@2x.png */; };
 		1C066C461C983B0600F04297 /* sousuo_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C066C451C983B0600F04297 /* sousuo_03.png */; };
@@ -32,12 +33,12 @@
 		1C0C17341C8EBD8800135336 /* DesNavImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0C172C1C8EBD8800135336 /* DesNavImage.png */; };
 		1C0C17351C8EBD8800135336 /* DesViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C172E1C8EBD8800135336 /* DesViewControlelr.m */; };
 		1C0C17371C8EBFBD00135336 /* ImagetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0C17361C8EBFBD00135336 /* ImagetCell.xib */; };
-		1C20A5AA1C9B00BF00F0D09D /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20A5A91C9B00BF00F0D09D /* LaunchViewController.m */; };
 		1C4403591C900587001D352E /* cancel_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4403581C900587001D352E /* cancel_black@2x.png */; };
 		1C44035D1C9015A7001D352E /* PP2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C44035B1C9015A7001D352E /* PP2CollectionViewCell.m */; };
 		1C44035E1C9015A7001D352E /* PP2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C44035C1C9015A7001D352E /* PP2CollectionViewCell.xib */; };
 		1C4403621C9023C9001D352E /* PPsecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4403601C9023C9001D352E /* PPsecondCell.m */; };
 		1C4403631C9023C9001D352E /* PPsecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4403611C9023C9001D352E /* PPsecondCell.xib */; };
+		1C4E8C191C9E6C3C0055E7A2 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4E8C181C9E6C3C0055E7A2 /* launch.png */; };
 		1C508B971C9965B700351FA1 /* VisaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C508B961C9965B700351FA1 /* VisaData.m */; };
 		1C516C601C8DCF8D00BEC00F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C516C5E1C8DCF8D00BEC00F /* SearchViewController.m */; };
 		1C516C611C8DCF8D00BEC00F /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C516C5F1C8DCF8D00BEC00F /* SearchViewController.xib */; };
@@ -152,6 +153,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C034BCF1C9C0249004C9A73 /* sousuo_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sousuo_04.png; sourceTree = "<group>"; };
 		1C066C411C98392100F04297 /* DesNavImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DesNavImage2.png; sourceTree = "<group>"; };
 		1C066C431C98399200F04297 /* DesNavImage2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DesNavImage2@2x.png"; sourceTree = "<group>"; };
 		1C066C451C983B0600F04297 /* sousuo_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sousuo_03.png; sourceTree = "<group>"; };
@@ -182,8 +184,6 @@
 		1C0C172D1C8EBD8800135336 /* DesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesViewController.h; sourceTree = "<group>"; };
 		1C0C172E1C8EBD8800135336 /* DesViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesViewControlelr.m; sourceTree = "<group>"; };
 		1C0C17361C8EBFBD00135336 /* ImagetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagetCell.xib; sourceTree = "<group>"; };
-		1C20A5A81C9B00BF00F0D09D /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
-		1C20A5A91C9B00BF00F0D09D /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		1C4403581C900587001D352E /* cancel_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_black@2x.png"; sourceTree = "<group>"; };
 		1C44035A1C9015A7001D352E /* PP2CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PP2CollectionViewCell.h; sourceTree = "<group>"; };
 		1C44035B1C9015A7001D352E /* PP2CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PP2CollectionViewCell.m; sourceTree = "<group>"; };
@@ -191,6 +191,7 @@
 		1C44035F1C9023C9001D352E /* PPsecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPsecondCell.h; sourceTree = "<group>"; };
 		1C4403601C9023C9001D352E /* PPsecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPsecondCell.m; sourceTree = "<group>"; };
 		1C4403611C9023C9001D352E /* PPsecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPsecondCell.xib; sourceTree = "<group>"; };
+		1C4E8C181C9E6C3C0055E7A2 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		1C508B951C9965B700351FA1 /* VisaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisaData.h; sourceTree = "<group>"; };
 		1C508B961C9965B700351FA1 /* VisaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisaData.m; sourceTree = "<group>"; };
 		1C516C5D1C8DCF8D00BEC00F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -606,8 +607,6 @@
 				845108051C891B2C000D16E2 /* User */,
 				84AD7D6C1C7C0B620066064A /* Assets.xcassets */,
 				84AD7D6E1C7C0B620066064A /* LaunchScreen.storyboard */,
-				1C20A5A81C9B00BF00F0D09D /* LaunchViewController.h */,
-				1C20A5A91C9B00BF00F0D09D /* LaunchViewController.m */,
 				84AD7D711C7C0B620066064A /* Info.plist */,
 				84AD7D601C7C0B620066064A /* Supporting Files */,
 			);
@@ -669,7 +668,9 @@
 		84C32B651C7D5AB20080D786 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				1C034BCF1C9C0249004C9A73 /* sousuo_04.png */,
 				1C066C4F1C986D7C00F04297 /* heart.jpg */,
+				1C4E8C181C9E6C3C0055E7A2 /* launch.png */,
 				1C066C501C986D7C00F04297 /* shuangren.jpg */,
 				1C066C471C986C4400F04297 /* chun.jpg */,
 				1C066C481C986C4400F04297 /* movie.jpg */,
@@ -864,6 +865,7 @@
 				1C0C171A1C8E661900135336 /* restaurant.png in Resources */,
 				1CFB244D1C8EBBC6004DCA7D /* onepiece.jpg in Resources */,
 				84D898621C853946007DEC7C /* header_02.jpg in Resources */,
+				1C4E8C191C9E6C3C0055E7A2 /* launch.png in Resources */,
 				84C32B7F1C7D91990080D786 /* icon2.png in Resources */,
 				1C0C17341C8EBD8800135336 /* DesNavImage.png in Resources */,
 				845108251C891BEB000D16E2 /* icon-5.png in Resources */,
@@ -902,6 +904,7 @@
 				84C32B7E1C7D91990080D786 /* icon1.png in Resources */,
 				845108231C891BEB000D16E2 /* icon-3.png in Resources */,
 				1C066C461C983B0600F04297 /* sousuo_03.png in Resources */,
+				1C034BD01C9C0249004C9A73 /* sousuo_04.png in Resources */,
 				1CFB244B1C8EBBC6004DCA7D /* hitMark.jpg in Resources */,
 				1C516C611C8DCF8D00BEC00F /* SearchViewController.xib in Resources */,
 				847CC7591C88248D0063506B /* HotMessageCell.xib in Resources */,
@@ -986,7 +989,6 @@
 				8451085B1C8978E5000D16E2 /* Pop3ViewController.m in Sources */,
 				847CC7581C88248D0063506B /* HotMessageCell.m in Sources */,
 				84AD7D681C7C0B620066064A /* ViewController.m in Sources */,
-				1C20A5AA1C9B00BF00F0D09D /* LaunchViewController.m in Sources */,
 				1C4403621C9023C9001D352E /* PPsecondCell.m in Sources */,
 				8493BC241C7C5D6C0011EC54 /* thirdCell.m in Sources */,
 				845108031C89113D000D16E2 /* PopCell.m in Sources */,

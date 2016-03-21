@@ -53,6 +53,8 @@
     } else {
         [dataModel_ getData:basicData];
         [dataModel_ getData:visa];
+//        [dataModel_ getDestinationData:destinationData];
+//        [dataModel_ getDataByAF];
     }
 }
 

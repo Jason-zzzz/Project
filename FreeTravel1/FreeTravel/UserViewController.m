@@ -34,6 +34,15 @@ static NSString *lastReuseIdentifier = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIView *statusView = [[UIView alloc] init];
+    statusView.frame = CGRectMake(0, -20, [UIScreen mainScreen].bounds.size.width, 20);
+    [self.navigationController.navigationBar addSubview:statusView];
+    statusView.backgroundColor = [UIColor colorWithRed:0.24 green:0.78 blue:0.49 alpha:1.0];
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"header_02.jpg"]];
+    
+    self.navigationController.hidesBarsOnSwipe = YES;
     imageReuseIdentifier = @"ImagetCell";
     UINib *imageNib = [UINib nibWithNibName:@"ImagetCell" bundle:nil];
     [_userTableView registerNib:imageNib forCellReuseIdentifier:imageReuseIdentifier];
@@ -108,7 +117,7 @@ static NSString *lastReuseIdentifier = nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 1.0;
+    return 0.1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -104,6 +104,14 @@
 
 - (void)initView {
     
+    UIView *statusView = [[UIView alloc] init];
+    statusView.frame = CGRectMake(0, -20, [UIScreen mainScreen].bounds.size.width, 20);
+    [self.navigationController.navigationBar addSubview:statusView];
+    statusView.backgroundColor = [UIColor colorWithRed:0.24 green:0.78 blue:0.49 alpha:1.0];
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"header_02.jpg"]];
+    self.title = @"地图";
+    
     mapView_ = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(view_.bounds), CGRectGetHeight(view_.bounds))];
     
     mapView_.mapType = MAMapTypeStandard;

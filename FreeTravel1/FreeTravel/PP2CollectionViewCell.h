@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PP2CollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

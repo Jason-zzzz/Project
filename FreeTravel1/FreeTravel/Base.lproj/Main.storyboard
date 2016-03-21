@@ -26,7 +26,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="w7i-2G-fXq"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-p8-6nN">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-p8-6nN">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不良网络连接，请重试" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32b-DG-fr1">
@@ -62,10 +62,10 @@
                                         <exclude reference="GbQ-Sl-xuc"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="4f2-rW-Vas"/>
-                                        <exclude reference="74H-W2-oV6"/>
                                         <exclude reference="hFW-Id-Hxg"/>
                                         <exclude reference="pJr-f5-6x2"/>
+                                        <exclude reference="4f2-rW-Vas"/>
+                                        <exclude reference="74H-W2-oV6"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -74,10 +74,10 @@
                                         <include reference="GbQ-Sl-xuc"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="4f2-rW-Vas"/>
-                                        <include reference="74H-W2-oV6"/>
                                         <include reference="hFW-Id-Hxg"/>
                                         <include reference="pJr-f5-6x2"/>
+                                        <include reference="4f2-rW-Vas"/>
+                                        <include reference="74H-W2-oV6"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -106,10 +106,10 @@
                                 <exclude reference="ZC5-tY-SxI"/>
                                 <exclude reference="iDv-x0-88c"/>
                                 <exclude reference="peP-0n-Fb7"/>
+                                <exclude reference="o2a-BD-cdD"/>
                                 <exclude reference="Lf2-GX-NCj"/>
                                 <exclude reference="UY5-ia-M73"/>
                                 <exclude reference="Znl-np-oz6"/>
-                                <exclude reference="o2a-BD-cdD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -121,10 +121,10 @@
                                 <include reference="ZC5-tY-SxI"/>
                                 <include reference="iDv-x0-88c"/>
                                 <include reference="peP-0n-Fb7"/>
+                                <include reference="o2a-BD-cdD"/>
                                 <include reference="Lf2-GX-NCj"/>
                                 <include reference="UY5-ia-M73"/>
                                 <include reference="Znl-np-oz6"/>
-                                <include reference="o2a-BD-cdD"/>
                             </mask>
                         </variation>
                     </view>
@@ -176,7 +176,7 @@
             </objects>
             <point key="canvasLocation" x="1836" y="-271"/>
         </scene>
-        <!--Map View Controller-->
+        <!--地图-->
         <scene sceneID="2o6-3S-pdq">
             <objects>
                 <viewController id="IOT-25-gap" customClass="MapViewController" sceneMemberID="viewController">
@@ -190,7 +190,27 @@
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7AY-R3-Cia">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" backgroundImage="header_02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pob-IL-jsi">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        </variation>
+                                    </searchBar>
+                                </subviews>
                                 <color key="backgroundColor" red="0.91161512870000005" green="0.40177683019999999" blue="0.27522848259999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="pob-IL-jsi"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="pob-IL-jsi"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bM-i4-6Cm">
                                 <rect key="frame" x="20" y="585" width="25" height="25"/>
@@ -239,7 +259,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="mmu-8g-p3I"/>
+                    <navigationItem key="navigationItem" title="地图" id="mmu-8g-p3I"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView_" destination="7AY-R3-Cia" id="dnU-Jy-ezu"/>
@@ -290,7 +310,7 @@
             </objects>
             <point key="canvasLocation" x="558" y="468"/>
         </scene>
-        <!--User View Controller-->
+        <!--个人中心-->
         <scene sceneID="UPd-4R-sPF">
             <objects>
                 <viewController id="OFM-fr-xN2" customClass="UserViewController" sceneMemberID="viewController">
@@ -341,7 +361,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="pmw-Ao-FAA"/>
+                    <navigationItem key="navigationItem" title="个人中心" id="pmw-Ao-FAA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="userTableView" destination="ZGY-ZK-MPs" id="Y6e-ZZ-63H"/>
@@ -413,6 +433,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="header_02.jpg" width="750" height="128"/>
         <image name="icon1.png" width="35" height="34"/>
         <image name="icon2.png" width="35" height="34"/>
         <image name="icon3.png" width="30" height="34"/>

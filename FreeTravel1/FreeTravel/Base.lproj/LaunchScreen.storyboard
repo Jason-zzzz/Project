@@ -17,15 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hq6-4u-aPV">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FreeTravel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-4v-dPT">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <color key="textColor" red="0.33033233599525352" green="0.34238762150010998" blue="0.38375400641025637" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Hq6-4u-aPV" secondAttribute="bottom" id="64I-Ec-qvA"/>
+                            <constraint firstItem="Hq6-4u-aPV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Cu7-MU-eEM"/>
+                            <constraint firstItem="Hq6-4u-aPV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="Pc3-pO-q1I">
+                                <variation key="widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="Hq6-4u-aPV" secondAttribute="trailing" id="R8v-Ga-Sjs"/>
                             <constraint firstItem="dzs-4v-dPT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="100" id="Sb7-AO-NYk">
                                 <variation key="widthClass=compact" constant="-120"/>
                             </constraint>
@@ -33,20 +42,30 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="Hq6-4u-aPV"/>
                                 <exclude reference="dzs-4v-dPT"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="64I-Ec-qvA"/>
                                 <exclude reference="Sb7-AO-NYk"/>
                                 <exclude reference="luI-6a-n5H"/>
+                                <exclude reference="Cu7-MU-eEM"/>
+                                <exclude reference="Pc3-pO-q1I"/>
+                                <exclude reference="R8v-Ga-Sjs"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="Hq6-4u-aPV"/>
                                 <include reference="dzs-4v-dPT"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="64I-Ec-qvA"/>
                                 <include reference="Sb7-AO-NYk"/>
                                 <include reference="luI-6a-n5H"/>
+                                <include reference="Cu7-MU-eEM"/>
+                                <include reference="Pc3-pO-q1I"/>
+                                <include reference="R8v-Ga-Sjs"/>
                             </mask>
                         </variation>
                     </view>
@@ -57,4 +76,7 @@
             <point key="canvasLocation" x="350.5" y="431.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch.png" width="730" height="956"/>
+    </resources>
 </document>

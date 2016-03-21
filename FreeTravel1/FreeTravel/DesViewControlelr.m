@@ -37,6 +37,7 @@
     NSMutableArray *arr2;
     NSMutableArray *cityImageArr;
     PPViewController *popViewController;
+    NSTimer *timer;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *viewPlus;
@@ -45,6 +46,11 @@
 
 @implementation DesViewController
 
+//
+// tableView选中的行数
+static NSInteger row = 0;
+//static NSInteger tbRow = 0;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -52,22 +58,24 @@
     dataModel_ = [DataModel allocWithZone:NULL];
     dataModel_.modelDelegate = self;
     
-    [self initView];
-    [self createCollectionView];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(initSelf) userInfo:nil repeats:YES];
 }
 
-static NSInteger row = 0;
+- (void)initSelf {
+    
+    if (dataModel_.destinationState.count == 0) {
+        return;
+    }
+    timer.fireDate = [NSDate distantFuture];
+    [self initView];
+    [self createCollectionView];
+    [dataModel_ getData:basicData];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [dataModel_ getData:basicData];
 
-    if (dataModel_.destinationState.count > 0) {
-        // 初始化选中
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-        [tableViewPlus selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-    }
 //            // 延迟执行 （太明显）
 //        double delayInSeconds = 0.3;
 //        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -106,6 +114,11 @@ static NSInteger row = 0;
     [searchButton setTitleColor:[UIColor colorWithRed:0.822 green:0.867 blue:0.820 alpha:1.000] forState:UIControlStateNormal];
     [titleImageView addSubview:searchButton];
     [self.viewPlus addSubview:titleImageView];
+    
+    // 初始化选中
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    [tableViewPlus selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self setData:0];
 //    self.navigationController.navigationBarHidden = YES;
     
     //注册TableViewCell
@@ -148,6 +161,7 @@ static NSInteger row = 0;
     [collectionViewPlus registerNib:CollectionNib forCellWithReuseIdentifier:@"CollectionCell"];
     
     [self.view addSubview:collectionViewPlus];
+    [collectionViewPlus reloadData];
 }
 
 - (void)setData: (NSInteger)section {
@@ -201,15 +215,27 @@ static NSInteger row = 0;
 
 - (void)finishGetData {
     
-    [self setData:0];
     [tableViewPlus reloadData];
     if (dataModel_.destinationState.count > 0) {
         // 初始化选中
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
         [tableViewPlus selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [self setData:row];
     }
     [collectionViewPlus reloadData];
     
+}
+
+- (void)finishGetCityImage:(UIImage *)image tableRow:(NSInteger)tableRow andIndex:(NSIndexPath *)index{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UICollectionViewCell *cell = [collectionViewPlus cellForItemAtIndexPath:index];
+        ((CollectionViewCell *)cell).cityImageView.image = image;
+        if (tableRow == row) {
+            collectionViewPlus.sectionCityImage[index.item] = image;
+            cityImageArr[row] = collectionViewPlus.sectionCityImage;
+        }
+    });
 }
 
 #pragma mark tableViewDelegate
@@ -243,6 +269,7 @@ static NSInteger row = 0;
 #pragma mark collectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    row = indexPath.row;
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:popViewController animated:YES];
     self.hidesBottomBarWhenPushed = NO;
@@ -272,22 +299,15 @@ static NSInteger row = 0;
     cellPlus.cityImageView.image =[UIImage imageNamed:@""];
     
     if ([collectionViewPlus.sectionCityImage[indexPath.item] isKindOfClass:[NSNull class]]) {
-        [dataModel_ getCityImagesWith:indexPath andUrl: collectionViewPlus.cityArr[2][indexPath.item]];
+        [dataModel_ getCityImagesWith:indexPath tableRow:row andUrl: collectionViewPlus.cityArr[2][indexPath.item]];
     } else {
         cellPlus.cityImageView.image = collectionViewPlus.sectionCityImage [indexPath.item];
     }
+//        
+//        cellPlus.frame = CGRectMake(cellPlus.bounds.origin.x + 160, cellPlus.bounds.origin.y + indexPath.row * 50, cellPlus.bounds.size.width, cellPlus.bounds.size.height);
+//    }
     return cellPlus;
     
-}
-
-- (void)finishGetCityImage:(UIImage *)image andIndex:(NSIndexPath *)index {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UICollectionViewCell *cell = [collectionViewPlus cellForItemAtIndexPath:index];
-        ((CollectionViewCell *)cell).cityImageView.image = image;
-        collectionViewPlus.sectionCityImage[index.item] = image;
-        cityImageArr[row] = collectionViewPlus.sectionCityImage;
-    });
 }
 
 @end

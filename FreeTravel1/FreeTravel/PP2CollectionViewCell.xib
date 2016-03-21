@@ -21,13 +21,18 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加拿大" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDW-2L-UDx">
-                        <rect key="frame" x="72" y="140" width="51" height="18"/>
+                        <rect key="frame" x="77" y="140" width="42" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="51" id="ZqI-jB-ySX"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.32597758507853403" green="0.32597758507853403" blue="0.32597758507853403" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZqI-jB-ySX"/>
+                            </mask>
+                        </variation>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -53,6 +58,10 @@
                     <exclude reference="wc3-aO-HUi"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="imageView" destination="Xn5-fJ-a6e" id="DIP-Oo-GHI"/>
+                <outlet property="label" destination="jDW-2L-UDx" id="Wuw-nO-x5K"/>
+            </connections>
             <point key="canvasLocation" x="231.5" y="190"/>
         </collectionViewCell>
     </objects>
